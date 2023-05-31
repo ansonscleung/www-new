@@ -1,0 +1,32 @@
+[
+  {
+    "identity": "entrepreneur",
+    "description": "specialised in technology managements in (pre-)incubating startups",
+    "backgroundImage": "../images/pi_centre.jpg"
+  },
+  {
+    "identity": "technology enthusiast",
+    "description": "with deep insight in business and consumer IT trends",
+    "backgroundImage": "../images/enthusiast.jpg"
+  },
+  {
+    "identity": "software developer",
+    "description": "coding for new products and open source projects",
+    "backgroundImage": "../images/programmer.png"
+  },
+  {
+    "identity": "USTer",
+    "description": "studying for a MSc in Information Systems Management",
+    "backgroundImage": "../images/hkust.jpg"
+  },
+  {
+    "identity": "CUHK alumni",
+    "description": "graduated with BSc in Computer Science",
+    "backgroundImage": "../images/cuhk.jpg"
+  },
+  {
+    "identity": "Morningsider",
+    "description": "resided in Morningside College for 4 years, gained international experience",
+    "backgroundImage": "../images/morningside.jpg"
+  }
+]
