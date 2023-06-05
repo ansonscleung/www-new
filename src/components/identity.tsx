@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image";
 import { BgImage } from "gbimage-bridge";
+import indefinite from "indefinite";
 
 interface Identity {
   identity: string;
@@ -55,22 +56,24 @@ const Hero: React.FC = () => {
     backgroundSize: "cover",
   };
 
+  const capitalize = ([firstLetter, ...restOfWord]: String) =>
+    firstLetter.toUpperCase() + restOfWord.join("");
+
   return image ? (
     <BgImage Tag="section" image={image} className="hero is-fullheight">
       <div className="hero-body is-overlay">
         <div className="container">
-          <h1>{data.site.siteMetadata.title}</h1>
-          <h1 className="title">{currentIdentity.identity}</h1>
-          <h2 className="subtitle">{currentIdentity.description}</h2>
+          <h1 className="subtitle is-4">
+            Anson Leung is{" "}
+            {indefinite(currentIdentity.identity, { articleOnly: true })}
+          </h1>
+          <h1 className="title is-1">{capitalize(currentIdentity.identity)}</h1>
+          <h2 className="subtitle is-4">{currentIdentity.description}</h2>
           <div className="columns">
             {identities.map((identity, index) => (
               <div className="column" key={index}>
-                <div className="card" onClick={() => handleCardClick(identity)}>
-                  <div className="card-content">
-                    <div className="content">
-                      <h3 className="title is-5">{identity.identity}</h3>
-                    </div>
-                  </div>
+                <div className="box" onClick={() => handleCardClick(identity)}>
+                  <h3 className="title is-5">{identity.identity}</h3>
                 </div>
               </div>
             ))}

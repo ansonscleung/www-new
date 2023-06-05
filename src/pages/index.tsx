@@ -81,7 +81,7 @@ const IndexPage: React.FC = () => {
     <>
       <Header />
       <IdentitySection />
-      <HeroSection />
+      {/* <HeroSection /> */}
       <About />
       <ProjectSection projects={projects} />
       <ExperienceSection experiences={experiences} />

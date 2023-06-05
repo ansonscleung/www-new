@@ -2084,6 +2084,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/indefinite@^2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@types/indefinite/-/indefinite-2.3.1.tgz#1cb2eb6f7add399a30971c2569776190980733af"
+  integrity sha512-rRQndOl5JIImsT8iQLdMIcJ/+APtqZ9Gt2FztFiPtVHiSePDDbsWAR+2k7TEVq+a5s/trDzKtV/RmaW+/FVgTw==
+
 "@types/json-schema@*", "@types/json-schema@^7.0.4", "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.8", "@types/json-schema@^7.0.9":
   version "7.0.11"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.11.tgz#d421b6c527a3037f7c84433fd2c4229e016863d3"
@@ -5922,6 +5927,11 @@ imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
   integrity sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==
+
+indefinite@^2.4.3:
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/indefinite/-/indefinite-2.4.3.tgz#59ab51859e295758cd836defa4ef8cae62e9b8e7"
+  integrity sha512-tLgivPQiMY76i93YKhjV5cMiORWfrk3FHdD1mREBNKlWbHmBrObLfOz6xlTk+beboj/JJSlhuCpCMmChR5Sgng==
 
 inflight@^1.0.4:
   version "1.0.6"
