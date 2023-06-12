@@ -8,6 +8,7 @@ import IdentitySection from "../components/identity";
 import { FooterData, FooterSection } from "../components/footer";
 import "./styles.scss";
 import Header from "../components/header";
+import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 const IndexPage: React.FC = () => {
   const projects = [
@@ -49,31 +50,31 @@ const IndexPage: React.FC = () => {
       website: "Facebook",
       account: "ansonscleung",
       link: "https://www.facebook.com/ansonscleung",
-      icon: "facebook",
+      icon: icon({ name: "facebook", style: "brands" }),
     },
     {
       website: "Twitter",
       account: "ansonscleung",
       link: "https://twitter.com/ansonscleung",
-      icon: "twitter",
+      icon: icon({ name: "twitter", style: "brands" }),
     },
     {
       website: "LinkedIn",
       account: "ansonscleung",
       link: "https://www.linkedin.com/in/ansonscleung/",
-      icon: "linkedin",
+      icon: icon({ name: "linkedin", style: "brands" }),
     },
     {
       website: "GitHub",
       account: "ansonscleung",
       link: "https://github.com/ansonscleung/",
-      icon: "github",
+      icon: icon({ name: "github", style: "brands" }),
     },
     {
       website: "Email",
       account: "ansonscleung@link.cuhk.edu.hk",
       link: "mailto:ansonscleung@link.cuhk.edu.hk",
-      icon: "envelope",
+      icon: icon({ name: "envelope" }),
     },
   ];
 

@@ -8,7 +8,7 @@ export interface FooterData {
   website: string;
   account: string;
   link: string;
-  icon: IconName;
+  icon: IconDefinition;
 }
 
 interface FooterProps {
@@ -20,14 +20,14 @@ export const FooterSection: React.FC<FooterProps> = ({ data }) => {
     <footer id="contacts" className="footer has-background-light">
       <div className="container">
         <div className="columns is-centered is-vcentered">
-          <div className="column is-narrow">
+          <div className="column">
             {data.map((item, index) => (
-              <a key={index} href={item.link} className="icon">
+              <a key={index} href={item.link} className="icon is-large">
                 <span className="fa-layers fa-fw fa-2x">
                   <FontAwesomeIcon icon={faCircle} />
                   <FontAwesomeIcon
                     inverse
-                    icon={faFacebook}
+                    icon={item.icon}
                     transform="shrink-6"
                   />
                 </span>
@@ -35,15 +35,7 @@ export const FooterSection: React.FC<FooterProps> = ({ data }) => {
             ))}
           </div>
           <div className="column has-text-centered pt-auto pb-auto">
-            <p className="mb-0">
-              Contents are &#169; 2017~2020 Anson S.C. Leung.{" "}
-              <small>
-                Bootstrap Theme Inspired By{" "}
-                <a href="https://www.w3schools.com/bootstrap/bootstrap_theme_me.asp">
-                  www.w3schools.com
-                </a>
-              </small>
-            </p>
+            <p className="mb-0">&#169; 2017~2023 Anson S.C. Leung</p>
           </div>
         </div>
       </div>
