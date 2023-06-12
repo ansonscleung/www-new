@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Product Specialist",
+    "company": "Shoalter Technology (member of HKTV Group)",
+    "start_date": "2023-02-20"
+  },
+  {
+    "title": "Consultant, Cloud & Application Services",
+    "company": "Protiviti",
+    "start_date": "2022-09-05",
+    "end_date": "2023-02-12",
+    "responsibilities": [
+      "Proposed and implemented automated data extraction and sourcing solutions with virtual reality",
+      "Delivered automated data migration for a major utility corporate in Hong Kong"
+    ]
+  },
+  {
+    "title": "Co-Founder & Product Director",
+    "company": "itinni",
+    "start_date": "2020-06-01",
+    "end_date": "2021-12-31",
+    "responsibilities": [
+      "Managed 2 B2B/C travel technology products & projects at HK Science & Technology Parks-incubated startup",
+      "Oversaw a team of 4 to 10 software developers and UX designers as a Scrum Master",
+      "Delivered web and mobile applications for leisure travelers with about 100 daily users",
+      "Conducted research on user behaviors and habits by working with user experience designers and 3 focus groups",
+      "Designed and presented award-winning business pitch at 2 startup competitions with 3 awards",
+      "Promoted entrepreneurship culture as guest speaker at CUHK Pi Centre"
+    ]
+  },
+  {
+    "title": "Founding Member",
+    "company": "itinni",
+    "start_date": "2019-09-15",
+    "end_date": "2020-05-31",
+    "responsibilities": [
+      "Designed Proof-of-Concept models for itinni, a travel technology product"
+    ]
+  },
+  {
+    "title": "Summer Intern, Information Services Department",
+    "company": "OOCL",
+    "start_date": "2019-06-03",
+    "end_date": "2019-08-30",
+    "responsibilities": [
+      "Provided suggestions for improving existing software from 200 user requests",
+      "Summarized user reports on features and errors from 1000 user cases",
+      "Designed user interface for a new module in logistics platform to be used by 100 clients",
+      "Migrated user documentation for 10 modules in logistics platform MyPodium"
+    ]
+  }
+]

@@ -29,22 +29,6 @@ const IndexPage: React.FC = () => {
     // Add more projects as needed
   ];
 
-  const experiences = [
-    {
-      title: "Software Engineer",
-      company: "ABC Company",
-      dates: "January 2020 - Present",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    },
-    {
-      title: "Front-end Developer",
-      company: "XYZ Agency",
-      dates: "July 2018 - December 2019",
-      description: "Praesent vel ipsum sed nisl cursus ultricies.",
-    },
-    // Add more experiences as needed
-  ];
-
   const footer: FooterData[] = [
     {
       website: "Facebook",
@@ -85,7 +69,7 @@ const IndexPage: React.FC = () => {
       {/* <HeroSection /> */}
       <About />
       <ProjectSection projects={projects} />
-      <ExperienceSection experiences={experiences} />
+      <ExperienceSection />
       <FooterSection data={footer} />
     </>
   );
