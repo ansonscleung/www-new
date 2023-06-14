@@ -73,7 +73,9 @@ const Hero: React.FC = () => {
             {identities.map((identity, index) => (
               <div className="column" key={index}>
                 <div className="box" onClick={() => handleCardClick(identity)}>
-                  <h3 className="title is-5">{identity.identity}</h3>
+                  <h3 className="title is-5">
+                    {capitalize(identity.identity)}
+                  </h3>
                 </div>
               </div>
             ))}
