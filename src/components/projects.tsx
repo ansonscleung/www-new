@@ -1,18 +1,46 @@
 import * as React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+
+interface Link {
+  name: string;
+  link: string;
+}
 
 interface Project {
   title: string;
   description: string;
   technologies: string[];
-  demoLink: string;
-  githubLink: string;
+  links: Link[];
 }
 
-interface ProjectSectionProps {
-  projects: Project[];
-}
+const ProjectSection: React.FC = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+      allProjectsJson {
+        edges {
+          node {
+            title
+            description
+            technologies
+            links {
+              name
+              link
+            }
+          }
+        }
+      }
+    }
+  `);
 
-const ProjectSection: React.FC<ProjectSectionProps> = ({ projects }) => {
+  const projects: Project[] = data.allProjectsJson.edges.map(
+    (e: any) => e.node
+  );
+
   return (
     <section className="section">
       <div className="container">
@@ -31,15 +59,11 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ projects }) => {
                   ))}
                 </div>
                 <div className="buttons">
-                  <a href={project.demoLink} className="button is-link">
-                    Demo
-                  </a>
-                  <a
-                    href={project.githubLink}
-                    className="button is-link is-light"
-                  >
-                    GitHub
-                  </a>
+                  {project.links.map((link, index) => (
+                    <a href={link.link} className="button is-link" key={index}>
+                      {link.name}
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>

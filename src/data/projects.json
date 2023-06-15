@@ -1,0 +1,46 @@
+[
+  {
+    "title": "ICT SBA - Football Match Scoring",
+    "description": "A crappy Pascal project for public exam",
+    "technologies": ["Pascal"],
+    "links": [
+      {
+        "name": "GitHub",
+        "link": "https://gitlab.com/ansonscleung/ict-sba"
+      }
+    ]
+  },
+  {
+    "title": "MusicCompare",
+    "description": "A project co-created with Steven Wong for comparing audio pieces and generate similarity score - with just JavaScript! * Featured in 2020 GitHub Archive Program",
+    "technologies": ["JavaScript", "HTML", "CSS"],
+    "links": [
+      {
+        "name": "Demo",
+        "link": "https://ansonscleung.github.io/MusicCompare/"
+      }
+    ]
+  },
+  {
+    "title": "daydaycode.tech",
+    "description": "Technology & op-ed website for the IT people & programmer",
+    "technologies": ["JavaScript", "HTML", "CSS"],
+    "links": [
+      {
+        "name": "Website",
+        "link": "https://daydaycode.tech"
+      }
+    ]
+  },
+  {
+    "title": "jyutpingify",
+    "description": "JavaScript function to turn Traditional Chinese sentences to respective Jyutping 粵拼 romanisation",
+    "technologies": ["JavaScript"],
+    "links": [
+      {
+        "name": "GitHub",
+        "link": "https://github.com/ansonscleung/jyutpingify"
+      }
+    ]
+  }
+]

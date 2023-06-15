@@ -11,24 +11,6 @@ import Header from "../components/header";
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 const IndexPage: React.FC = () => {
-  const projects = [
-    // {
-    //   title: "Project 1",
-    //   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    //   technologies: ["React", "Node.js", "MongoDB"],
-    //   demoLink: "https://example.com/project1",
-    //   githubLink: "https://github.com/username/project1",
-    // },
-    // {
-    //   title: "Project 2",
-    //   description: "Praesent vel ipsum sed nisl cursus ultricies.",
-    //   technologies: ["Angular", "Firebase"],
-    //   demoLink: "https://example.com/project2",
-    //   githubLink: "https://github.com/username/project2",
-    // },
-    // Add more projects as needed
-  ];
-
   const footer: FooterData[] = [
     {
       website: "Facebook",
@@ -68,7 +50,7 @@ const IndexPage: React.FC = () => {
       <IdentitySection />
       {/* <HeroSection /> */}
       <About />
-      <ProjectSection projects={projects} />
+      <ProjectSection />
       <ExperienceSection />
       <FooterSection data={footer} />
     </>

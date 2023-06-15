@@ -34,7 +34,7 @@ export const FooterSection: React.FC<FooterProps> = ({ data }) => {
               </a>
             ))}
           </div>
-          <div className="column has-text-centered pt-auto pb-auto">
+          <div className="column has-text-right pt-auto pb-auto">
             <p className="mb-0">&#169; 2017~2023 Anson S.C. Leung</p>
           </div>
         </div>
