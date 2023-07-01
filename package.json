@@ -25,6 +25,7 @@
     "bulma": "^0.9.4",
     "gatsby": "^5.10.0",
     "gatsby-background-image": "^1.6.0",
+    "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-fontawesome-css": "^1.2.0",
     "gatsby-plugin-image": "^3.10.0",
     "gatsby-plugin-sass": "^6.10.0",
@@ -37,6 +38,7 @@
     "indefinite": "^2.4.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "sass": "^1.62.1"
   },
   "devDependencies": {

@@ -31,6 +31,23 @@ const gatsbyConfig = {
         path: path.join(__dirname, `src`, `data`),
       },
     },
+    {
+      resolve: `gatsby-omni-font-loader`,
+      options: {
+        enableListener: true,
+        preconnect: [`https://fonts.googleapis.com`, `https://fonts.gstatic.com`],
+        web: [
+          {
+            name: `Geologica`,
+            file: `https://fonts.googleapis.com/css2?family=Geologica&display=swap`,
+          },
+          {
+            name: `Noto Sans HK`,
+            file: `https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@100;300;400;500;700&display=swap`,
+          },
+        ],
+      },
+    },
   ],
 };
 

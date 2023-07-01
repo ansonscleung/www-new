@@ -1,3 +1,7 @@
 @charset "utf-8";
 
+@import "~bulma/sass/utilities/initial-variables.sass";
+
+$family-sans-serif: "Geologica", "Noto Sans HK", $family-sans-serif;
+
 @import "~bulma/bulma.sass";
