@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { CSSProperties, useState } from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
-import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image";
+import {
+  GatsbyImage,
+  getImage,
+  ImageDataLike,
+  StaticImage,
+} from "gatsby-plugin-image";
 import { BgImage } from "gbimage-bridge";
 import indefinite from "indefinite";
+import "./identity.scss";
 
 interface Identity {
   identity: string;
@@ -56,33 +62,56 @@ const Hero: React.FC = () => {
     backgroundSize: "cover",
   };
 
+  const identityStyle: CSSProperties = {
+    mixBlendMode: "difference",
+    margin: "-2rem -2rem  0",
+    padding: "2rem",
+  };
+
   const capitalize = ([firstLetter, ...restOfWord]: String) =>
     firstLetter.toUpperCase() + restOfWord.join("");
 
   return image ? (
-    <BgImage Tag="section" image={image} className="hero is-fullheight">
-      <div className="hero-body is-overlay">
+    <div style={{ display: "grid", alignItems: "end", height: "100vh" }}>
+      <GatsbyImage
+        style={{
+          gridArea: "1/1",
+        }}
+        alt=""
+        image={image}
+      />
+      <div
+        style={{
+          gridArea: "1/1",
+          position: "relative",
+        }}
+        className="section"
+      >
         <div className="container">
-          <h1 className="subtitle is-4">
-            Anson Leung is{" "}
-            {indefinite(currentIdentity.identity, { articleOnly: true })}
-          </h1>
-          <h1 className="title is-1">{capitalize(currentIdentity.identity)}</h1>
-          <h2 className="subtitle is-4">{currentIdentity.description}</h2>
-          <div className="columns">
+          <div id="identity" className="identity">
+            <h1 className="subtitle is-4">
+              Anson Leung is{" "}
+              {indefinite(currentIdentity.identity, { articleOnly: true })}
+            </h1>
+            <h1 className="title is-1">
+              {capitalize(currentIdentity.identity)}
+            </h1>
+            <h2 className="subtitle is-4">{currentIdentity.description}</h2>
+          </div>
+          <div className="buttons">
             {identities.map((identity, index) => (
-              <div className="column" key={index}>
-                <div className="box" onClick={() => handleCardClick(identity)}>
-                  <h3 className="title is-5">
-                    {capitalize(identity.identity)}
-                  </h3>
-                </div>
-              </div>
+              <button
+                className="button is-outlined is-rounded"
+                key={index}
+                onClick={() => handleCardClick(identity)}
+              >
+                {capitalize(identity.identity)}
+              </button>
             ))}
           </div>
         </div>
       </div>
-    </BgImage>
+    </div>
   ) : (
     <></>
   );

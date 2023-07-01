@@ -1,0 +1,11 @@
+@import "~bulma/sass/utilities/initial-variables.sass";
+
+$identity-bg: $white-ter;
+
+.identity {
+    //mix-blend-mode: difference;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 1rem 1.25rem;
+    background-color: hsla(hue($identity-bg), saturation($identity-bg), lightness($identity-bg), 0.8);
+}
