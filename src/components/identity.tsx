@@ -88,7 +88,7 @@ const Hero: React.FC = () => {
         className="section"
       >
         <div className="container">
-          <div id="identity" className="identity">
+          <div id="identity" className="identity is-blurred">
             <h1 className="subtitle is-4">
               Anson Leung is{" "}
               {indefinite(currentIdentity.identity, { articleOnly: true })}
@@ -101,7 +101,7 @@ const Hero: React.FC = () => {
           <div className="buttons">
             {identities.map((identity, index) => (
               <button
-                className="button is-outlined is-rounded"
+                className="button is-outlined is-rounded is-light is-blurred"
                 key={index}
                 onClick={() => handleCardClick(identity)}
               >

@@ -3,9 +3,29 @@
 $identity-bg: $white-ter;
 
 .identity {
-    //mix-blend-mode: difference;
-    margin-bottom: 1rem;
-    padding: 1rem;
-    border-radius: 1rem 1.25rem;
-    background-color: hsla(hue($identity-bg), saturation($identity-bg), lightness($identity-bg), 0.8);
+  //mix-blend-mode: difference;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 1rem 1.25rem;
+  background-color: hsla(
+    hue($identity-bg),
+    saturation($identity-bg),
+    lightness($identity-bg),
+    0.8
+  );
+}
+.button.is-light.is-outlined.is-blurred {
+  backdrop-filter: blur(0.25rem) brightness(100%);
+}
+.button.is-light.is-outlined.is-blurred:hover,
+.button.is-light.is-outlined.is-blurred.is-hovered,
+.button.is-light.is-outlined.is-blurred:focus,
+.button.is-light.is-outlined.is-blurred.is-focused {
+  background-color: hsla(
+    hue($identity-bg),
+    saturation($identity-bg),
+    lightness($identity-bg),
+    0.8
+  );
+  backdrop-filter: blur(0.25rem) brightness(100%);
 }
