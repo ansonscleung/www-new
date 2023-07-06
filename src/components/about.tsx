@@ -19,18 +19,9 @@ const About = () => {
             <p>
               <span className="is-size-5">
                 Greetings! This is Anson S.C. Leung. <br />
-                An entrepreneur who focus on technology and management, now also
-                studying in the Hong Kong University of Science &amp; Technology
-                for MSc in Information Systems Management.
-              </span>
-            </p>
-            <p>
-              <span className="is-size-5">
-                Graduated from The Chinese University of Hong Kong with a BSc in
-                Computer Science,{" "}
-                <abbr title="Bronze Medalist, Senior Group, HKOI 2013/14; Silver Medalist, Junior Group, HKOI 2013">
-                  two-year medalist of Hong Kong Olympiad in Informatics (HKOI)
-                </abbr>
+                An ex-entrepreneur looking for new ways to innovate. <br />
+                A software engineer passionate to solve real-world problems.
+                <br />A project manager combining business and technology.
               </span>
             </p>
           </div>
