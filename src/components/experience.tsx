@@ -1,5 +1,7 @@
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { graphql, useStaticQuery } from "gatsby";
-import React from "react";
+import React, { useState } from "react";
 
 interface Experience {
   title: string;
@@ -36,6 +38,9 @@ const ExperienceSection: React.FC = () => {
     (e: any) => e.node
   );
 
+  const [showAllExperiences, setShowAllExperiences] = useState(false);
+  const initialExperienceCount = 3;
+
   return (
     <section className="section">
       <div className="container">
@@ -46,6 +51,7 @@ const ExperienceSection: React.FC = () => {
               new Date(b.start_date).getTime() -
               new Date(a.start_date).getTime()
           )
+          .slice(0, showAllExperiences ? undefined : initialExperienceCount)
           .map((experience, index) => (
             <div className="box" key={index}>
               <h3 className="title is-5">{experience.title}</h3>
@@ -73,6 +79,21 @@ const ExperienceSection: React.FC = () => {
               </p>
             </div>
           ))}
+        {experiences.length > initialExperienceCount && (
+          <button
+            className="button is-primary"
+            onClick={() => setShowAllExperiences(!showAllExperiences)}
+          >
+            <span className="icon">
+              {showAllExperiences ? (
+                <FontAwesomeIcon icon={faChevronUp} />
+              ) : (
+                <FontAwesomeIcon icon={faChevronDown} />
+              )}
+            </span>
+            <span>{showAllExperiences ? "View Less" : "View All"}</span>
+          </button>
+        )}
       </div>
     </section>
   );

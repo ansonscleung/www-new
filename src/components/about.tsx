@@ -21,7 +21,8 @@ const About = () => {
                 Greetings! This is Anson S.C. Leung. <br />
                 An ex-entrepreneur looking for new ways to innovate. <br />
                 A software engineer passionate to solve real-world problems.
-                <br />A project manager combining business and technology.
+                <br />A project manager shaping innovative and user-friendly
+                products.
               </span>
             </p>
           </div>

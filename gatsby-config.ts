@@ -35,11 +35,14 @@ const gatsbyConfig = {
       resolve: `gatsby-omni-font-loader`,
       options: {
         enableListener: true,
-        preconnect: [`https://fonts.googleapis.com`, `https://fonts.gstatic.com`],
+        preconnect: [
+          `https://fonts.googleapis.com`,
+          `https://fonts.gstatic.com`,
+        ],
         web: [
           {
             name: `Geologica`,
-            file: `https://fonts.googleapis.com/css2?family=Geologica&display=swap`,
+            file: `https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap`,
           },
           {
             name: `Noto Sans HK`,
