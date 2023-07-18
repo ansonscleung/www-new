@@ -8,6 +8,7 @@ interface Experience {
   company: string;
   start_date: string;
   end_date?: string;
+  location?: string;
   description?: string;
   responsibilities?: string[];
 }
@@ -27,6 +28,7 @@ const ExperienceSection: React.FC = () => {
             company
             start_date
             end_date
+            location
             responsibilities
           }
         }
@@ -51,24 +53,41 @@ const ExperienceSection: React.FC = () => {
               new Date(b.start_date).getTime() -
               new Date(a.start_date).getTime()
           )
-          .slice(0, showAllExperiences ? undefined : initialExperienceCount)
           .map((experience, index) => (
-            <div className="box" key={index}>
-              <h3 className="title is-5">{experience.title}</h3>
-              <h4 className="subtitle is-6">{experience.company}</h4>
-              <p className="is-size-7">
-                {new Intl.DateTimeFormat("en", {
-                  month: "short",
-                  year: "numeric",
-                }).format(new Date(experience.start_date))}{" "}
-                -{" "}
-                {experience.end_date
-                  ? new Intl.DateTimeFormat("en", {
-                      month: "short",
-                      year: "numeric",
-                    }).format(new Date(experience.end_date))
-                  : "Present"}
-              </p>
+            <div
+              className={`box ${
+                !showAllExperiences && index >= initialExperienceCount
+                  ? "is-hidden"
+                  : ""
+              }`}
+              key={index}
+            >
+              <div className="level">
+                <div className="level-left">
+                  <div>
+                    <h3 className="title is-5">{experience.title}</h3>
+                    <h4 className="subtitle is-6">{experience.company}</h4>
+                  </div>
+                </div>
+                <div className="level-right has-text-right-tablet">
+                  <div>
+                    <p>
+                      {new Intl.DateTimeFormat("en", {
+                        month: "short",
+                        year: "numeric",
+                      }).format(new Date(experience.start_date))}
+                      {" - "}
+                      {experience.end_date
+                        ? new Intl.DateTimeFormat("en", {
+                            month: "short",
+                            year: "numeric",
+                          }).format(new Date(experience.end_date))
+                        : "Present"}
+                    </p>
+                    <p>{experience.location}</p>
+                  </div>
+                </div>
+              </div>
               <p className="content">
                 <p>{experience.description}</p>
                 <ul>

@@ -2,16 +2,26 @@
   {
     "title": "Product Specialist",
     "company": "Shoalter Technology (member of HKTV Group)",
-    "start_date": "2023-02-20"
+    "start_date": "2023-02-20",
+    "location": "Hong Kong",
+    "responsibilities": [
+      "Developed and executed strategic product plans to drive revenue growth and enhance customer experience",
+      "Created detailed product requirements to guide the development team in building new features and improvements",
+      "Managed product roadmap and backlog, prioritizing features and enhancements based on business value and user needs",
+      "Worked closely with the development team to ensure that the product is delivered on time and meets the requirements",
+      "Collaborated with vendors and third-party partners to integrate new services and features into the platform, expanding the product's offerings"
+    ]
   },
   {
     "title": "Consultant, Cloud & Application Services",
     "company": "Protiviti",
     "start_date": "2022-09-05",
     "end_date": "2023-02-12",
+    "location": "Hong Kong",
     "responsibilities": [
-      "Proposed and implemented automated data extraction and sourcing solutions with virtual reality",
-      "Delivered automated data migration for a major utility corporate in Hong Kong"
+      "Delevoped a virtual reality application in vendor management for a retail sourcing company",
+      "Formulated automated data extraction and competitor product analysis with Python for a retail sourcing company",
+      "Delivered automated data migration to SharePoint Online for a major utility corporate in Hong Kong"
     ]
   },
   {
@@ -19,6 +29,7 @@
     "company": "itinni",
     "start_date": "2020-06-01",
     "end_date": "2021-12-31",
+    "location": "Hong Kong",
     "responsibilities": [
       "Managed 2 B2B/C travel technology products & projects at HK Science & Technology Parks-incubated startup",
       "Oversaw a team of 4 to 10 software developers and UX designers as a Scrum Master",
@@ -33,6 +44,7 @@
     "company": "itinni",
     "start_date": "2019-09-15",
     "end_date": "2020-05-31",
+    "location": "Hong Kong",
     "responsibilities": [
       "Designed Proof-of-Concept models for itinni, a travel technology product"
     ]
@@ -42,6 +54,7 @@
     "company": "OOCL",
     "start_date": "2019-06-03",
     "end_date": "2019-08-30",
+    "location": "Hong Kong",
     "responsibilities": [
       "Provided suggestions for improving existing software from 200 user requests",
       "Summarized user reports on features and errors from 1000 user cases",
