@@ -2,6 +2,7 @@ import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { useState } from "react";
+import "./experience.scss";
 
 interface Experience {
   title: string;
@@ -55,9 +56,9 @@ const ExperienceSection: React.FC = () => {
           )
           .map((experience, index) => (
             <div
-              className={`box ${
+              className={`box experience${
                 !showAllExperiences && index >= initialExperienceCount
-                  ? "is-hidden"
+                  ? " hide"
                   : ""
               }`}
               key={index}
