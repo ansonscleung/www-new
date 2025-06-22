@@ -1,0 +1,12 @@
+.link-section {
+  min-height: 100vh;
+}
+
+.link-list {
+  gap: 2rem;
+  margin: 0 auto;
+}
+
+.link-link {
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
