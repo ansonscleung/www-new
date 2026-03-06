@@ -83,14 +83,14 @@ const ExperienceSection: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <p className="content">
+              <div className="content">
                 <p>{experience.description}</p>
                 <ul>
                   {experience.responsibilities?.map((responsibility, index) => (
                     <li key={index}>{responsibility}</li>
                   ))}
                 </ul>
-              </p>
+              </div>
             </div>
           ))}
         {experiences.length > initialExperienceCount && (

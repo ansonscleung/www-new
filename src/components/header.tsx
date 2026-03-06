@@ -25,13 +25,13 @@ const Header: React.FC = () => {
     };
   }, []);
 
-  const headerHeight = isAtTop ? "4rem" : "0rem";
+  const headerHeight = isAtTop ? "4rem" : "3rem";
   const fontSize = isAtTop ? "18px" : "16px";
 
   return (
     <nav
       className="navbar is-fixed-top"
-      style={{ fontSize, minHeight: headerHeight, transition: "all 1s" }}
+      style={{ fontSize, minHeight: headerHeight, transition: "all 0.5s" }}
       role="navigation"
       aria-label="main navigation"
     >
@@ -42,15 +42,15 @@ const Header: React.FC = () => {
       </div>
       <div className="navbar-menu">
         <div className="navbar-end">
-          {/* <Link to="/" className="navbar-item">
+          <a href="#identity" className="navbar-item">
             Home
-          </Link>
-          <Link to="/about" className="navbar-item">
+          </a>
+          <a href="#about" className="navbar-item">
             About
-          </Link>
-          <Link to="/contact" className="navbar-item">
+          </a>
+          <a href="#contacts" className="navbar-item">
             Contact
-          </Link> */}
+          </a>
         </div>
       </div>
     </nav>

@@ -87,21 +87,21 @@ const Hero: React.FC = () => {
       >
         <div className="container">
           <div id="identity" className="identity is-blurred">
-            <h1 className="subtitle has-text-light is-4">
+            <h1 className="subtitle is-4">
               Anson Leung is{" "}
               {indefinite(currentIdentity.identity, { articleOnly: true })}
             </h1>
-            <h1 className="title has-text-light is-1">
+            <h1 className="title is-1">
               {capitalize(currentIdentity.identity)}
             </h1>
-            <h2 className="subtitle has-text-light is-4">
+            <h2 className="subtitle is-4">
               {currentIdentity.description}
             </h2>
           </div>
           <div className="buttons">
             {identities.map((identity, index) => (
               <button
-                className="button is-outlined is-rounded is-light is-blurred"
+                className="button is-outlined is-rounded is-blurred"
                 key={index}
                 onClick={() => handleCardClick(identity)}
               >

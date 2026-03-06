@@ -1,18 +1,18 @@
 $time: 0.5s;
 
 .experience {
-  height: auto;
-  transition: height $time ease-out, height $time, padding $time, margin $time,
+  max-height: 2000px;
+  transition: max-height $time ease-out, padding $time, margin $time,
     visibility $time;
 }
 
 .experience.hide {
   visibility: hidden;
-  height: 0;
+  max-height: 0;
   overflow: hidden;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
   margin-bottom: 0 !important;
-  transition: height $time ease-out, height $time, padding $time, margin $time,
+  transition: max-height $time ease-out, padding $time, margin $time,
     visibility $time;
 }

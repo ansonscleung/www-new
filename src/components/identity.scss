@@ -1,15 +1,58 @@
-$backdrop-filter: blur(1.25rem) brightness(100%);
+$backdrop-filter: blur(25px) saturate(200%);
+
+@mixin glass-material {
+  backdrop-filter: $backdrop-filter;
+  -webkit-backdrop-filter: $backdrop-filter;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  /* The color property will ensure text inside the container changes according to theme */
+  color: var(--bulma-text-strong);
+  
+  @media (prefers-color-scheme: dark) {
+    background-color: rgba(20, 20, 25, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  }
+}
 
 .identity {
-  margin-bottom: 1rem;
-  padding: 1rem;
-  border-radius: 1rem 1.25rem;
-  backdrop-filter: $backdrop-filter;
+  @include glass-material;
+  margin-bottom: 1.5rem;
+  padding: 2.5rem;
+  border-radius: 2rem;
 }
-.button.is-light.is-outlined.is-blurred,
-.button.is-light.is-outlined.is-blurred:hover,
-.button.is-light.is-outlined.is-blurred.is-hovered,
-.button.is-light.is-outlined.is-blurred:focus,
-.button.is-light.is-outlined.is-blurred.is-focused {
-  backdrop-filter: $backdrop-filter;
+
+/* Ensure the titles inside the identity card properly inherit the theme color */
+.identity .title,
+.identity .subtitle {
+  color: var(--bulma-text-strong);
+}
+
+.button.is-outlined.is-blurred {
+  @include glass-material;
+  /* Override Bulma defaults for this button to match glass */
+  border-width: 1px;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  outline: none;
+}
+
+.button.is-outlined.is-blurred:hover,
+.button.is-outlined.is-blurred.is-hovered,
+.button.is-outlined.is-blurred:focus,
+.button.is-outlined.is-blurred.is-focused,
+.button.is-outlined.is-blurred:active {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #000;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.15);
+  
+  @media (prefers-color-scheme: dark) {
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #111; /* Strong dark contrast for text in dark mode hover */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.4);
+  }
 }

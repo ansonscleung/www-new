@@ -17,7 +17,7 @@ interface FooterProps {
 
 export const FooterSection: React.FC<FooterProps> = ({ data }) => {
   return (
-    <footer id="contacts" className="footer has-background-light">
+    <footer id="contacts" className="footer">
       <div className="container">
         <div className="columns is-centered is-vcentered">
           <div className="column">
@@ -34,7 +34,7 @@ export const FooterSection: React.FC<FooterProps> = ({ data }) => {
               </a>
             ))}
           </div>
-          <div className="column has-text-right pt-auto pb-auto">
+          <div className="column has-text-right">
             <p className="mb-0">&#169; 2017~2023 Anson S.C. Leung</p>
           </div>
         </div>

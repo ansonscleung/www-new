@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
+import "./projects.scss";
 
 interface Link {
   name: string;
@@ -48,7 +49,7 @@ const ProjectSection: React.FC = () => {
         <div className="columns is-multiline">
           {projects.map((project, index) => (
             <div className="column is-one-third" key={index}>
-              <div className="box">
+              <div className="box project-card">
                 <h3 className="title is-4">{project.title}</h3>
                 <p>{project.description}</p>
                 <div className="tags">
