@@ -4,9 +4,7 @@ import {
   GatsbyImage,
   getImage,
   ImageDataLike,
-  StaticImage,
 } from "gatsby-plugin-image";
-import { BgImage } from "gbimage-bridge";
 import indefinite from "indefinite";
 import "./identity.scss";
 
