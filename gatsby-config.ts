@@ -9,6 +9,43 @@ const gatsbyConfig = {
   siteMetadata: {
     title: `Anson Leung`,
     siteUrl: `https://www.ansonscleung.com`,
+    links: [
+      {
+        website: "Facebook",
+        account: "ansonscleung",
+        link: "https://www.facebook.com/ansonscleung",
+        iconName: "facebook",
+        iconStyle: "brands",
+      },
+      {
+        website: "Twitter",
+        account: "ansonscleung",
+        link: "https://twitter.com/ansonscleung",
+        iconName: "twitter",
+        iconStyle: "brands",
+      },
+      {
+        website: "LinkedIn",
+        account: "ansonscleung",
+        link: "https://www.linkedin.com/in/ansonscleung/",
+        iconName: "linkedin",
+        iconStyle: "brands",
+      },
+      {
+        website: "GitHub",
+        account: "ansonscleung",
+        link: "https://github.com/ansonscleung/",
+        iconName: "github",
+        iconStyle: "brands",
+      },
+      {
+        website: "Email",
+        account: "ansonscleung@link.cuhk.edu.hk",
+        link: "mailto:ansonscleung@link.cuhk.edu.hk",
+        iconName: "envelope",
+        iconStyle: "solid",
+      },
+    ],
   },
   plugins: [
     `gatsby-plugin-sass`,

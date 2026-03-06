@@ -22,7 +22,7 @@ const ExperienceSection: React.FC = () => {
           title
         }
       }
-      allExperiencesJson {
+      allExperiencesJson(sort: { start_date: DESC }) {
         edges {
           node {
             title
@@ -48,13 +48,7 @@ const ExperienceSection: React.FC = () => {
     <section className="section">
       <div className="container">
         <h2 className="title">Experience</h2>
-        {experiences
-          .sort(
-            (a, b) =>
-              new Date(b.start_date).getTime() -
-              new Date(a.start_date).getTime()
-          )
-          .map((experience, index) => (
+        {experiences.map((experience, index) => (
             <div
               className={`box experience${
                 !showAllExperiences && index >= initialExperienceCount
