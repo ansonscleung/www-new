@@ -1,6 +1,5 @@
 import * as React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { Link } from "gatsby";
 import About from "../components/about";
 import HeroSection from "../components/hero";
 import ProjectSection from "../components/projects";
@@ -9,7 +8,7 @@ import IdentitySection from "../components/identity";
 import { FooterData, FooterSection } from "../components/footer";
 import "./styles.scss";
 import Header from "../components/header";
-import { faFacebook, faTwitter, faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faXTwitter, faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const IndexPage: React.FC = () => {
@@ -30,24 +29,25 @@ const IndexPage: React.FC = () => {
   `);
 
   const iconMap: Record<string, any> = {
-    facebook: faFacebook,
-    twitter: faTwitter,
+    twitter: faXTwitter,
     linkedin: faLinkedin,
     github: faGithub,
     envelope: faEnvelope,
   };
 
-  const footer: FooterData[] = data.site.siteMetadata.links.map((item: any) => ({
-    ...item,
-    icon: iconMap[item.iconName],
-  }));
+  const footer: FooterData[] = data.site.siteMetadata.links
+    .map((item: any) => ({
+      ...item,
+      icon: iconMap[item.iconName],
+    }))
+    .filter((item: FooterData) => Boolean(item.icon));
 
   return (
     <>
       <Header />
       <IdentitySection />
-      {/* <HeroSection /> */}
       <About />
+      <HeroSection />
       <ProjectSection />
       <ExperienceSection />
       <FooterSection data={footer} />

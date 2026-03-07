@@ -1,49 +1,27 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby Minimal Starter
-</h1>
+# Anson S.C. Leung - Personal Website
 
-## 🚀 Quick start
+This repository contains my personal website built with Gatsby, TypeScript, and Bulma.
 
-1.  **Create a Gatsby site.**
+## Local development
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+```bash
+yarn install
+yarn develop
+```
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+Visit `http://localhost:8000`.
 
-2.  **Start developing.**
+## Content locations
 
-    Navigate into your new site’s directory and start it up.
+- Profile and links: `gatsby-config.ts`
+- Experiences: `src/data/experiences.json`
+- Projects: `src/data/projects.json`
+- Identity cards: `src/data/identities.json`
+- Main page sections: `src/components/*` and `src/pages/index.tsx`
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+## Update workflow
 
-3.  **Open the code and start customizing!**
-
-    Your site is now running at http://localhost:8000!
-
-    Edit `src/pages/index.js` to see your site update in real-time!
-
-4.  **Learn more**
-
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [Tutorials](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [Guides](https://www.gatsbyjs.com/docs/how-to/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-## 🚀 Quick start (Netlify)
-
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
-
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal)
+1. Update JSON content files in `src/data`.
+2. Update social links in `gatsby-config.ts` when needed.
+3. Run `yarn develop` and verify layout and copy.
+4. Commit with a focused message.

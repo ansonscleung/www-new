@@ -11,16 +11,9 @@ const gatsbyConfig = {
     siteUrl: `https://www.ansonscleung.com`,
     links: [
       {
-        website: "Facebook",
+        website: "X",
         account: "ansonscleung",
-        link: "https://www.facebook.com/ansonscleung",
-        iconName: "facebook",
-        iconStyle: "brands",
-      },
-      {
-        website: "Twitter",
-        account: "ansonscleung",
-        link: "https://twitter.com/ansonscleung",
+        link: "https://x.com/ansonscleung",
         iconName: "twitter",
         iconStyle: "brands",
       },
