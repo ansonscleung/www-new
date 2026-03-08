@@ -1,7 +1,6 @@
 import * as React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import About from "../components/about";
-import HeroSection from "../components/hero";
 import ProjectSection from "../components/projects";
 import ExperienceSection from "../components/experience";
 import IdentitySection from "../components/identity";
@@ -47,7 +46,6 @@ const IndexPage: React.FC = () => {
       <Header />
       <IdentitySection />
       <About />
-      <HeroSection />
       <ProjectSection />
       <ExperienceSection />
       <FooterSection data={footer} />

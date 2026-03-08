@@ -1,32 +1,37 @@
 [
   {
-    "identity": "entrepreneur",
-    "description": "specialised in technology managements in (pre-)incubating startups",
+    "identity": "technical product manager",
+    "description": "building scalable e-commerce platforms and system integrations",
     "backgroundImage": "../images/pi_centre.jpg"
   },
   {
-    "identity": "technology enthusiast",
-    "description": "with deep insight in business and consumer IT trends",
+    "identity": "former startup founder",
+    "description": "led product strategy and execution for an HKSTP-incubated travel-tech startup",
+    "backgroundImage": "../images/pi_centre.jpg"
+  },
+  {
+    "identity": "agile practitioner",
+    "description": "driving roadmap execution with Scrum delivery and stakeholder alignment",
     "backgroundImage": "../images/enthusiast.jpg"
   },
   {
-    "identity": "software developer",
-    "description": "coding for new products and open source projects",
+    "identity": "software-savvy product lead",
+    "description": "translating business goals into clear technical requirements",
     "backgroundImage": "../images/programmer.png"
   },
   {
-    "identity": "USTer",
-    "description": "studying for a MSc in Information Systems Management",
+    "identity": "HKUST MScISM alumnus",
+    "description": "graduated with a MSc in Information Systems Management",
     "backgroundImage": "../images/hkust.jpg"
   },
   {
-    "identity": "CUHK alumni",
-    "description": "graduated with BSc in Computer Science",
+    "identity": "CUHK computer science graduate",
+    "description": "graduated with a BSc in Computer Science",
     "backgroundImage": "../images/cuhk.jpg"
   },
   {
-    "identity": "Morningsider",
-    "description": "resided in Morningside College for 4 years, gained international experience",
-    "backgroundImage": "../images/morningside.jpg"
+    "identity": "exchange student in Aalto",
+    "description": "exchange student in Aalto University",
+    "backgroundImage": "../images/aalto_vappu.jpg"
   }
 ]

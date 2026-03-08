@@ -1,8 +1,7 @@
 // A react component for self-introduction using bulma css framework.
 
 import * as React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserTie } from "@fortawesome/free-solid-svg-icons";
+import { StaticImage } from "gatsby-plugin-image";
 
 const About = () => {
   return (
@@ -10,9 +9,15 @@ const About = () => {
       <div className="container">
         <div className="columns is-vcentered">
           <div className="column is-one-quarter has-text-centered">
-            <span className="icon is-large has-text-primary" style={{ width: "150px", height: "150px", backgroundColor: "#f0f0f0", borderRadius: "50%", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
-              <FontAwesomeIcon icon={faUserTie} size="4x" />
-            </span>
+            <figure className="image is-square is-inline-block">
+              <StaticImage
+                src="../images/portrait.jpg"
+                alt="Anson S.C. Leung"
+                width={256}
+                height={256}
+                className="is-rounded"
+              />
+            </figure>
           </div>
           <div className="column">
             <h2 className="title is-2 mb-5">
