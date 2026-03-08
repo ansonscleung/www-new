@@ -15,7 +15,7 @@ const About = () => {
                 alt="Anson S.C. Leung"
                 width={256}
                 height={256}
-                className="is-rounded"
+                imgClassName="is-rounded"
               />
             </figure>
           </div>

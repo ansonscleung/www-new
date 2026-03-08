@@ -1,5 +1,5 @@
-import React, { CSSProperties, useState } from "react";
-import { Link, useStaticQuery, graphql } from "gatsby";
+import React, { useState } from "react";
+import { useStaticQuery, graphql } from "gatsby";
 import {
   GatsbyImage,
   getImage,
@@ -52,29 +52,19 @@ const Hero: React.FC = () => {
 
   const image = getImage(currentIdentity.backgroundImage);
 
-  const parallaxStyle = {
-    //backgroundImage: `url(${backgroundImage})`,
-    backgroundAttachment: "fixed",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-  };
-
-  const identityStyle: CSSProperties = {
-    mixBlendMode: "difference",
-    margin: "-2rem -2rem  0",
-    padding: "2rem",
-  };
-
   const capitalize = ([firstLetter, ...restOfWord]: String) =>
     firstLetter.toUpperCase() + restOfWord.join("");
 
   return image ? (
-    <div style={{ display: "grid", alignItems: "end", height: "100vh" }}>
+    <div className="identity-hero">
       <GatsbyImage
+        className="identity-bg"
         style={{
           gridArea: "1/1",
+          height: "100%",
+          width: "100%",
         }}
+        imgStyle={{ objectFit: "cover", objectPosition: "center" }}
         alt=""
         image={image}
       />
@@ -83,7 +73,7 @@ const Hero: React.FC = () => {
           gridArea: "1/1",
           position: "relative",
         }}
-        className="section"
+        className="section identity-overlay"
       >
         <div className="container">
           <div id="identity" className="identity is-blurred">
