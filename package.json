@@ -46,7 +46,7 @@
     "@types/node": "24",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "babel-preset-gatsby": "^3.10.0",
+    "babel-preset-gatsby": "^3.16.0",
     "typescript": "^5.9.3"
   }
 }
