@@ -1,65 +1,67 @@
 [
   {
+    "title": "Senior Product Specialist",
+    "company": "Shoalter Technology (member of HKTV Group)",
+    "start_date": "2025-10-01",
+    "location": "Hong Kong",
+    "responsibilities": [
+      "Owned end-to-end product requirements and user flows for HKTVmall, Wet Market Express, and 3-hour delivery initiatives.",
+      "Led cross-functional collaboration across Operations, Customer Service, Marketing, UX/UI, and Engineering teams.",
+      "Defined functional specifications, acceptance criteria, and UAT plans to ensure quality delivery.",
+      "Coordinated development and testing schedules across shared engineering resources and competing priorities."
+    ]
+  },
+  {
     "title": "Product Specialist",
     "company": "Shoalter Technology (member of HKTV Group)",
     "start_date": "2023-02-20",
+    "end_date": "2025-09-30",
     "location": "Hong Kong",
     "responsibilities": [
-      "Developed and executed strategic product plans to drive revenue growth and enhance customer experience",
-      "Created detailed product requirements to guide the development team in building new features and improvements",
-      "Managed product roadmap and backlog, prioritizing features and enhancements based on business value and user needs",
-      "Worked closely with the development team to ensure that the product is delivered on time and meets the requirements",
-      "Collaborated with vendors and third-party partners to integrate new services and features into the platform, expanding the product's offerings"
+      "Created detailed product requirements to guide development teams in building new features and improvements.",
+      "Collaborated with UI/UX designers to align visual elements with functional requirements.",
+      "Developed and executed strategic product plans to support revenue growth and overseas expansion.",
+      "Partnered with cross-functional teams to deliver successful product launches and iterative updates."
     ]
   },
   {
     "title": "Consultant, Cloud & Application Services",
-    "company": "Protiviti",
+    "company": "Protiviti Hong Kong",
     "start_date": "2022-09-05",
     "end_date": "2023-02-12",
     "location": "Hong Kong",
     "responsibilities": [
-      "Delevoped a virtual reality application in vendor management for a retail sourcing company",
-      "Formulated automated data extraction and competitor product analysis with Python for a retail sourcing company",
-      "Delivered automated data migration to SharePoint Online for a major utility corporate in Hong Kong"
+      "Implemented a virtual reality-based sourcing management platform using HTML, CSS, and JavaScript.",
+      "Created an automated data extraction scraper using Python for an e-commerce platform.",
+      "Automated data migration to cloud platforms for a major utility enterprise as a key technical resource."
     ]
   },
   {
     "title": "Co-Founder & Product Director",
     "company": "itinni",
-    "start_date": "2020-06-01",
+    "start_date": "2019-10-01",
     "end_date": "2021-12-31",
     "location": "Hong Kong",
     "responsibilities": [
-      "Managed 2 B2B/C travel technology products & projects at HK Science & Technology Parks-incubated startup",
-      "Oversaw a team of 4 to 10 software developers and UX designers as a Scrum Master",
-      "Delivered web and mobile applications for leisure travelers with about 100 daily users",
-      "Conducted research on user behaviors and habits by working with user experience designers and 3 focus groups",
-      "Designed and presented award-winning business pitch at 2 startup competitions with 3 awards",
-      "Promoted entrepreneurship culture as guest speaker at CUHK Pi Centre"
+      "Managed two B2B and B2C travel technology products at an HKSTP-incubated startup.",
+      "Led a team of 10 software developers and UX designers with Scrum and agile practices.",
+      "Delivered web and mobile applications for leisure travelers with about 100 daily users.",
+      "Built an itinerary planning database supporting concurrent editing by groups of 6 to 12 travelers.",
+      "Designed and presented award-winning startup pitches across two competitions with three awards.",
+      "Promoted entrepreneurship culture as a guest speaker at CUHK Pi Centre."
     ]
   },
   {
-    "title": "Founding Member",
-    "company": "itinni",
-    "start_date": "2019-09-15",
-    "end_date": "2020-05-31",
-    "location": "Hong Kong",
-    "responsibilities": [
-      "Designed Proof-of-Concept models for itinni, a travel technology product"
-    ]
-  },
-  {
-    "title": "Summer Intern, Information Services Department",
+    "title": "Summer Intern",
     "company": "OOCL",
     "start_date": "2019-06-03",
     "end_date": "2019-08-30",
     "location": "Hong Kong",
     "responsibilities": [
-      "Provided suggestions for improving existing software from 200 user requests",
-      "Summarized user reports on features and errors from 1000 user cases",
-      "Designed user interface for a new module in logistics platform to be used by 100 clients",
-      "Migrated user documentation for 10 modules in logistics platform MyPodium"
+      "Provided software improvement suggestions from 200 user requests.",
+      "Summarized feature and error insights from 1,000 user cases.",
+      "Designed a new interface module in a logistics platform for around 100 clients.",
+      "Migrated user documentation for 10 modules in the MyPodium logistics platform."
     ]
   }
 ]

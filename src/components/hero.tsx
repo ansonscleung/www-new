@@ -6,10 +6,11 @@ const HeroSection = () => {
       <div className="hero-body">
         <div className="container">
           <h1 className="title">
-            <span className="">Anson S.C. Leung</span>{" "}
-            <span className="">梁兆俊</span>
+            <span className="">Anson S.C. Leung</span>
           </h1>
-          <h2 className="subtitle">Technopreneur / Student @ HKUST MScISM</h2>
+          <h2 className="subtitle">
+            Technical Product Manager | E-commerce Platforms & System Integration | Agile (PSM I)
+          </h2>
         </div>
       </div>
     </section>

@@ -33,8 +33,8 @@ const gatsbyConfig = {
       },
       {
         website: "Email",
-        account: "ansonscleung@link.cuhk.edu.hk",
-        link: "mailto:ansonscleung@link.cuhk.edu.hk",
+        account: "ansonscleung@gmail.com",
+        link: "mailto:ansonscleung@gmail.com",
         iconName: "envelope",
         iconStyle: "solid",
       },
@@ -85,3 +85,4 @@ const gatsbyConfig = {
 };
 
 module.exports = gatsbyConfig;
+
