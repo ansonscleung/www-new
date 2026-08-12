@@ -52,7 +52,7 @@ const Hero: React.FC = () => {
 
   const image = getImage(currentIdentity.backgroundImage);
 
-  const capitalize = ([firstLetter, ...restOfWord]: String) =>
+  const capitalize = ([firstLetter, ...restOfWord]: string) =>
     firstLetter.toUpperCase() + restOfWord.join("");
 
   return image ? (
@@ -77,23 +77,33 @@ const Hero: React.FC = () => {
       >
         <div className="container">
           <div id="identity" className="identity is-blurred">
-            <h1 className="subtitle is-4">
+            <p className="subtitle is-4">
               Anson Leung is{" "}
               {indefinite(currentIdentity.identity, { articleOnly: true })}
-            </h1>
+            </p>
             <h1 className="title is-1">
               {capitalize(currentIdentity.identity)}
             </h1>
-            <h2 className="subtitle is-4">
+            <p className="subtitle is-4">
               {currentIdentity.description}
-            </h2>
+            </p>
+            <p className="is-sr-only" aria-live="polite" aria-atomic="true">
+              Selected identity: {capitalize(currentIdentity.identity)}. {" "}
+              {currentIdentity.description}
+            </p>
           </div>
           <div className="buttons">
-            {identities.map((identity, index) => (
+            {identities.map((identity) => (
               <button
-                className="button is-outlined is-rounded is-blurred"
-                key={index}
+                type="button"
+                className={`button is-outlined is-rounded is-blurred${
+                  identity.identity === currentIdentity.identity
+                    ? " is-active"
+                    : ""
+                }`}
+                key={identity.identity}
                 onClick={() => handleCardClick(identity)}
+                aria-pressed={identity.identity === currentIdentity.identity}
               >
                 {capitalize(identity.identity)}
               </button>

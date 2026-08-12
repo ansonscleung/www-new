@@ -7,6 +7,7 @@ import IdentitySection from "../components/identity";
 import { FooterData, FooterSection } from "../components/footer";
 import "./styles.scss";
 import Header from "../components/header";
+import Seo from "../components/seo";
 import { faXTwitter, faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
@@ -44,15 +45,19 @@ const IndexPage: React.FC = () => {
   return (
     <>
       <Header />
-      <IdentitySection />
-      <About />
-      <ProjectSection />
-      <ExperienceSection />
+      <main>
+        <IdentitySection />
+        <About />
+        <ProjectSection />
+        <ExperienceSection />
+      </main>
       <FooterSection data={footer} />
     </>
   );
 };
 
-export const Head = () => <title>Anson S.C. Leung</title>;
+export const Head = () => (
+  <Seo title="Anson S.C. Leung | Technical Product Manager" pathname="/" />
+);
 
 export default IndexPage;

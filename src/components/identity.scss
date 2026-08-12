@@ -35,6 +35,8 @@ $backdrop-filter: blur(25px) saturate(200%);
   padding-top: 5rem;
   padding-bottom: 1rem;
   height: 100%;
+  min-width: 0;
+  width: 100%;
 }
 
 .identity {
@@ -49,10 +51,14 @@ $backdrop-filter: blur(25px) saturate(200%);
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
+  min-width: 0;
+  width: 100%;
 }
 
 .identity-hero .buttons {
   margin-bottom: 0;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .identity .title,
@@ -87,6 +93,14 @@ $backdrop-filter: blur(25px) saturate(200%);
   }
 }
 
+.button.is-outlined.is-blurred.is-active {
+  background-color: var(--bulma-text-strong);
+  border-color: var(--bulma-text-strong);
+  color: var(--bulma-scheme-main);
+  box-shadow: 0 0 0 2px var(--bulma-scheme-main),
+    0 0 0 4px var(--bulma-text-strong);
+}
+
 @media (max-width: 768px) {
   .identity-overlay {
     padding-top: 4.25rem;
@@ -112,6 +126,7 @@ $backdrop-filter: blur(25px) saturate(200%);
 
   .identity-hero .buttons {
     display: flex;
+    flex-wrap: nowrap;
     gap: 0.4rem;
     overflow-x: auto;
     overflow-y: hidden;

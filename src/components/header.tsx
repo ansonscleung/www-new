@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
+import "./header.scss";
 
 const Header: React.FC = () => {
   const data = useStaticQuery(graphql`
@@ -13,6 +14,7 @@ const Header: React.FC = () => {
   `);
 
   const [isAtTop, setIsAtTop] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,19 +38,51 @@ const Header: React.FC = () => {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <Link to="/" className="navbar-item">
+        <Link
+          to="/"
+          className="navbar-item"
+          onClick={() => setIsMenuOpen(false)}
+        >
           {data.site.siteMetadata.title}
         </Link>
+        <button
+          type="button"
+          className={`navbar-burger${isMenuOpen ? " is-active" : ""}`}
+          aria-label="Toggle navigation menu"
+          aria-expanded={isMenuOpen}
+          aria-controls="main-navigation-menu"
+          onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
+        >
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+        </button>
       </div>
-      <div className="navbar-menu">
+      <div
+        id="main-navigation-menu"
+        className={`navbar-menu${isMenuOpen ? " is-active" : ""}`}
+      >
         <div className="navbar-end">
-          <a href="#identity" className="navbar-item">
+          <a
+            href="#identity"
+            className="navbar-item"
+            onClick={() => setIsMenuOpen(false)}
+          >
             Home
           </a>
-          <a href="#about" className="navbar-item">
+          <a
+            href="#about"
+            className="navbar-item"
+            onClick={() => setIsMenuOpen(false)}
+          >
             About
           </a>
-          <a href="#contacts" className="navbar-item">
+          <a
+            href="#contacts"
+            className="navbar-item"
+            onClick={() => setIsMenuOpen(false)}
+          >
             Contact
           </a>
         </div>

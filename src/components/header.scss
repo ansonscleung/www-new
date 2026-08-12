@@ -1,0 +1,11 @@
+@media (max-width: 1023px) {
+  .navbar-brand {
+    width: 100%;
+  }
+
+  .navbar-menu.is-active {
+    display: block;
+    background-color: var(--bulma-scheme-main);
+    box-shadow: 0 0.5rem 1rem rgba(10, 10, 10, 0.12);
+  }
+}
