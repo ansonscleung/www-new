@@ -29,6 +29,10 @@ $backdrop-filter: blur(25px) saturate(200%);
   height: 100%;
 }
 
+.identity-bg-image {
+  object-position: center;
+}
+
 .identity-overlay {
   display: flex;
   align-items: flex-end;
@@ -88,6 +92,10 @@ $backdrop-filter: blur(25px) saturate(200%);
 }
 
 @media (max-width: 768px) {
+  .identity-bg-image {
+    object-position: var(--identity-mobile-image-position, center);
+  }
+
   .identity-overlay {
     padding-top: 4.25rem;
     padding-bottom: 0.75rem;

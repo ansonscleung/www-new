@@ -12,6 +12,7 @@ interface Identity {
   identity: string;
   description: string;
   backgroundImage: ImageDataLike;
+  mobileImagePosition?: string;
 }
 
 const Hero: React.FC = () => {
@@ -27,6 +28,7 @@ const Hero: React.FC = () => {
           node {
             identity
             description
+            mobileImagePosition
             backgroundImage {
               childImageSharp {
                 gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
@@ -56,15 +58,24 @@ const Hero: React.FC = () => {
     firstLetter.toUpperCase() + restOfWord.join("");
 
   return image ? (
-    <div className="identity-hero">
+    <div
+      className="identity-hero"
+      style={
+        {
+          "--identity-mobile-image-position":
+            currentIdentity.mobileImagePosition ?? "center",
+        } as React.CSSProperties
+      }
+    >
       <GatsbyImage
         className="identity-bg"
+        imgClassName="identity-bg-image"
         style={{
           gridArea: "1/1",
           height: "100%",
           width: "100%",
         }}
-        imgStyle={{ objectFit: "cover", objectPosition: "center" }}
+        imgStyle={{ objectFit: "cover" }}
         alt=""
         image={image}
       />
