@@ -12,6 +12,7 @@ interface Identity {
   identity: string;
   description: string;
   backgroundImage: ImageDataLike;
+  mobileImagePosition?: string;
 }
 
 const Hero: React.FC = () => {
@@ -27,6 +28,7 @@ const Hero: React.FC = () => {
           node {
             identity
             description
+            mobileImagePosition
             backgroundImage {
               childImageSharp {
                 gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
@@ -56,15 +58,25 @@ const Hero: React.FC = () => {
     firstLetter.toUpperCase() + restOfWord.join("");
 
   return image ? (
-    <div className="identity-hero">
+    <section
+      id="home"
+      className="identity-hero"
+      style={
+        {
+          "--identity-mobile-image-position":
+            currentIdentity.mobileImagePosition ?? "center",
+        } as React.CSSProperties
+      }
+    >
       <GatsbyImage
         className="identity-bg"
+        imgClassName="identity-bg-image"
         style={{
           gridArea: "1/1",
           height: "100%",
           width: "100%",
         }}
-        imgStyle={{ objectFit: "cover", objectPosition: "center" }}
+        imgStyle={{ objectFit: "cover" }}
         alt=""
         image={image}
       />
@@ -76,23 +88,35 @@ const Hero: React.FC = () => {
         className="section identity-overlay"
       >
         <div className="container">
-          <div id="identity" className="identity is-blurred">
-            <h1 className="subtitle is-4">
+          <div className="identity is-blurred" aria-live="polite">
+            <p className="subtitle is-4">
               Anson Leung is{" "}
               {indefinite(currentIdentity.identity, { articleOnly: true })}
-            </h1>
+            </p>
             <h1 className="title is-1">
               {capitalize(currentIdentity.identity)}
             </h1>
-            <h2 className="subtitle is-4">
+            <p className="subtitle is-4">
               {currentIdentity.description}
-            </h2>
+            </p>
+            <div className="buttons identity-actions">
+              <a className="button is-primary is-rounded" href="#projects">
+                View my work
+              </a>
+              <a className="button is-light is-rounded" href="#contact">
+                Contact me
+              </a>
+            </div>
           </div>
-          <div className="buttons">
-            {identities.map((identity, index) => (
+          <div className="buttons identity-options" aria-label="Choose a profile">
+            {identities.map((identity) => (
               <button
-                className="button is-outlined is-rounded is-blurred"
-                key={index}
+                className={`button is-outlined is-rounded is-blurred${
+                  currentIdentity.identity === identity.identity ? " is-selected" : ""
+                }`}
+                key={identity.identity}
+                type="button"
+                aria-pressed={currentIdentity.identity === identity.identity}
                 onClick={() => handleCardClick(identity)}
               >
                 {capitalize(identity.identity)}
@@ -101,7 +125,7 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   ) : (
     <></>
   );

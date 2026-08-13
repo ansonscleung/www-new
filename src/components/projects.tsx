@@ -43,7 +43,7 @@ const ProjectSection: React.FC = () => {
   );
 
   return (
-    <section className="section">
+    <section className="section" id="projects">
       <div className="container">
         <h2 className="title">Projects</h2>
         <div className="columns is-multiline">

@@ -2,11 +2,13 @@
   {
     "identity": "technical product manager",
     "description": "building scalable e-commerce platforms and system integrations",
+    "mobileImagePosition": "76% center",
     "backgroundImage": "../images/pi_centre.jpg"
   },
   {
     "identity": "former startup founder",
     "description": "led product strategy and execution for an HKSTP-incubated travel-tech startup",
+    "mobileImagePosition": "76% center",
     "backgroundImage": "../images/pi_centre.jpg"
   },
   {
