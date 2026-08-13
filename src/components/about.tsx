@@ -11,7 +11,7 @@ const About = () => {
           <div className="column is-one-quarter has-text-centered">
             <figure className="image is-square is-inline-block">
               <StaticImage
-                src="../images/portrait.jpg"
+                src="../images/Portrait.jpg"
                 alt="Anson S.C. Leung"
                 width={256}
                 height={256}
