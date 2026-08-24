@@ -9,3 +9,15 @@
     box-shadow: 0 0.5rem 1rem rgba(10, 10, 10, 0.12);
   }
 }
+
+.navbar-burger {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+}
+
+.navbar-burger:focus-visible {
+  outline: 3px solid var(--bulma-link);
+  outline-offset: -3px;
+}

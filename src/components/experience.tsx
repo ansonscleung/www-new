@@ -45,7 +45,7 @@ const ExperienceSection: React.FC = () => {
   const initialExperienceCount = 3;
 
   return (
-    <section className="section">
+    <section className="section" id="experience">
       <div className="container">
         <h2 className="title">Experience</h2>
         {experiences.map((experience, index) => (

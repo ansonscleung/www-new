@@ -29,6 +29,7 @@ const Header: React.FC = () => {
 
   const headerHeight = isAtTop ? "4rem" : "3rem";
   const fontSize = isAtTop ? "18px" : "16px";
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <nav
@@ -38,11 +39,7 @@ const Header: React.FC = () => {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <Link
-          to="/"
-          className="navbar-item"
-          onClick={() => setIsMenuOpen(false)}
-        >
+        <Link to="/" className="navbar-item" onClick={closeMenu}>
           {data.site.siteMetadata.title}
         </Link>
         <button
@@ -64,25 +61,19 @@ const Header: React.FC = () => {
         className={`navbar-menu${isMenuOpen ? " is-active" : ""}`}
       >
         <div className="navbar-end">
-          <a
-            href="#identity"
-            className="navbar-item"
-            onClick={() => setIsMenuOpen(false)}
-          >
+          <a href="#home" className="navbar-item" onClick={closeMenu}>
             Home
           </a>
-          <a
-            href="#about"
-            className="navbar-item"
-            onClick={() => setIsMenuOpen(false)}
-          >
+          <a href="#about" className="navbar-item" onClick={closeMenu}>
             About
           </a>
-          <a
-            href="#contacts"
-            className="navbar-item"
-            onClick={() => setIsMenuOpen(false)}
-          >
+          <a href="#projects" className="navbar-item" onClick={closeMenu}>
+            Projects
+          </a>
+          <a href="#experience" className="navbar-item" onClick={closeMenu}>
+            Experience
+          </a>
+          <a href="#contact" className="navbar-item" onClick={closeMenu}>
             Contact
           </a>
         </div>
