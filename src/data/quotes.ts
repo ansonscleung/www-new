@@ -13,6 +13,8 @@ interface QuoteRecord {
   workType: QuoteWorkType;
   category: QuoteCategory;
   sourceUrl: string;
+  originalLanguage?: Quote["source"]["originalLanguage"];
+  translationNote?: string;
 }
 
 const records: readonly QuoteRecord[] = [
@@ -186,6 +188,9 @@ const records: readonly QuoteRecord[] = [
     workType: "book",
     category: "public-service",
     sourceUrl: "https://www.gutenberg.org/files/132/132-h/132-h.htm",
+    originalLanguage: "zhHant",
+    translationNote:
+      "English follows Lionel Giles's translation; Traditional Chinese is the classical source text.",
   },
   {
     id: "plato-beginning",
@@ -342,6 +347,9 @@ const records: readonly QuoteRecord[] = [
     workType: "book",
     category: "public-service",
     sourceUrl: "https://www.gutenberg.org/files/132/132-h/132-h.htm",
+    originalLanguage: "zhHant",
+    translationNote:
+      "English follows Lionel Giles's translation; Traditional Chinese is the classical source text.",
   },
 ];
 
@@ -356,9 +364,10 @@ const quoteRecords: Quote[] = records.map((record) => ({
   category: record.category,
   source: {
     url: record.sourceUrl,
-    originalLanguage: "en",
+    originalLanguage: record.originalLanguage ?? "en",
     provenance: "primary",
-    translationNote: "Editorial Traditional Chinese translation.",
+    translationNote:
+      record.translationNote ?? "Editorial Traditional Chinese translation.",
   },
 }));
 

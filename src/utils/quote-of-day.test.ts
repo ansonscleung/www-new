@@ -22,6 +22,15 @@ describe("quote-of-day", () => {
     expect(quotes).toHaveLength(30);
     expect(validateQuotes(quotes)).toEqual(quotes);
   });
+
+  it("records the original language for translated classical Chinese sources", () => {
+    const sunTzuQuotes = quotes.filter(
+      (quote) => quote.author.name.en === "Sun Tzu"
+    );
+
+    expect(sunTzuQuotes).toHaveLength(2);
+    expect(sunTzuQuotes.every((quote) => quote.source.originalLanguage === "zhHant")).toBe(true);
+  });
   it("uses the Hong Kong calendar date at its UTC boundary", () => {
     expect(getHongKongDateKey(new Date("2026-08-25T15:59:59.000Z"))).toBe("2026-08-25");
     expect(getHongKongDateKey(new Date("2026-08-25T16:00:00.000Z"))).toBe("2026-08-26");
