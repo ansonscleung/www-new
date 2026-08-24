@@ -52,7 +52,7 @@ export const validateQuotes = (input: unknown): readonly Quote[] => {
       },
     };
   });
-  if (validated.length !== 30) throw new Error(`Expected exactly 30 quotes; received ${validated.length}.`);
+  if (validated.length !== 100) throw new Error(`Expected exactly 100 quotes; received ${validated.length}.`);
   return Object.freeze(validated);
 };
 
