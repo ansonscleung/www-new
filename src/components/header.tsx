@@ -64,14 +64,14 @@ const Header: React.FC = () => {
           <a href="#home" className="navbar-item" onClick={closeMenu}>
             Home
           </a>
-          <a href="#about" className="navbar-item" onClick={closeMenu}>
-            About
-          </a>
-          <a href="#projects" className="navbar-item" onClick={closeMenu}>
-            Projects
+          <a href="#selected-work" className="navbar-item" onClick={closeMenu}>
+            Work
           </a>
           <a href="#experience" className="navbar-item" onClick={closeMenu}>
             Experience
+          </a>
+          <a href="#labs" className="navbar-item" onClick={closeMenu}>
+            Labs
           </a>
           <a href="#contact" className="navbar-item" onClick={closeMenu}>
             Contact
