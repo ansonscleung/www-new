@@ -1,0 +1,12 @@
+.education-section { background: var(--bulma-scheme-main); }
+.education-intro { max-width: 42rem; margin-bottom: 3rem; }
+.education-kicker { color: var(--bulma-link); font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.education-lede { font-size: 1.2rem; line-height: 1.6; }
+.education-list { border-top: 1px solid var(--bulma-border); }
+.education-entry { display: grid; grid-template-columns: minmax(14rem, .65fr) 1fr; gap: 2rem; padding: 1.5rem 0; border-bottom: 1px solid var(--bulma-border); }
+.education-institution { color: var(--bulma-text-light); }
+.education-entry .title { margin: 0 0 .5rem; }
+@media (max-width: 768px) {
+  .education-intro { margin-bottom: 2rem; }
+  .education-entry { grid-template-columns: 1fr; gap: .5rem; }
+}

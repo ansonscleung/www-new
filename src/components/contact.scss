@@ -1,0 +1,10 @@
+.contact-section { background: var(--bulma-scheme-main-bis); }
+.contact-panel { max-width: 48rem; padding: 2rem 0; }
+.contact-kicker { color: var(--bulma-link); font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.contact-copy { max-width: 40rem; font-size: 1.2rem; line-height: 1.6; }
+.contact-actions { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+.contact-resume { color: var(--bulma-link-text); font-weight: 700; text-decoration: underline; text-underline-offset: .2em; }
+@media (max-width: 480px) {
+  .contact-actions { align-items: stretch; flex-direction: column; }
+  .contact-actions .button, .contact-resume { width: 100%; }
+}
