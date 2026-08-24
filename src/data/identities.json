@@ -1,39 +1,34 @@
 [
   {
-    "identity": "technical product manager",
-    "description": "building scalable e-commerce platforms and system integrations",
-    "mobileImagePosition": "76% center",
-    "backgroundImage": "../images/pi_centre.jpg"
-  },
-  {
-    "identity": "former startup founder",
-    "description": "led product strategy and execution for an HKSTP-incubated travel-tech startup",
-    "mobileImagePosition": "76% center",
-    "backgroundImage": "../images/pi_centre.jpg"
-  },
-  {
-    "identity": "agile practitioner",
-    "description": "driving roadmap execution with Scrum delivery and stakeholder alignment",
-    "backgroundImage": "../images/enthusiast.jpg"
-  },
-  {
-    "identity": "software-savvy product lead",
-    "description": "translating business goals into clear technical requirements",
-    "backgroundImage": "../images/programmer.png"
-  },
-  {
-    "identity": "HKUST MScISM alumnus",
-    "description": "graduated with a MSc in Information Systems Management",
-    "backgroundImage": "../images/hkust.jpg"
-  },
-  {
-    "identity": "CUHK computer science graduate",
-    "description": "graduated with a BSc in Computer Science",
+    "stage": "Foundation",
+    "description": "Computer Science at CUHK, with an exchange at Aalto University—where product thinking began in code.",
+    "mobileImagePosition": "60% center",
     "backgroundImage": "../images/cuhk.jpg"
   },
   {
-    "identity": "exchange student in Aalto",
-    "description": "exchange student in Aalto University",
+    "stage": "Startup",
+    "description": "Co-founded itinni, leading a 10-person product team and building travel tools for real groups of travellers.",
+    "mobileImagePosition": "76% center",
+    "backgroundImage": "../images/pi_centre.jpg"
+  },
+  {
+    "stage": "Enterprise",
+    "description": "At Protiviti, delivered cloud migration, automation, and a VR sourcing platform for enterprise clients.",
+    "backgroundImage": "../images/enthusiast.jpg"
+  },
+  {
+    "stage": "Scale",
+    "description": "At Shoalter Technology, shaped e-commerce roadmaps, launches, and overseas growth with cross-functional teams.",
+    "backgroundImage": "../images/programmer.png"
+  },
+  {
+    "stage": "Today",
+    "description": "Owning requirements and user flows for HKTVmall, Wet Market Express, and 3-hour delivery initiatives.",
+    "backgroundImage": "../images/pi_centre.jpg"
+  },
+  {
+    "stage": "Next",
+    "description": "Bringing technical fluency, clear product requirements, and practical delivery to the next real-world challenge.",
     "backgroundImage": "../images/aalto_vappu.jpg"
   }
 ]

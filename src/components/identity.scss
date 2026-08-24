@@ -48,6 +48,31 @@ $backdrop-filter: blur(25px) saturate(200%);
   border-radius: 2rem;
 }
 
+.identity-eyebrow,
+.identity-stage-label {
+  color: var(--bulma-text-strong);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.identity-positioning {
+  max-width: 42rem;
+}
+
+.identity-stage {
+  border-left: 3px solid var(--bulma-primary);
+  margin-top: 1.5rem;
+  padding-left: 1rem;
+}
+
+.identity-stage .title,
+.identity-stage .subtitle {
+  margin-bottom: 0.45rem;
+}
+
 .identity-hero .container {
   display: flex;
   flex-direction: column;
@@ -57,8 +82,50 @@ $backdrop-filter: blur(25px) saturate(200%);
   width: 100%;
 }
 
-.identity-hero > .identity-overlay > .container > .identity-options {
+.identity-controls {
+  @include glass-material;
+  align-items: center;
+  border-radius: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+}
+
+.identity-navigation {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.identity-navigation .button {
   margin-bottom: 0;
+}
+
+.identity-options {
+  display: flex;
+  gap: 0.35rem;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.identity-indicator {
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: var(--bulma-text-strong);
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 0.5rem 0.35rem;
+}
+
+.identity-indicator:hover,
+.identity-indicator:focus-visible,
+.identity-indicator.is-selected {
+  border-bottom-color: var(--bulma-primary);
+  color: var(--bulma-primary);
+  outline: none;
 }
 
 .identity-actions {
@@ -71,40 +138,6 @@ $backdrop-filter: blur(25px) saturate(200%);
 .identity .title,
 .identity .subtitle {
   color: var(--bulma-text-strong);
-}
-
-.button.is-outlined.is-blurred {
-  @include glass-material;
-  border-width: 1px;
-  font-weight: 500;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  outline: none;
-}
-
-.button.is-outlined.is-blurred:hover,
-.button.is-outlined.is-blurred.is-hovered,
-.button.is-outlined.is-blurred:focus,
-.button.is-outlined.is-blurred.is-focused,
-.button.is-outlined.is-blurred:active {
-  background-color: rgba(255, 255, 255, 0.9);
-  color: #000;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.15);
-
-  @media (prefers-color-scheme: dark) {
-    background-color: rgba(255, 255, 255, 0.85);
-    color: #111;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.4);
-  }
-}
-
-.button.is-outlined.is-blurred.is-selected {
-  background-color: rgba(255, 255, 255, 0.9);
-  border-color: var(--bulma-link);
-  color: #000;
-  box-shadow: 0 0 0 2px var(--bulma-link);
 }
 
 @media (max-width: 768px) {
@@ -134,20 +167,36 @@ $backdrop-filter: blur(25px) saturate(200%);
     margin-bottom: 0.35rem;
   }
 
+  .identity-controls {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .identity-navigation {
+    display: flex;
+    width: 100%;
+  }
+
+  .identity-navigation .button {
+    flex: 1 1 0;
+  }
+
   .identity-options {
     display: flex;
     flex-wrap: nowrap;
     gap: 0.4rem;
+    justify-content: flex-start;
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     padding-bottom: 0.2rem;
   }
 
-  .identity-options .button {
+  .identity-indicator {
     flex: 0 0 auto;
     margin: 0;
-    min-height: 2.75rem;
     padding: 0.22rem 0.62rem;
     font-size: 0.82rem;
   }
@@ -175,8 +224,7 @@ $backdrop-filter: blur(25px) saturate(200%);
     margin-bottom: 0.2rem;
   }
 
-  .identity-options .button {
-    min-height: 2.75rem;
+  .identity-indicator {
     padding: 0.18rem 0.55rem;
     font-size: 0.76rem;
   }
