@@ -1,113 +1,42 @@
-import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { graphql, useStaticQuery } from "gatsby";
-import React, { useState } from "react";
+import React from "react";
+import { experienceEvidence } from "../data/profile-evidence";
 import "./experience.scss";
 
-interface Experience {
-  title: string;
-  company: string;
-  start_date: string;
-  end_date?: string;
-  location?: string;
-  description?: string;
-  responsibilities?: string[];
-}
-
 const ExperienceSection: React.FC = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-      allExperiencesJson(sort: { start_date: DESC }) {
-        edges {
-          node {
-            title
-            company
-            start_date
-            end_date
-            location
-            responsibilities
-          }
-        }
-      }
-    }
-  `);
-
-  const experiences: Experience[] = data.allExperiencesJson.edges.map(
-    (e: any) => e.node
-  );
-
-  const [showAllExperiences, setShowAllExperiences] = useState(false);
-  const initialExperienceCount = 3;
-
   return (
-    <section className="section" id="experience">
+    <section
+      className="section experience-section"
+      id="experience"
+      aria-labelledby="experience-title"
+    >
       <div className="container">
-        <h2 className="title">Experience</h2>
-        {experiences.map((experience, index) => (
-            <div
-              className={`box experience${
-                !showAllExperiences && index >= initialExperienceCount
-                  ? " hide"
-                  : ""
-              }`}
-              key={index}
-            >
-              <div className="level">
-                <div className="level-left">
-                  <div>
-                    <h3 className="title is-5">{experience.title}</h3>
-                    <h4 className="subtitle is-6">{experience.company}</h4>
-                  </div>
-                </div>
-                <div className="level-right has-text-right-tablet">
-                  <div>
-                    <p>
-                      {new Intl.DateTimeFormat("en", {
-                        month: "short",
-                        year: "numeric",
-                      }).format(new Date(experience.start_date))}
-                      {" - "}
-                      {experience.end_date
-                        ? new Intl.DateTimeFormat("en", {
-                            month: "short",
-                            year: "numeric",
-                          }).format(new Date(experience.end_date))
-                        : "Present"}
-                    </p>
-                    <p>{experience.location}</p>
-                  </div>
-                </div>
-              </div>
-              <div className="content">
-                <p>{experience.description}</p>
+        <div className="experience-intro">
+          <p className="experience-kicker">A through-line of making</p>
+          <h2 className="title is-2" id="experience-title">Experience</h2>
+          <p className="experience-lede">
+            From startup ownership and consulting delivery to technical product
+            leadership in commerce.
+          </p>
+        </div>
+        <div className="experience-timeline">
+          {experienceEvidence.map((experience) => (
+            <article className="experience-entry" key={experience.id}>
+              <p className="experience-period">{experience.period}</p>
+              <div className="experience-body">
+                <p className="experience-organisation">
+                  {experience.organisation}
+                </p>
+                <h3 className="title is-4">{experience.title}</h3>
+                <p>{experience.summary}</p>
                 <ul>
-                  {experience.responsibilities?.map((responsibility, index) => (
-                    <li key={index}>{responsibility}</li>
+                  {experience.highlights.map((highlight) => (
+                    <li key={highlight}>{highlight}</li>
                   ))}
                 </ul>
               </div>
-            </div>
+            </article>
           ))}
-        {experiences.length > initialExperienceCount && (
-          <button
-            className="button is-primary"
-            onClick={() => setShowAllExperiences(!showAllExperiences)}
-          >
-            <span className="icon">
-              {showAllExperiences ? (
-                <FontAwesomeIcon icon={faChevronUp} />
-              ) : (
-                <FontAwesomeIcon icon={faChevronDown} />
-              )}
-            </span>
-            <span>{showAllExperiences ? "View Less" : "View All"}</span>
-          </button>
-        )}
+        </div>
       </div>
     </section>
   );

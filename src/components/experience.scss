@@ -1,18 +1,16 @@
-$time: 0.5s;
+.experience-section { background: var(--bulma-scheme-main-bis); }
+.experience-intro { max-width: 42rem; margin-bottom: 3rem; }
+.experience-kicker { color: var(--bulma-link); font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.experience-lede { font-size: 1.2rem; line-height: 1.6; }
+.experience-timeline { border-top: 1px solid var(--bulma-border); }
+.experience-entry { display: grid; grid-template-columns: 9rem 1fr; gap: 2rem; padding: 1.75rem 0; border-bottom: 1px solid var(--bulma-border); }
+.experience-period { color: var(--bulma-link); font-weight: 700; font-variant-numeric: tabular-nums; }
+.experience-organisation { color: var(--bulma-text-light); font-size: .95rem; margin-bottom: .35rem; }
+.experience-body .title { margin: 0 0 .75rem; }
+.experience-body ul { margin-top: .75rem; }
+.experience-body li + li { margin-top: .25rem; }
 
-.experience {
-  max-height: 2000px;
-  transition: max-height $time ease-out, padding $time, margin $time,
-    visibility $time;
-}
-
-.experience.hide {
-  visibility: hidden;
-  max-height: 0;
-  overflow: hidden;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  margin-bottom: 0 !important;
-  transition: max-height $time ease-out, padding $time, margin $time,
-    visibility $time;
+@media (max-width: 768px) {
+  .experience-intro { margin-bottom: 2rem; }
+  .experience-entry { grid-template-columns: 1fr; gap: .5rem; padding: 1.5rem 0; }
 }

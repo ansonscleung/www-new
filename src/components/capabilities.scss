@@ -1,0 +1,16 @@
+.capabilities-section { background: var(--bulma-scheme-main-bis); }
+.capabilities-intro { max-width: 42rem; margin-bottom: 3rem; }
+.capabilities-kicker, .capability-eyebrow { color: var(--bulma-link); font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.capabilities-lede { font-size: 1.2rem; line-height: 1.6; }
+.capabilities-list { border-top: 1px solid var(--bulma-border); }
+.capability-row { display: grid; grid-template-columns: 3rem minmax(10rem, .7fr) 1fr; gap: 1.5rem; padding: 1.75rem 0; border-bottom: 1px solid var(--bulma-border); }
+.capability-index { color: var(--bulma-text-light); font-variant-numeric: tabular-nums; }
+.capability-main .title { margin: .35rem 0 0; }
+.capability-copy p { margin-bottom: .5rem; }
+.capability-detail { color: var(--bulma-text-light); font-size: .95rem; }
+
+@media (max-width: 768px) {
+  .capabilities-intro { margin-bottom: 2rem; }
+  .capability-row { grid-template-columns: 2.25rem 1fr; gap: .75rem 1rem; }
+  .capability-copy { grid-column: 2; }
+}
