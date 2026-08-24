@@ -32,6 +32,16 @@ test("homepage presents the complete narrative and bilingual quote", async ({
     .poll(() => page.locator("main > section").evaluateAll((sections) => sections.map(({ id }) => id)))
     .toEqual(sectionOrder);
 
+  const selectedWork = page.locator("#selected-work");
+  await expect(selectedWork.getByText(/278,000\+ unique customers/i)).toBeVisible();
+  await expect(selectedWork.getByText(/approximately 70,000 product items/i)).toBeVisible();
+  await expect(
+    selectedWork.getByRole("link", { name: /Unlimited Add-on — 2024 annual results/i })
+  ).toHaveAttribute("target", "_blank");
+  await expect(
+    selectedWork.getByRole("link", { name: /3 Hr Mart — 2025 annual results/i })
+  ).toHaveAttribute("target", "_blank");
+
   const englishQuote = page.locator(".quote-en");
   const chineseQuote = page.locator('.quote-zh[lang="zh-Hant"]');
   await expect(englishQuote).toBeVisible();

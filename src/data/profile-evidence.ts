@@ -47,8 +47,11 @@ export const experienceEvidence: ExperienceEvidence[] = [
     period: "2023–Present",
     title: "Product Specialist → Senior Product Specialist",
     organisation: "Shoalter Technology (member of HKTV Group)",
-    summary: "Progressed from shaping product requirements to owning end-to-end journeys for high-volume commerce and delivery initiatives.",
-    highlights: ["HKTVmall, Wet Market Express, and 3-hour delivery", "Cross-functional requirements, UAT, and release coordination"],
+    summary: "Translate complex e-commerce and operational needs into engineering-ready rules, customer journeys, acceptance criteria and coordinated releases for HKTVmall.",
+    highlights: [
+      "Checkout, promotions, fulfilment, accelerated delivery and partner-channel experiences",
+      "Cross-functional product definition, UAT, rollout and production follow-through",
+    ],
   },
   {
     id: "protiviti",

@@ -43,6 +43,26 @@ const ProjectSection: React.FC = () => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
+            {work.publicEvidence?.length ? (
+              <div className="selected-work__evidence">
+                <p>Public company disclosures</p>
+                <ul>
+                  {work.publicEvidence.map((evidence) => (
+                    <li key={evidence.url}>
+                      <a
+                        href={evidence.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {evidence.label}
+                        <span aria-hidden="true"> ↗</span>
+                        <span className="is-sr-only"> (opens in a new tab)</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
             {work.href ? (
               <Link className="selected-work__link" to={work.href}>
                 Read the Travel Planner case study <span aria-hidden="true">→</span>

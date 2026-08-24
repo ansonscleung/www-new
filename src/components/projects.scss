@@ -63,6 +63,33 @@
   font-size: 0.875rem;
 }
 
+.selected-work__evidence {
+  margin: 0 0 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--bulma-border-weak);
+  font-size: 0.875rem;
+}
+
+.selected-work__evidence p {
+  margin-bottom: 0.5rem;
+  color: var(--bulma-text-weak);
+  font-weight: 700;
+}
+
+.selected-work__evidence ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.selected-work__evidence li + li {
+  margin-top: 0.35rem;
+}
+
+.selected-work__evidence a {
+  color: var(--bulma-link-text);
+  text-underline-offset: 0.18em;
+}
+
 .selected-work__link {
   margin-top: auto;
   color: var(--bulma-link-text);

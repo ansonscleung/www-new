@@ -14,5 +14,12 @@ describe("ExperienceSection", () => {
     expect(screen.getByText("itinni")).toBeInTheDocument();
     expect(screen.getByText("OOCL")).toBeInTheDocument();
     expect(screen.getAllByText(/Shoalter Technology/i)).toHaveLength(1);
+    expect(
+      screen.getByText(/engineering-ready rules, customer journeys, acceptance criteria/i)
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/checkout, promotions, fulfilment, accelerated delivery/i)
+    ).toBeInTheDocument();
+    expect(screen.queryByText(/13 tickets|6 backend services|MAO|UAO/i)).not.toBeInTheDocument();
   });
 });

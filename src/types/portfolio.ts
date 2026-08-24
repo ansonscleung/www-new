@@ -60,6 +60,11 @@ export interface ImpactMetric {
   context: string;
 }
 
+export interface PublicEvidence {
+  label: string;
+  url: string;
+}
+
 export interface WorkSummary {
   id: string;
   title: string;
@@ -69,6 +74,7 @@ export interface WorkSummary {
   outcome: string;
   technologies: string[];
   href?: string;
+  publicEvidence?: readonly PublicEvidence[];
 }
 
 export interface ExperienceChapter {
