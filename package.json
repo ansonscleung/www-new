@@ -4,6 +4,9 @@
   "private": true,
   "description": "ansonscleung.com",
   "author": "Anson Leung",
+  "engines": {
+    "node": "22.x"
+  },
   "keywords": [
     "gatsby"
   ],
