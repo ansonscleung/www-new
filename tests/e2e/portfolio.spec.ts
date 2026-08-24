@@ -28,6 +28,11 @@ test("homepage presents the complete narrative and bilingual quote", async ({
   await page.goto("/");
 
   await expect(page.getByRole("heading", { level: 1, name: "Anson Leung" })).toBeVisible();
+  await expect(page.locator("#home > .identity-overlay .identity-fixed")).toBeVisible();
+  await expect(page.getByRole("region", { name: "Career journey" })).toBeVisible();
+  await expect(page.locator("#home").getByRole("link", { name: "View selected work" })).toHaveCount(0);
+  await expect(page.locator("#home").getByRole("link", { name: "View LinkedIn" })).toHaveCount(0);
+  await expect(page.locator("#home").getByRole("link", { name: "Get in touch" })).toHaveCount(0);
   await expect
     .poll(() => page.locator("main > section").evaluateAll((sections) => sections.map(({ id }) => id)))
     .toEqual(sectionOrder);

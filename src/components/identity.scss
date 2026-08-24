@@ -41,15 +41,22 @@ $backdrop-filter: blur(25px) saturate(200%);
   width: 100%;
 }
 
-.identity {
+.identity-fixed,
+.identity-carousel {
   @include glass-material;
-  margin-bottom: 1rem;
-  padding: 2rem;
-  border-radius: 2rem;
+  border-radius: 1.5rem;
 }
 
-.identity-eyebrow,
-.identity-stage-label {
+.identity-fixed {
+  margin-bottom: 0.75rem;
+  padding: 1.5rem 2rem;
+}
+
+.identity-carousel {
+  padding: 1.25rem 1.5rem;
+}
+
+.identity-eyebrow {
   color: var(--bulma-text-strong);
   font-size: 0.75rem;
   font-weight: 700;
@@ -63,9 +70,7 @@ $backdrop-filter: blur(25px) saturate(200%);
 }
 
 .identity-stage {
-  border-left: 3px solid var(--bulma-primary);
-  margin-top: 1.5rem;
-  padding-left: 1rem;
+  max-width: 48rem;
 }
 
 .identity-stage .title,
@@ -83,13 +88,17 @@ $backdrop-filter: blur(25px) saturate(200%);
 }
 
 .identity-controls {
-  @include glass-material;
   align-items: center;
-  border-radius: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
   display: flex;
   gap: 1rem;
   justify-content: space-between;
-  padding: 0.75rem 1rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+
+  @media (prefers-color-scheme: dark) {
+    border-top-color: rgba(255, 255, 255, 0.15);
+  }
 }
 
 .identity-navigation {
@@ -128,15 +137,10 @@ $backdrop-filter: blur(25px) saturate(200%);
   outline: none;
 }
 
-.identity-actions {
-  margin-top: 1.25rem;
-  margin-bottom: 0;
-  min-width: 0;
-  max-width: 100%;
-}
-
-.identity .title,
-.identity .subtitle {
+.identity-fixed .title,
+.identity-fixed .subtitle,
+.identity-carousel .title,
+.identity-carousel .subtitle {
   color: var(--bulma-text-strong);
 }
 
@@ -150,28 +154,40 @@ $backdrop-filter: blur(25px) saturate(200%);
     padding-bottom: 0.75rem;
   }
 
-  .identity {
+  .identity-fixed,
+  .identity-carousel {
     padding: 1rem;
     border-radius: 1.25rem;
+  }
+
+  .identity-fixed {
     margin-bottom: 0.5rem;
   }
 
-  .identity .title.is-1 {
+  .identity-fixed .title.is-1 {
     font-size: clamp(1.7rem, 7.4vw, 2.2rem);
     line-height: 1.05;
   }
 
-  .identity .subtitle.is-4 {
+  .identity-fixed .subtitle.is-4 {
     font-size: clamp(0.95rem, 3.4vw, 1.1rem);
     line-height: 1.2;
     margin-bottom: 0.35rem;
+  }
+
+  .identity-carousel .title.is-3 {
+    font-size: clamp(1.35rem, 5.2vw, 1.75rem);
+  }
+
+  .identity-carousel .subtitle.is-5 {
+    font-size: clamp(0.9rem, 3.2vw, 1rem);
   }
 
   .identity-controls {
     align-items: stretch;
     flex-direction: column;
     gap: 0.5rem;
-    padding: 0.65rem 0.75rem;
+    padding-top: 0.65rem;
   }
 
   .identity-navigation {
@@ -208,17 +224,18 @@ $backdrop-filter: blur(25px) saturate(200%);
     padding-bottom: 0.55rem;
   }
 
-  .identity {
+  .identity-fixed,
+  .identity-carousel {
     padding: 0.85rem;
     border-radius: 1rem;
   }
 
-  .identity .title.is-1 {
+  .identity-fixed .title.is-1 {
     font-size: clamp(1.55rem, 7vw, 1.95rem);
     margin-bottom: 0.25rem;
   }
 
-  .identity .subtitle.is-4 {
+  .identity-fixed .subtitle.is-4 {
     font-size: 0.95rem;
     line-height: 1.15;
     margin-bottom: 0.2rem;

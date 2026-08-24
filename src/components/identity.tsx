@@ -76,16 +76,6 @@ const Hero: React.FC = () => {
     <section
       id="home"
       className="identity-hero"
-      aria-roledescription="carousel"
-      aria-label="Career journey"
-      onPointerEnter={() => setPointerPaused(true)}
-      onPointerLeave={() => setPointerPaused(false)}
-      onFocusCapture={() => setFocusPaused(true)}
-      onBlurCapture={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-          setFocusPaused(false);
-        }
-      }}
       style={
         {
           "--identity-mobile-image-position":
@@ -106,16 +96,31 @@ const Hero: React.FC = () => {
         style={{ gridArea: "1/1", position: "relative" }}
       >
         <div className="container">
-          <div className="identity is-blurred">
-            <p className="identity-eyebrow">
-              Technical product leadership · {currentIndex + 1} / {stages.length}
-            </p>
+          <header className="identity-fixed is-blurred">
+            <p className="identity-eyebrow">Technical Product × Solutions</p>
             <h1 className="title is-1">Anson Leung</h1>
             <p className="subtitle is-4 identity-positioning">
               I build digital products where technology meets real-world problems.
             </p>
+          </header>
+          <div
+            className="identity-carousel is-blurred"
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="Career journey"
+            onPointerEnter={() => setPointerPaused(true)}
+            onPointerLeave={() => setPointerPaused(false)}
+            onFocusCapture={() => setFocusPaused(true)}
+            onBlurCapture={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                setFocusPaused(false);
+              }
+            }}
+          >
             <div className="identity-stage" aria-describedby="career-stage-description">
-              <p className="identity-stage-label">Career stage</p>
+              <p className="identity-eyebrow">
+                Career journey · {currentIndex + 1} / {stages.length}
+              </p>
               <h2 className="title is-3">{currentStage.stage}</h2>
               <p id="career-stage-description" className="subtitle is-5">
                 {currentStage.description}
@@ -124,65 +129,49 @@ const Hero: React.FC = () => {
             <p className="is-sr-only" aria-live="polite" aria-atomic="true">
               {announcement}
             </p>
-            <div className="buttons identity-actions">
-              <a className="button is-primary is-rounded" href="#selected-work">
-                View selected work
-              </a>
-              <a
-                className="button is-light is-rounded"
-                href="https://www.linkedin.com/in/ansonscleung/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View LinkedIn
-              </a>
-              <a className="button is-light is-rounded" href="#contact">
-                Get in touch
-              </a>
-            </div>
-          </div>
-          <div className="identity-controls is-blurred">
-            <div className="buttons identity-navigation" aria-label="Carousel controls">
-              <button
-                className="button is-light is-rounded"
-                type="button"
-                aria-label="Previous stage"
-                onClick={() => selectStage(currentIndex - 1)}
-              >
-                Previous
-              </button>
-              <button
-                className="button is-light is-rounded"
-                type="button"
-                aria-label={userPaused ? "Resume carousel" : "Pause carousel"}
-                onClick={() => setUserPaused((paused) => !paused)}
-              >
-                {userPaused ? "Resume" : "Pause"}
-              </button>
-              <button
-                className="button is-light is-rounded"
-                type="button"
-                aria-label="Next stage"
-                onClick={() => selectStage(currentIndex + 1)}
-              >
-                Next
-              </button>
-            </div>
-            <div className="identity-options" aria-label="Choose a career stage">
-              {stages.map((stage, index) => (
+            <div className="identity-controls">
+              <div className="buttons identity-navigation" aria-label="Carousel controls">
                 <button
-                  className={`identity-indicator${
-                    currentIndex === index ? " is-selected" : ""
-                  }`}
-                  key={stage.stage}
+                  className="button is-light is-rounded"
                   type="button"
-                  aria-label={`Show ${stage.stage} stage`}
-                  aria-pressed={currentIndex === index}
-                  onClick={() => selectStage(index)}
+                  aria-label="Previous stage"
+                  onClick={() => selectStage(currentIndex - 1)}
                 >
-                  <span>{stage.stage}</span>
+                  Previous
                 </button>
-              ))}
+                <button
+                  className="button is-light is-rounded"
+                  type="button"
+                  aria-label={userPaused ? "Resume carousel" : "Pause carousel"}
+                  onClick={() => setUserPaused((paused) => !paused)}
+                >
+                  {userPaused ? "Resume" : "Pause"}
+                </button>
+                <button
+                  className="button is-light is-rounded"
+                  type="button"
+                  aria-label="Next stage"
+                  onClick={() => selectStage(currentIndex + 1)}
+                >
+                  Next
+                </button>
+              </div>
+              <div className="identity-options" aria-label="Choose a career stage">
+                {stages.map((stage, index) => (
+                  <button
+                    className={`identity-indicator${
+                      currentIndex === index ? " is-selected" : ""
+                    }`}
+                    key={stage.stage}
+                    type="button"
+                    aria-label={`Show ${stage.stage} stage`}
+                    aria-pressed={currentIndex === index}
+                    onClick={() => selectStage(index)}
+                  >
+                    <span>{stage.stage}</span>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { act, fireEvent, render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
@@ -48,27 +48,22 @@ describe("Hero", () => {
     vi.unstubAllGlobals();
   });
 
-  it("presents the technical-product introduction and six selectable career stages", () => {
+  it("separates the fixed identity from the career carousel without duplicate calls to action", () => {
     render(<Hero />);
 
-    expect(screen.getByRole("heading", { level: 1, name: "Anson Leung" })).toBeInTheDocument();
+    const heading = screen.getByRole("heading", { level: 1, name: "Anson Leung" });
+    const carousel = screen.getByRole("region", { name: "Career journey" });
+
+    expect(screen.getByText("Technical Product × Solutions")).toBeInTheDocument();
+    expect(carousel).not.toContainElement(heading);
     expect(screen.getByText("I build digital products where technology meets real-world problems.")).toBeInTheDocument();
-    expect(screen.getAllByRole("button", { name: /show .* stage/i })).toHaveLength(6);
-    expect(screen.getByRole("button", { name: "Show Foundation stage" })).toHaveAttribute("aria-pressed", "true");
-    expect(screen.getByRole("link", { name: "View selected work" })).toHaveAttribute("href", "#selected-work");
-    expect(screen.getByRole("link", { name: "View LinkedIn" })).toHaveAttribute(
-      "href",
-      "https://www.linkedin.com/in/ansonscleung/"
-    );
-    expect(screen.getByRole("link", { name: "View LinkedIn" })).toHaveAttribute(
-      "target",
-      "_blank"
-    );
-    expect(screen.getByRole("link", { name: "View LinkedIn" })).toHaveAttribute(
-      "rel",
-      "noopener noreferrer"
-    );
-    expect(screen.getByRole("link", { name: "Get in touch" })).toHaveAttribute("href", "#contact");
+    expect(within(carousel).getByText("Career journey · 1 / 6")).toBeInTheDocument();
+    expect(within(carousel).getByRole("heading", { level: 2, name: "Foundation" })).toBeInTheDocument();
+    expect(within(carousel).getAllByRole("button", { name: /show .* stage/i })).toHaveLength(6);
+    expect(within(carousel).getByRole("button", { name: "Show Foundation stage" })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.queryByRole("link", { name: "View selected work" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "View LinkedIn" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "Get in touch" })).not.toBeInTheDocument();
   });
 
   it("moves through stages with accessible controls and pauses when asked", async () => {
