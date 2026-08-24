@@ -1,78 +1,58 @@
 import * as React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { Link } from "gatsby";
+import { selectedWork } from "../data/selected-work";
 import "./projects.scss";
 
-interface Link {
-  name: string;
-  link: string;
-}
-
-interface Project {
-  title: string;
-  description: string;
-  technologies: string[];
-  links: Link[];
-}
-
-const ProjectSection: React.FC = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-      allProjectsJson {
-        edges {
-          node {
-            title
-            description
-            technologies
-            links {
-              name
-              link
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  const projects: Project[] = data.allProjectsJson.edges.map(
-    (e: any) => e.node
-  );
-
-  return (
-    <section className="section" id="projects">
-      <div className="container">
-        <h2 className="title">Projects</h2>
-        <div className="columns is-multiline">
-          {projects.map((project, index) => (
-            <div className="column is-one-third" key={index}>
-              <div className="box project-card">
-                <h3 className="title is-4">{project.title}</h3>
-                <p>{project.description}</p>
-                <div className="tags">
-                  {project.technologies.map((tech, index) => (
-                    <span className="tag is-primary" key={index}>
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <div className="buttons">
-                  {project.links.map((link, index) => (
-                    <a href={link.link} className="button is-link" key={index}>
-                      {link.name}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+const ProjectSection: React.FC = () => (
+  <section
+    className="section selected-work"
+    id="selected-work"
+    aria-labelledby="selected-work-title"
+  >
+    <div className="container">
+      <div className="selected-work__intro">
+        <p className="selected-work__eyebrow">Product leadership in practice</p>
+        <h2 className="title" id="selected-work-title">
+          Selected Work
+        </h2>
       </div>
-    </section>
-  );
-};
+      <div className="selected-work__grid">
+        {selectedWork.map((work) => (
+          <article className="selected-work__card" key={work.id}>
+            <p className="selected-work__role">{work.role}</p>
+            <h3 className="title is-4">{work.title}</h3>
+            <dl className="selected-work__summary">
+              <div>
+                <dt>Problem</dt>
+                <dd>{work.problem}</dd>
+              </div>
+              <div>
+                <dt>Approach</dt>
+                <dd>{work.approach}</dd>
+              </div>
+              <div>
+                <dt>Outcome</dt>
+                <dd>{work.outcome}</dd>
+              </div>
+            </dl>
+            <ul
+              className="selected-work__focus"
+              aria-label={`${work.title} focus areas`}
+            >
+              {work.technologies.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            {work.href ? (
+              <Link className="selected-work__link" to={work.href}>
+                Read the Travel Planner case study <span aria-hidden="true">→</span>
+              </Link>
+            ) : null}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 export default ProjectSection;
