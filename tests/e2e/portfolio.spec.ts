@@ -37,6 +37,16 @@ test("homepage presents the complete narrative and bilingual quote", async ({
     .poll(() => page.locator("main > section").evaluateAll((sections) => sections.map(({ id }) => id)))
     .toEqual(sectionOrder);
 
+  const impact = page.locator("#impact");
+  await expect(impact.getByText("278,000+ unique customers")).toBeVisible();
+  await expect(impact.getByText("Approximately 70,000 product items")).toBeVisible();
+  await expect(
+    impact.getByRole("link", { name: /HKTV 2024 annual results/i })
+  ).toHaveAttribute("target", "_blank");
+  await expect(
+    impact.getByRole("link", { name: /HKTV 2025 annual results/i })
+  ).toHaveAttribute("target", "_blank");
+
   const selectedWork = page.locator("#selected-work");
   await expect(selectedWork.getByText(/278,000\+ unique customers/i)).toBeVisible();
   await expect(selectedWork.getByText(/approximately 70,000 product items/i)).toBeVisible();

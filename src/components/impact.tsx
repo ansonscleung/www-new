@@ -13,8 +13,8 @@ const ImpactSection: React.FC = () => (
         <p className="impact-kicker">Evidence, with context</p>
         <h2 className="title is-2" id="impact-title">Impact</h2>
         <p className="impact-lede">
-          Selected signals from earlier product, startup, and operations work
-          — kept specific to where they happened.
+          Public product scale from work I helped deliver, alongside
+          earlier startup leadership evidence — kept specific to where it happened.
         </p>
       </div>
       <div className="impact-list">
@@ -24,6 +24,23 @@ const ImpactSection: React.FC = () => (
             <div>
               <p className="impact-label">{metric.label}</p>
               <p className="impact-context">{metric.context}</p>
+              {metric.publicEvidence?.length ? (
+                <ul className="impact-sources" aria-label={`${metric.label} public sources`}>
+                  {metric.publicEvidence.map((evidence) => (
+                    <li key={evidence.url}>
+                      <a
+                        className="impact-source"
+                        href={evidence.url}
+                        aria-label={`${evidence.label} (opens in a new tab)`}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        {evidence.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
             </div>
           </article>
         ))}

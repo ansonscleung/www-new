@@ -58,6 +58,7 @@ export interface ImpactMetric {
   value: string;
   label: string;
   context: string;
+  publicEvidence?: readonly PublicEvidence[];
 }
 
 export interface PublicEvidence {
