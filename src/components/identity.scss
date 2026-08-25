@@ -18,8 +18,11 @@ $backdrop-filter: blur(25px) saturate(200%);
 .identity-hero {
   display: grid;
   align-items: stretch;
-  min-height: 100vh;
-  min-height: 100svh;
+  height: 100vh;
+  height: 100svh;
+  max-height: 100svh;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .identity-bg,
@@ -41,19 +44,17 @@ $backdrop-filter: blur(25px) saturate(200%);
   width: 100%;
 }
 
-.identity-fixed,
-.identity-carousel {
+.identity-surface {
   @include glass-material;
   border-radius: 1.5rem;
+  padding: 1.25rem 1.5rem;
 }
 
 .identity-fixed {
-  margin-bottom: 0.75rem;
-  padding: 1.5rem 2rem;
-}
-
-.identity-carousel {
-  padding: 1.25rem 1.5rem;
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.75rem;
 }
 
 .identity-eyebrow {
@@ -65,12 +66,9 @@ $backdrop-filter: blur(25px) saturate(200%);
   text-transform: uppercase;
 }
 
-.identity-positioning {
-  max-width: 42rem;
-}
-
 .identity-stage {
   max-width: 48rem;
+  margin-top: 0.65rem;
 }
 
 .identity-stage .title,
@@ -137,10 +135,8 @@ $backdrop-filter: blur(25px) saturate(200%);
   outline: none;
 }
 
-.identity-fixed .title,
-.identity-fixed .subtitle,
-.identity-carousel .title,
-.identity-carousel .subtitle {
+.identity-surface .title,
+.identity-surface .subtitle {
   color: var(--bulma-text-strong);
 }
 
@@ -154,25 +150,18 @@ $backdrop-filter: blur(25px) saturate(200%);
     padding-bottom: 0.75rem;
   }
 
-  .identity-fixed,
-  .identity-carousel {
+  .identity-surface {
     padding: 1rem;
     border-radius: 1.25rem;
   }
 
   .identity-fixed {
-    margin-bottom: 0.5rem;
+    display: block;
   }
 
   .identity-fixed .title.is-1 {
     font-size: clamp(1.7rem, 7.4vw, 2.2rem);
     line-height: 1.05;
-  }
-
-  .identity-fixed .subtitle.is-4 {
-    font-size: clamp(0.95rem, 3.4vw, 1.1rem);
-    line-height: 1.2;
-    margin-bottom: 0.35rem;
   }
 
   .identity-carousel .title.is-3 {
@@ -224,8 +213,7 @@ $backdrop-filter: blur(25px) saturate(200%);
     padding-bottom: 0.55rem;
   }
 
-  .identity-fixed,
-  .identity-carousel {
+  .identity-surface {
     padding: 0.85rem;
     border-radius: 1rem;
   }
@@ -233,12 +221,6 @@ $backdrop-filter: blur(25px) saturate(200%);
   .identity-fixed .title.is-1 {
     font-size: clamp(1.55rem, 7vw, 1.95rem);
     margin-bottom: 0.25rem;
-  }
-
-  .identity-fixed .subtitle.is-4 {
-    font-size: 0.95rem;
-    line-height: 1.15;
-    margin-bottom: 0.2rem;
   }
 
   .identity-indicator {

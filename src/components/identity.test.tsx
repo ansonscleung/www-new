@@ -48,15 +48,20 @@ describe("Hero", () => {
     vi.unstubAllGlobals();
   });
 
-  it("separates the fixed identity from the career carousel without duplicate calls to action", () => {
+  it("keeps the compact identity and career carousel in one visual surface", () => {
     render(<Hero />);
 
     const heading = screen.getByRole("heading", { level: 1, name: "Anson Leung" });
     const carousel = screen.getByRole("region", { name: "Career journey" });
+    const surface = document.querySelector(".identity-surface");
 
     expect(screen.getByText("Technical Product × Solutions")).toBeInTheDocument();
-    expect(carousel).not.toContainElement(heading);
-    expect(screen.getByText("I build digital products where technology meets real-world problems.")).toBeInTheDocument();
+    expect(surface).toContainElement(heading);
+    expect(surface).toContainElement(carousel);
+    expect(document.querySelectorAll(".identity-surface")).toHaveLength(1);
+    expect(
+      screen.queryByText("I build digital products where technology meets real-world problems.")
+    ).not.toBeInTheDocument();
     expect(within(carousel).getByText("Career journey · 1 / 6")).toBeInTheDocument();
     expect(within(carousel).getByRole("heading", { level: 2, name: "Foundation" })).toBeInTheDocument();
     expect(within(carousel).getAllByRole("button", { name: /show .* stage/i })).toHaveLength(6);
