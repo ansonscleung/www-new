@@ -11,11 +11,11 @@ const ExperienceSection: React.FC = () => {
     >
       <div className="container">
         <div className="experience-intro">
-          <p className="experience-kicker">A through-line of making</p>
+          <p className="experience-kicker">Where I have worked</p>
           <h2 className="title is-2" id="experience-title">Experience</h2>
           <p className="experience-lede">
-            From startup ownership and consulting delivery to technical product
-            leadership in commerce.
+            Started with a startup, moved into consulting, then spent the last
+            few years working on e-commerce products at Shoalter.
           </p>
         </div>
         <div className="experience-timeline">
