@@ -48,10 +48,10 @@ describe("ProjectSection", () => {
     render(<ProjectSection />);
 
     expect(
-      screen.getByText(/group itinerary editing for roughly 100 daily users/i)
+      screen.getByText(/at its peak, the product had roughly 100 daily users/i)
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/ongoing validation practice with structured itineraries/i)
+      screen.getByText(/keeps the itinerary editable instead of treating the AI's answer as final/i)
     ).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: "Read the Travel Planner case study" })
