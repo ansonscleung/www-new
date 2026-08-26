@@ -10,13 +10,14 @@ const EducationSection: React.FC = () => (
   >
     <div className="container">
       <div className="education-intro">
-        <p className="education-kicker">Foundations and perspective</p>
+        <p className="education-kicker">Where it started</p>
         <h2 className="title is-2" id="education-title">
           Education
         </h2>
         <p className="education-lede">
-          A computer science foundation widened by information systems and
-          international study.
+          Computer Science at CUHK came first, followed later by an MSc in
+          Information Systems Management at HKUST, with an exchange semester at
+          Aalto University in between.
         </p>
       </div>
       <div className="education-list">
