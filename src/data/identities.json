@@ -1,34 +1,34 @@
 [
   {
     "stage": "Foundation",
-    "description": "Computer Science at CUHK, with an exchange at Aalto University—where product thinking began in code.",
+    "description": "Computer Science at CUHK, with an exchange semester at Aalto University in Finland.",
     "mobileImagePosition": "60% center",
     "backgroundImage": "../images/cuhk.jpg"
   },
   {
     "stage": "Startup",
-    "description": "Co-founded itinni, leading a 10-person product team and building travel tools for real groups of travellers.",
+    "description": "Co-founded itinni and grew a team of developers and designers building travel-planning tools.",
     "mobileImagePosition": "76% center",
     "backgroundImage": "../images/pi_centre.jpg"
   },
   {
     "stage": "Enterprise",
-    "description": "At Protiviti, delivered cloud migration, automation, and a VR sourcing platform for enterprise clients.",
+    "description": "Cloud migration, automation and web application work at Protiviti across enterprise client engagements.",
     "backgroundImage": "../images/enthusiast.jpg"
   },
   {
     "stage": "Scale",
-    "description": "At Shoalter Technology, shaped e-commerce roadmaps, launches, and overseas growth with cross-functional teams.",
+    "description": "E-commerce product delivery at Shoalter across HKTVmall, fulfilment and accelerated-delivery initiatives.",
     "backgroundImage": "../images/programmer.png"
   },
   {
     "stage": "Today",
-    "description": "Owning requirements and user flows for HKTVmall, Wet Market Express, and 3-hour delivery initiatives.",
+    "description": "A career increasingly centred on the space between product decisions and technical implementation.",
     "backgroundImage": "../images/pi_centre.jpg"
   },
   {
     "stage": "Next",
-    "description": "Bringing technical fluency, clear product requirements, and practical delivery to the next real-world challenge.",
+    "description": "Looking for roles where the problem, the system and the people building it stay close together.",
     "backgroundImage": "../images/aalto_vappu.jpg"
   }
 ]
