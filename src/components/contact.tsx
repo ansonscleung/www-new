@@ -11,11 +11,11 @@ const ContactSection: React.FC = () => (
   >
     <div className="container">
       <div className="contact-panel">
-        <p className="contact-kicker">Next chapter</p>
-        <h2 className="title is-2" id="contact-title">Let’s build the next useful thing.</h2>
+        <p className="contact-kicker">Get in touch</p>
+        <h2 className="title is-2" id="contact-title">Got an interesting problem?</h2>
         <p className="contact-copy">
-          If you’re working through a product problem that needs both customer
-          clarity and technical follow-through, I’d be glad to compare notes.
+          Always happy to talk about product, software, AI, or work that sits
+          somewhere between them.
         </p>
         <div className="contact-actions">
           <a className="button is-primary" href="mailto:ansonscleung@gmail.com">Email Anson</a>

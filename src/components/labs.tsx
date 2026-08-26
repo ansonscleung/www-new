@@ -13,8 +13,8 @@ const LabsSection: React.FC = () => (
         <p className="labs-kicker">Small tools, real questions</p>
         <h2 className="title is-2" id="labs-title">Labs</h2>
         <p className="labs-lede">
-          A few experiments and products that keep the technical side of
-          product work close at hand.
+          Small projects and experiments that keep the hands-on technical side
+          alive outside day-to-day product work.
         </p>
       </div>
       <div className="labs-list">

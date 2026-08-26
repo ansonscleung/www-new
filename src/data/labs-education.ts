@@ -5,7 +5,7 @@ export const labProjects: LabProject[] = [
     id: "musiccompare",
     title: "MusicCompare",
     description:
-      "A JavaScript-first audio comparison tool co-created with Steven Wong to estimate music similarity directly in the browser. Featured in the 2020 GitHub Archive Program.",
+      "Steven Wong and I built MusicCompare to experiment with comparing two pieces of music directly in the browser. It later became part of the 2020 GitHub Archive Program.",
     technologies: ["JavaScript", "HTML", "CSS"],
     href: "https://ansonscleung.github.io/MusicCompare/",
     linkLabel: "Visit MusicCompare",
@@ -14,7 +14,7 @@ export const labProjects: LabProject[] = [
     id: "jyutpingify",
     title: "jyutpingify",
     description:
-      "A JavaScript utility for converting Traditional Chinese text into Jyutping romanization for Cantonese-focused language tooling.",
+      "A small JavaScript library built to turn Chinese text into Jyutping, originally for uses such as romanised text and URL slugs.",
     technologies: ["JavaScript"],
     href: "https://github.com/ansonscleung/jyutpingify",
     linkLabel: "View jyutpingify on GitHub",
@@ -23,7 +23,7 @@ export const labProjects: LabProject[] = [
     id: "ict-sba",
     title: "ICT SBA — Football Match Scoring",
     description:
-      "A secondary-school project that built the foundation of my programming journey through a Pascal-based football scoring system.",
+      "My secondary-school ICT project: a football scoring system written in Pascal. It stays here because it is where programming started to become something I took seriously.",
     technologies: ["Pascal"],
     href: "https://gitlab.com/ansonscleung/ict-sba",
     linkLabel: "View ICT SBA on GitLab",
@@ -42,18 +42,18 @@ export const educationEntries: EducationEntry[] = [
     id: "cuhk",
     award: "BSc Computer Science",
     institution: "The Chinese University of Hong Kong",
-    note: "Computer science foundation and systems thinking.",
+    note: "Where the software foundation came from.",
   },
   {
     id: "hkust",
     award: "MSc Information Systems Management",
     institution: "The Hong Kong University of Science and Technology",
-    note: "Information systems, organisations, and technology in practice.",
+    note: "A broader view of how technology works inside organisations.",
   },
   {
     id: "aalto",
     award: "Exchange studies",
     institution: "Aalto University",
-    note: "An international study chapter in Finland.",
+    note: "One semester studying and living in Finland.",
   },
 ];
