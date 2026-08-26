@@ -11,7 +11,7 @@ const ProjectSection: React.FC = () => (
   >
     <div className="container">
       <div className="selected-work__intro">
-        <p className="selected-work__eyebrow">Product leadership in practice</p>
+        <p className="selected-work__eyebrow">A few things I have worked on</p>
         <h2 className="title" id="selected-work-title">
           Selected Work
         </h2>
