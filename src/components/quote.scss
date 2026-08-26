@@ -1,0 +1,59 @@
+.quote-of-the-day {
+  background: var(--bulma-scheme-main-bis);
+}
+
+.quote-card {
+  border-left: 4px solid var(--bulma-primary);
+  margin: 0 auto;
+  max-width: 52rem;
+  padding: 1.5rem 0 1.5rem 1.5rem;
+}
+
+.quote-kicker {
+  color: var(--bulma-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.quote-en {
+  color: var(--bulma-text-strong);
+  font-size: clamp(1.25rem, 2.8vw, 1.8rem);
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.quote-zh {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.quote-attribution {
+  margin-top: 1.25rem;
+}
+
+.quote-attribution p,
+.quote-attribution cite {
+  display: block;
+  margin: 0;
+}
+
+.quote-meta {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.quote-meta a {
+  color: var(--bulma-link);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .quote-card {
+    padding-left: 1rem;
+  }
+}

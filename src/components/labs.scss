@@ -1,0 +1,15 @@
+.labs-section { background: var(--bulma-scheme-main-bis); }
+.labs-intro { max-width: 42rem; margin-bottom: 3rem; }
+.labs-kicker { color: var(--bulma-link); font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.labs-lede { font-size: 1.2rem; line-height: 1.6; }
+.labs-list { border-top: 1px solid var(--bulma-border); }
+.lab-entry { display: grid; grid-template-columns: 1fr minmax(12rem, .35fr); gap: 2rem; padding: 1.75rem 0; border-bottom: 1px solid var(--bulma-border); }
+.lab-heading .title { margin-bottom: .5rem; }
+.lab-meta { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
+.lab-technologies { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0; padding: 0; list-style: none; }
+.lab-technologies li { padding: .25rem .5rem; background: var(--bulma-scheme-main-ter); font-size: .85rem; }
+.lab-link { color: var(--bulma-link-text); font-weight: 700; text-decoration: underline; text-underline-offset: .2em; }
+@media (max-width: 768px) {
+  .labs-intro { margin-bottom: 2rem; }
+  .lab-entry { grid-template-columns: 1fr; gap: 1rem; }
+}

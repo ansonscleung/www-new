@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
+import "./header.scss";
 
 const Header: React.FC = () => {
   const data = useStaticQuery(graphql`
@@ -13,6 +14,7 @@ const Header: React.FC = () => {
   `);
 
   const [isAtTop, setIsAtTop] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +29,7 @@ const Header: React.FC = () => {
 
   const headerHeight = isAtTop ? "4rem" : "3rem";
   const fontSize = isAtTop ? "18px" : "16px";
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <nav
@@ -36,19 +39,41 @@ const Header: React.FC = () => {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <Link to="/" className="navbar-item">
+        <Link to="/" className="navbar-item" onClick={closeMenu}>
           {data.site.siteMetadata.title}
         </Link>
+        <button
+          type="button"
+          className={`navbar-burger${isMenuOpen ? " is-active" : ""}`}
+          aria-label="Toggle navigation menu"
+          aria-expanded={isMenuOpen}
+          aria-controls="main-navigation-menu"
+          onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
+        >
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+        </button>
       </div>
-      <div className="navbar-menu">
+      <div
+        id="main-navigation-menu"
+        className={`navbar-menu${isMenuOpen ? " is-active" : ""}`}
+      >
         <div className="navbar-end">
-          <a href="#identity" className="navbar-item">
+          <a href="#home" className="navbar-item" onClick={closeMenu}>
             Home
           </a>
-          <a href="#about" className="navbar-item">
-            About
+          <a href="#selected-work" className="navbar-item" onClick={closeMenu}>
+            Work
           </a>
-          <a href="#contacts" className="navbar-item">
+          <a href="#experience" className="navbar-item" onClick={closeMenu}>
+            Experience
+          </a>
+          <a href="#labs" className="navbar-item" onClick={closeMenu}>
+            Labs
+          </a>
+          <a href="#contact" className="navbar-item" onClick={closeMenu}>
             Contact
           </a>
         </div>

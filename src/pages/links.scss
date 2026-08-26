@@ -1,5 +1,16 @@
 .link-section {
   min-height: 100vh;
+  background-color: var(--bulma-scheme-main);
+  color: var(--bulma-text);
+}
+
+.link-title {
+  color: var(--bulma-text-strong);
+}
+
+.link-home {
+  align-self: flex-start;
+  color: var(--bulma-link-text);
 }
 
 .link-list {
