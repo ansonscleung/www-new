@@ -15,8 +15,8 @@ const CapabilitiesSection: React.FC = () => (
           What I bring
         </h2>
         <p className="capabilities-lede">
-          A product practice with one foot in the customer problem and the
-          other in the system that has to deliver it.
+          Close to both the problem and the system behind it — from figuring
+          out what needs to change to working through the details and getting it shipped.
         </p>
       </div>
       <div className="capabilities-list">
