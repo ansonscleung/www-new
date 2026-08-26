@@ -51,10 +51,8 @@ $backdrop-filter: blur(25px) saturate(200%);
 }
 
 .identity-fixed {
-  align-items: baseline;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0 0.75rem;
+  flex-direction: column;
 }
 
 .identity-eyebrow {
@@ -86,11 +84,7 @@ $backdrop-filter: blur(25px) saturate(200%);
 }
 
 .identity-controls {
-  align-items: center;
   border-top: 1px solid rgba(255, 255, 255, 0.4);
-  display: flex;
-  gap: 1rem;
-  justify-content: space-between;
   margin-top: 1rem;
   padding-top: 0.75rem;
 
@@ -99,20 +93,15 @@ $backdrop-filter: blur(25px) saturate(200%);
   }
 }
 
-.identity-navigation {
-  flex: 0 0 auto;
-  margin: 0;
-}
-
-.identity-navigation .button {
-  margin-bottom: 0;
-}
-
 .identity-options {
   display: flex;
   gap: 0.35rem;
   justify-content: flex-end;
   min-width: 0;
+}
+
+.identity-pause {
+  margin-right: auto;
 }
 
 .identity-indicator {
@@ -173,19 +162,7 @@ $backdrop-filter: blur(25px) saturate(200%);
   }
 
   .identity-controls {
-    align-items: stretch;
-    flex-direction: column;
-    gap: 0.5rem;
     padding-top: 0.65rem;
-  }
-
-  .identity-navigation {
-    display: flex;
-    width: 100%;
-  }
-
-  .identity-navigation .button {
-    flex: 1 1 0;
   }
 
   .identity-options {
@@ -204,6 +181,11 @@ $backdrop-filter: blur(25px) saturate(200%);
     margin: 0;
     padding: 0.22rem 0.62rem;
     font-size: 0.82rem;
+  }
+
+  .identity-pause {
+    position: sticky;
+    left: 0;
   }
 }
 

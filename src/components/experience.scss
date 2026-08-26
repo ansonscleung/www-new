@@ -5,7 +5,7 @@
 .experience-timeline { border-top: 1px solid var(--bulma-border); }
 .experience-entry { display: grid; grid-template-columns: 9rem 1fr; gap: 2rem; padding: 1.75rem 0; border-bottom: 1px solid var(--bulma-border); }
 .experience-period { color: var(--bulma-link); font-weight: 700; font-variant-numeric: tabular-nums; }
-.experience-organisation { color: var(--bulma-text-light); font-size: .95rem; margin-bottom: .35rem; }
+.experience-organisation { color: var(--bulma-text); font-size: .95rem; margin-bottom: .35rem; opacity: .82; }
 .experience-body .title { margin: 0 0 .75rem; }
 .experience-body ul { margin-top: .75rem; }
 .experience-body li + li { margin-top: .25rem; }

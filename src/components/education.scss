@@ -4,7 +4,7 @@
 .education-lede { font-size: 1.2rem; line-height: 1.6; }
 .education-list { border-top: 1px solid var(--bulma-border); }
 .education-entry { display: grid; grid-template-columns: minmax(14rem, .65fr) 1fr; gap: 2rem; padding: 1.5rem 0; border-bottom: 1px solid var(--bulma-border); }
-.education-institution { color: var(--bulma-text-light); }
+.education-institution { color: var(--bulma-text); opacity: .82; }
 .education-entry .title { margin: 0 0 .5rem; }
 @media (max-width: 768px) {
   .education-intro { margin-bottom: 2rem; }

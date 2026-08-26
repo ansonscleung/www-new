@@ -71,15 +71,15 @@ describe("Hero", () => {
     expect(screen.queryByRole("link", { name: "Get in touch" })).not.toBeInTheDocument();
   });
 
-  it("moves through stages with accessible controls and pauses when asked", async () => {
+  it("moves through stages with tabs and pauses when asked", async () => {
     const user = userEvent.setup();
     render(<Hero />);
 
-    await user.click(screen.getByRole("button", { name: "Next stage" }));
+    await user.click(screen.getByRole("button", { name: "Show Startup stage" }));
     expect(screen.getByRole("heading", { level: 2, name: "Startup" })).toBeInTheDocument();
     await user.click(screen.getByRole("button", { name: "Pause carousel" }));
     expect(screen.getByRole("button", { name: "Resume carousel" })).toBeInTheDocument();
-    await user.click(screen.getByRole("button", { name: "Previous stage" }));
+    await user.click(screen.getByRole("button", { name: "Show Foundation stage" }));
     expect(screen.getByRole("heading", { level: 2, name: "Foundation" })).toBeInTheDocument();
   });
 
@@ -89,7 +89,7 @@ describe("Hero", () => {
 
     act(() => vi.advanceTimersByTime(6_999));
     expect(screen.getByRole("heading", { level: 2, name: "Foundation" })).toBeInTheDocument();
-    act(() => screen.getByRole("button", { name: "Next stage" }).click());
+    act(() => screen.getByRole("button", { name: "Show Startup stage" }).click());
     act(() => vi.advanceTimersByTime(6_999));
     expect(screen.getByRole("heading", { level: 2, name: "Startup" })).toBeInTheDocument();
     act(() => vi.advanceTimersByTime(1));
@@ -112,7 +112,7 @@ describe("Hero", () => {
   it("pauses autoplay while focus remains within the carousel", () => {
     vi.useFakeTimers();
     render(<Hero />);
-    const next = screen.getByRole("button", { name: "Next stage" });
+    const next = screen.getByRole("button", { name: "Show Startup stage" });
 
     fireEvent.focus(next);
     act(() => vi.advanceTimersByTime(7_000));
@@ -126,7 +126,7 @@ describe("Hero", () => {
     vi.useFakeTimers();
     render(<Hero />);
     const carousel = screen.getByRole("region", { name: "Career journey" });
-    const next = screen.getByRole("button", { name: "Next stage" });
+    const next = screen.getByRole("button", { name: "Show Startup stage" });
 
     fireEvent.pointerEnter(carousel);
     fireEvent.focus(next);

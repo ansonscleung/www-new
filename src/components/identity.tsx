@@ -127,34 +127,17 @@ const Hero: React.FC = () => {
               <p className="is-sr-only" aria-live="polite" aria-atomic="true">
                 {announcement}
               </p>
-              <div className="identity-controls">
-                <div className="buttons identity-navigation" aria-label="Carousel controls">
+              <div className="identity-controls" aria-label="Carousel controls">
+                <div className="identity-options" aria-label="Choose a career stage">
                   <button
-                    className="button is-light is-rounded"
-                    type="button"
-                    aria-label="Previous stage"
-                    onClick={() => selectStage(currentIndex - 1)}
-                  >
-                    Previous
-                  </button>
-                  <button
-                    className="button is-light is-rounded"
+                    className="identity-indicator identity-pause"
                     type="button"
                     aria-label={userPaused ? "Resume carousel" : "Pause carousel"}
+                    aria-pressed={userPaused}
                     onClick={() => setUserPaused((paused) => !paused)}
                   >
                     {userPaused ? "Resume" : "Pause"}
                   </button>
-                  <button
-                    className="button is-light is-rounded"
-                    type="button"
-                    aria-label="Next stage"
-                    onClick={() => selectStage(currentIndex + 1)}
-                  >
-                    Next
-                  </button>
-                </div>
-                <div className="identity-options" aria-label="Choose a career stage">
                   {stages.map((stage, index) => (
                     <button
                       className={`identity-indicator${

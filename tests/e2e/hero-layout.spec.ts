@@ -41,9 +41,8 @@ test("hero keeps mobile controls visible without page-level horizontal overflow"
 
   const controls = page.locator("#home .identity-controls");
   await expect(controls).toBeVisible();
-  await expect(page.getByRole("button", { name: "Previous stage", exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: "Pause carousel", exact: true })).toBeVisible();
-  await expect(page.getByRole("button", { name: "Next stage", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Show Foundation stage", exact: true })).toBeVisible();
 
   const layout = await page.locator("#home").evaluate((hero) => ({
     heroBottom: hero.getBoundingClientRect().bottom,
