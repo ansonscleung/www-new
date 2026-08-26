@@ -10,11 +10,11 @@ const ImpactSection: React.FC = () => (
   >
     <div className="container">
       <div className="impact-intro">
-        <p className="impact-kicker">Evidence, with context</p>
+        <p className="impact-kicker">Some numbers behind the work</p>
         <h2 className="title is-2" id="impact-title">Impact</h2>
         <p className="impact-lede">
-          Public product scale from work I helped deliver, alongside
-          earlier startup leadership evidence — kept specific to where it happened.
+          A few figures that put the products and teams I have worked on into
+          perspective. Public company figures are linked to their sources.
         </p>
       </div>
       <div className="impact-list">
