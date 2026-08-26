@@ -15,7 +15,7 @@ describe("ExperienceSection", () => {
     expect(screen.getByText("OOCL")).toBeInTheDocument();
     expect(screen.getAllByText(/Shoalter Technology/i)).toHaveLength(1);
     expect(
-      screen.getByText(/engineering-ready rules, customer journeys, acceptance criteria/i)
+      screen.getByText(/worked with business and operations teams on e-commerce changes/i)
     ).toBeInTheDocument();
     expect(
       screen.getByText(/checkout, promotions, fulfilment, accelerated delivery/i)
