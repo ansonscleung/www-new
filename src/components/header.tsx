@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import "./header.scss";
 
@@ -13,33 +13,18 @@ const Header: React.FC = () => {
     }
   `);
 
-  const [isAtTop, setIsAtTop] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsAtTop(window.pageYOffset === 0);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const headerHeight = isAtTop ? "4rem" : "3rem";
-  const fontSize = isAtTop ? "18px" : "16px";
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <nav
-      className="navbar is-fixed-top"
-      style={{ fontSize, minHeight: headerHeight, transition: "all 0.5s" }}
+      className="navbar is-fixed-top refined-header"
       role="navigation"
       aria-label="main navigation"
     >
       <div className="navbar-brand">
         <Link to="/" className="navbar-item" onClick={closeMenu}>
+          <span className="header-status" aria-hidden="true" />
           {data.site.siteMetadata.title}
         </Link>
         <button
@@ -63,6 +48,9 @@ const Header: React.FC = () => {
         <div className="navbar-end">
           <a href="#home" className="navbar-item" onClick={closeMenu}>
             Home
+          </a>
+          <a href="#capabilities" className="navbar-item" onClick={closeMenu}>
+            Capabilities
           </a>
           <a href="#selected-work" className="navbar-item" onClick={closeMenu}>
             Work

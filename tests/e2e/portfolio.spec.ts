@@ -28,11 +28,14 @@ test("homepage presents the complete narrative and bilingual quote", async ({
   await page.goto("/");
 
   await expect(page.getByRole("heading", { level: 1, name: "Anson Leung" })).toBeVisible();
-  await expect(page.locator("#home > .identity-overlay .identity-fixed")).toBeVisible();
-  await expect(page.getByRole("region", { name: "Career journey" })).toBeVisible();
-  await expect(page.locator("#home").getByRole("link", { name: "View selected work" })).toHaveCount(0);
-  await expect(page.locator("#home").getByRole("link", { name: "View LinkedIn" })).toHaveCount(0);
-  await expect(page.locator("#home").getByRole("link", { name: "Get in touch" })).toHaveCount(0);
+  await expect(page.getByRole("heading", {
+    level: 2,
+    name: "Technical Product & Solution Delivery Professional",
+  })).toBeVisible();
+  await expect(page.locator("#home .identity-system-map")).toBeVisible();
+  await expect(page.locator("#home").getByRole("link", { name: "View selected work" })).toBeVisible();
+  await expect(page.locator("#home").getByRole("link", { name: /^LinkedIn/ })).toBeVisible();
+  await expect(page.getByRole("region", { name: "Career journey" })).toHaveCount(0);
   await expect
     .poll(() => page.locator("main > section").evaluateAll((sections) => sections.map(({ id }) => id)))
     .toEqual(sectionOrder);
@@ -117,7 +120,9 @@ test("dark and reduced-motion preferences keep the hero usable", async ({
 
   const hero = page.locator("#home");
   await expect(hero).toBeVisible();
-  await expect(page.getByRole("button", { name: "Pause carousel" })).toBeVisible();
+  await expect(hero.getByRole("link", { name: "View selected work" })).toBeVisible();
+  await expect(hero.locator(".identity-system-map")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Pause carousel" })).toHaveCount(0);
   await expect(page.locator(".quote-en")).toBeVisible();
   expect(errors).toEqual([]);
 });

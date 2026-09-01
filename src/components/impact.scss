@@ -1,14 +1,16 @@
-.impact-section { background: var(--bulma-scheme-main); }
+.impact-section { padding: var(--section-space) var(--gutter); border-bottom: 1px solid var(--border); background: transparent; }
+.impact-section > .container { width: min(100%, var(--content)); max-width: none !important; }
 .impact-intro { max-width: 42rem; margin-bottom: 3rem; }
-.impact-kicker { color: var(--bulma-link); font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-.impact-lede { font-size: 1.2rem; line-height: 1.6; }
-.impact-list { border-top: 1px solid var(--bulma-border); }
-.impact-row { display: grid; grid-template-columns: minmax(14rem, .8fr) 1fr; gap: 2rem; align-items: baseline; padding: 1.5rem 0; border-bottom: 1px solid var(--bulma-border); }
-.impact-row .title { margin: 0; font-variant-numeric: tabular-nums; }
+.impact-kicker { color: var(--muted); font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; }
+.impact-section .title { color: var(--fg); font-family: var(--display); letter-spacing: -.02em; }
+.impact-lede { color: var(--muted); font-size: 1.1rem; line-height: 1.6; }
+.impact-list { border-top: 1px solid var(--border); }
+.impact-row { display: grid; grid-template-columns: minmax(14rem, .8fr) 1fr; gap: 2rem; align-items: baseline; padding: 1.75rem 0; border-bottom: 1px solid var(--border); }
+.impact-row .title { margin: 0; color: var(--accent); font-size: clamp(1.75rem, 3.4vw, 3rem); font-variant-numeric: tabular-nums; }
 .impact-label { font-weight: 700; margin-bottom: .25rem; }
-.impact-context { color: var(--bulma-text); opacity: .82; }
+.impact-context { max-width: 60ch; color: var(--muted); }
 .impact-sources { display: flex; flex-wrap: wrap; gap: .75rem; margin: .75rem 0 0; padding: 0; list-style: none; }
-.impact-source { font-size: .9rem; font-weight: 700; }
+.impact-source { color: var(--fg); font-size: .9rem; font-weight: 700; text-underline-offset: .2rem; }
 
 @media (max-width: 768px) {
   .impact-intro { margin-bottom: 2rem; }

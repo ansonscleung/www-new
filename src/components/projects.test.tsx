@@ -58,4 +58,17 @@ describe("ProjectSection", () => {
     ).toHaveAttribute("href", "/work/travel-planner/");
     expect(screen.getAllByRole("link")).toHaveLength(3);
   });
+
+  it("gives Shoalter the lead case-study treatment and keeps the other work secondary", () => {
+    render(<ProjectSection />);
+
+    const leadCase = document.querySelector(".selected-work__lead");
+    expect(leadCase).toContainElement(
+      screen.getByRole("heading", { level: 3, name: /Shoalter/i })
+    );
+    expect(screen.getByText("Requirements")).toBeInTheDocument();
+    expect(screen.getByText("UAT")).toBeInTheDocument();
+    expect(screen.getByText("Release")).toBeInTheDocument();
+    expect(document.querySelectorAll(".selected-work__secondary")).toHaveLength(2);
+  });
 });

@@ -1,72 +1,36 @@
 import { expect, test } from "@playwright/test";
 
-const wideViewports = [
+const viewports = [
+  { width: 390, height: 844 },
+  { width: 820, height: 900 },
+  { width: 1440, height: 900 },
   { width: 1920, height: 1080 },
-  { width: 2560, height: 1440 },
 ];
 
-for (const viewport of wideViewports) {
-  test(`hero stays within the viewport and uses one compact surface at ${viewport.width}x${viewport.height}`, async ({
+for (const viewport of viewports) {
+  test(`static technology hero is readable without overflow at ${viewport.width}px`, async ({
     page,
-  }, testInfo) => {
-    test.skip(!testInfo.project.name.includes("desktop"), "Desktop wide-viewport coverage");
+  }) => {
     await page.setViewportSize(viewport);
     await page.goto("/");
 
-    const layout = await page.locator("#home").evaluate((hero) => {
-      const surfaces = Array.from(
-        hero.querySelectorAll(".identity-surface")
-      ) as HTMLElement[];
-      const heroRect = hero.getBoundingClientRect();
+    await expect(page.getByRole("heading", { level: 1, name: "Anson Leung" })).toBeVisible();
+    await expect(page.getByRole("heading", {
+      level: 2,
+      name: "Technical Product & Solution Delivery Professional",
+    })).toBeVisible();
+    await expect(page.getByRole("link", { name: "View selected work" })).toBeVisible();
+    await expect(page.locator(".identity-system-map")).toBeVisible();
 
-      return {
-        heroHeight: heroRect.height,
-        viewportHeight: window.innerHeight,
-        surfaceHeights: surfaces.map((surface) => surface.getBoundingClientRect().height),
-      };
-    });
+    const layout = await page.locator("#home").evaluate((hero) => ({
+      heroWidth: hero.getBoundingClientRect().width,
+      viewportWidth: window.innerWidth,
+      hasPageOverflow:
+        document.documentElement.scrollWidth > document.documentElement.clientWidth,
+    }));
 
-    expect(layout.heroHeight).toBeLessThanOrEqual(layout.viewportHeight + 1);
-    expect(layout.surfaceHeights).toHaveLength(1);
-    expect(layout.surfaceHeights[0]).toBeLessThan(layout.viewportHeight * 0.4);
+    expect(layout.heroWidth).toBeLessThanOrEqual(layout.viewportWidth + 1);
+    expect(layout.hasPageOverflow).toBe(false);
+    await expect(page.getByRole("button", { name: /pause carousel/i })).toHaveCount(0);
   });
 }
-
-test("hero keeps mobile controls visible without page-level horizontal overflow", async (
-  { page },
-  testInfo
-) => {
-  test.skip(!testInfo.project.name.includes("mobile"), "Mobile viewport coverage");
-  await page.goto("/");
-
-  const controls = page.locator("#home .identity-controls");
-  await expect(controls).toBeVisible();
-  await expect(page.getByRole("button", { name: "Pause carousel", exact: true })).toBeVisible();
-  await expect(page.getByRole("button", { name: "Show Foundation stage", exact: true })).toBeVisible();
-
-  const layout = await page.locator("#home").evaluate((hero) => ({
-    heroBottom: hero.getBoundingClientRect().bottom,
-    controlsBottom: (hero.querySelector(".identity-controls") as HTMLElement).getBoundingClientRect()
-      .bottom,
-    hasPageOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
-  }));
-
-  expect(layout.controlsBottom).toBeLessThanOrEqual(layout.heroBottom + 1);
-  expect(layout.hasPageOverflow).toBe(false);
-});
-
-test("hero keeps controls inside a short desktop viewport", async ({ page }, testInfo) => {
-  test.skip(!testInfo.project.name.includes("desktop"), "Desktop short-height coverage");
-  await page.setViewportSize({ width: 1280, height: 640 });
-  await page.goto("/");
-
-  const layout = await page.locator("#home").evaluate((hero) => ({
-    heroBottom: hero.getBoundingClientRect().bottom,
-    controlsBottom: (hero.querySelector(".identity-controls") as HTMLElement).getBoundingClientRect()
-      .bottom,
-    hasPageOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
-  }));
-
-  expect(layout.controlsBottom).toBeLessThanOrEqual(layout.heroBottom + 1);
-  expect(layout.hasPageOverflow).toBe(false);
-});

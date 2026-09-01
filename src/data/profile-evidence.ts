@@ -49,7 +49,7 @@ export const impactEvidence: ImpactEvidence[] = [
     value: "278,000+ unique customers",
     label: "Unlimited Add-on",
     context:
-      "Usage for a product experience I owned and delivered at HKTVmall.",
+      "Company-reported usage for a product experience I owned and delivered at HKTVmall.",
     publicEvidence: [
       {
         label: "from HKTV 2024 annual results",
@@ -60,7 +60,7 @@ export const impactEvidence: ImpactEvidence[] = [
   {
     value: "Approximately 70,000 product items",
     label: "3 Hr Mart",
-    context: "Launch scale of 3 Hr Mart, a project I owned and delivered.",
+    context: "Company-reported launch scale of 3 Hr Mart, a project I owned and delivered.",
     publicEvidence: [
       {
         label: "from HKTV 2025 annual results",

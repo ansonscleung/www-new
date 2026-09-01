@@ -17,6 +17,16 @@
     --content: 88rem;
     --gutter: clamp(1.25rem, 5vw, 5.5rem);
     --section-space: clamp(4.5rem, 9vw, 8.5rem);
+    --bulma-scheme-main: var(--bg);
+    --bulma-scheme-main-bis: var(--surface);
+    --bulma-scheme-main-ter: oklch(0.225 0.018 220);
+    --bulma-text: var(--muted);
+    --bulma-text-strong: var(--fg);
+    --bulma-text-weak: var(--muted);
+    --bulma-border: var(--border);
+    --bulma-border-weak: var(--border);
+    --bulma-link: var(--accent);
+    --bulma-link-text: var(--accent);
 }
 
 html {
