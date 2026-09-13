@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 import "./identity.scss";
 
 const Hero: React.FC = () => (
@@ -21,26 +21,14 @@ const Hero: React.FC = () => (
       </div>
     </div>
 
-    <figure className="identity-case-summary" aria-labelledby="travel-summary-title">
-      <figcaption id="travel-summary-title">Travel Planner / case summary</figcaption>
-      <ol>
-        <li>
-          <span>01</span>
-          <strong>Different ages and travel needs</strong>
-          <p>Make pace, mobility, meals, children and elders visible before planning a route.</p>
-        </li>
-        <li>
-          <span>02</span>
-          <strong>Explicit planning constraints</strong>
-          <p>Give those practical limits a first-class place in the workflow and data model.</p>
-        </li>
-        <li>
-          <span>03</span>
-          <strong>An editable itinerary</strong>
-          <p>Start with structure while keeping every proposed plan open to human judgement.</p>
-        </li>
-      </ol>
-      <Link to="/work/travel-planner/">Read the case study <span aria-hidden="true">→</span></Link>
+    <figure className="identity-portrait" aria-label="Anson Leung outdoors at Aalto University">
+      <StaticImage
+        src="../images/Portrait.jpg"
+        alt="Anson Leung outdoors at sunset in Aalto University"
+        placeholder="blurred"
+        loading="eager"
+      />
+      <figcaption>Systems work starts by paying attention to people and context.</figcaption>
     </figure>
   </section>
 );

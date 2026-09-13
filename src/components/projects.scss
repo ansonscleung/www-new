@@ -9,26 +9,13 @@
   max-width: none !important;
 }
 
-.selected-work__intro {
-  max-width: 42rem;
-  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
-}
-
-.selected-work__intro > p:last-child {
-  max-width: 50ch;
-  color: var(--muted);
-  font-size: 1.1rem;
-}
-
-.selected-work__eyebrow,
 .selected-work__role,
 .selected-work__summary dt,
-.selected-work__scale-label {
+.selected-work__context > p {
+  margin: 0;
   color: var(--muted);
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.82rem;
+  font-weight: 600;
 }
 
 .selected-work .title {
@@ -56,48 +43,27 @@
   font-size: clamp(1.15rem, 2vw, 1.4rem);
 }
 
-.selected-work__sequence {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin: 2.25rem 0 0;
-  padding: 0;
-  border-top: 1px solid var(--border);
-  list-style: none;
+.selected-work__context {
+  align-self: start;
+  padding: 1.25rem 0 0;
+  border-top: 2px solid var(--accent);
 }
 
-.selected-work__sequence li {
-  display: grid;
-  gap: 0.45rem;
-  padding: 1rem 0;
-  color: var(--fg);
-  font-family: var(--mono);
-  font-size: 0.78rem;
-}
-
-.selected-work__sequence li + li { padding-left: 1rem; border-left: 1px solid var(--border); }
-.selected-work__sequence span { color: var(--accent); }
-
-.selected-work__scale {
-  padding-left: clamp(1.5rem, 4vw, 3rem);
-  border-left: 1px solid var(--border);
-}
-
-.selected-work__scale ul {
-  margin: 1.25rem 0 2rem;
+.selected-work__context ul {
+  margin: 1rem 0 1.5rem;
   padding: 0;
   list-style: none;
 }
 
-.selected-work__scale li {
-  padding: 1rem 0;
+.selected-work__context li {
+  padding: .8rem 0;
   border-bottom: 1px solid var(--border);
-  color: var(--accent);
-  font-family: var(--display);
-  font-size: clamp(1.25rem, 2.4vw, 2rem);
-  line-height: 1.15;
+  color: var(--fg);
+  font-size: 1rem;
+  line-height: 1.4;
 }
 
-.selected-work__scale a,
+.selected-work__context a,
 .selected-work__link {
   display: block;
   margin-top: 0.65rem;
@@ -137,8 +103,7 @@
   padding: 1rem 0 0;
   border-top: 1px solid var(--border);
   color: var(--muted);
-  font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   list-style: none;
 }
 
@@ -149,10 +114,5 @@
   .selected-work__secondary-grid { grid-template-columns: 1fr; }
   .selected-work__secondary--travel-planner { grid-template-columns: 1fr; }
   .selected-work__secondary--travel-planner > * { grid-column: auto !important; }
-  .selected-work__scale { padding: 2rem 0 0; border-top: 1px solid var(--border); border-left: 0; }
-}
-
-@media (max-width: 430px) {
-  .selected-work__sequence { grid-template-columns: 1fr; }
-  .selected-work__sequence li + li { padding-left: 0; border-top: 1px solid var(--border); border-left: 0; }
+  .selected-work__context { margin-top: .5rem; }
 }

@@ -11,10 +11,10 @@ const ExperienceSection: React.FC = () => {
       aria-labelledby="experience-title"
     >
       <div className="container">
-        <div className="experience-intro">
-          <p className="experience-kicker">The context behind the work</p>
+        <div className="section-heading">
+          <p className="section-label">The context behind the work</p>
           <h2 className="title is-2" id="experience-title">Background</h2>
-          <p className="experience-lede">
+          <p className="section-description">
             A route through startups, consulting, e-commerce and digital delivery.
           </p>
         </div>

@@ -1,10 +1,10 @@
 .identity-hero {
   display: grid;
-  grid-template-columns: minmax(0, 7fr) minmax(19rem, 5fr);
-  align-items: center;
-  gap: clamp(2.5rem, 6vw, 6rem);
+  grid-template-columns: minmax(0, 7fr) minmax(18rem, 4fr);
+  align-items: end;
+  gap: clamp(2.5rem, 7vw, 7rem);
   width: min(100%, var(--content));
-  min-height: min(42rem, calc(100svh - 4.75rem));
+  min-height: min(44rem, calc(100svh - 4.75rem));
   margin: 0 auto;
   padding: clamp(7rem, 12vw, 9rem) var(--gutter) clamp(3.5rem, 7vw, 6rem);
   border-bottom: 1px solid var(--border);
@@ -77,50 +77,45 @@
   background: var(--focus);
 }
 
-.identity-case-summary {
+.identity-portrait {
+  position: relative;
+  align-self: stretch;
+  min-height: 31rem;
   margin: 0;
-  padding: 1.5rem;
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  color: var(--muted);
+  overflow: hidden;
+  background: #d8e2e7;
 }
 
-.identity-case-summary figcaption {
+.identity-portrait .gatsby-image-wrapper,
+.identity-portrait .gatsby-image-wrapper img {
+  height: 100%;
+}
+
+.identity-portrait .gatsby-image-wrapper img {
+  object-fit: cover;
+  object-position: 50% 62%;
+  filter: saturate(0.78) contrast(0.95);
+}
+
+.identity-portrait::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 48%, rgb(32 42 48 / 0.62));
+  content: "";
+  pointer-events: none;
+}
+
+.identity-portrait figcaption {
+  position: absolute;
+  z-index: 1;
+  right: 1.25rem;
+  bottom: 1.1rem;
+  left: 1.25rem;
   margin: 0;
-  padding-bottom: 1rem;
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  color: #fff;
+  font-size: 0.85rem;
+  line-height: 1.45;
 }
-
-.identity-case-summary ol {
-  margin: 0;
-  padding: 0;
-  border-top: 1px solid var(--border);
-  list-style: none;
-}
-
-.identity-case-summary li {
-  display: grid;
-  grid-template-columns: 2rem 1fr;
-  column-gap: 0.75rem;
-  padding: 1rem 0 1rem;
-  border-bottom: 1px solid var(--border);
-  color: var(--fg);
-}
-
-.identity-case-summary li span {
-  color: var(--accent);
-  font-family: var(--mono);
-  font-size: 0.75rem;
-}
-
-.identity-case-summary strong { color: var(--fg); font-size: 1rem; }
-.identity-case-summary li p { grid-column: 2; margin: 0.35rem 0 0; font-size: 0.88rem; line-height: 1.5; }
-.identity-case-summary > a { display: inline-flex; min-height: 2.75rem; align-items: center; margin-top: 0.5rem; font-weight: 600; }
 
 @media (max-width: 800px) {
   .identity-hero {
@@ -131,7 +126,11 @@
     padding-top: 7rem;
   }
 
-  .identity-case-summary { width: 100%; max-width: 38rem; }
+  .identity-portrait {
+    width: 100%;
+    max-width: 38rem;
+    min-height: 22rem;
+  }
 }
 
 @media (max-width: 430px) {

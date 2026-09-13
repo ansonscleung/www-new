@@ -13,10 +13,10 @@ const ProjectSection: React.FC = () => {
       aria-labelledby="selected-work-title"
     >
       <div className="container">
-        <div className="selected-work__intro">
-          <p className="selected-work__eyebrow">Selected work / 01</p>
+        <div className="section-heading">
+          <p className="section-label">Selected work</p>
           <h2 className="title" id="selected-work-title">Selected Work</h2>
-          <p>Work where product decisions, system detail and delivery meet.</p>
+          <p className="section-description">Work where product decisions, system detail and delivery meet.</p>
         </div>
 
         <article className="selected-work__lead" id="shoalter">
@@ -26,14 +26,9 @@ const ProjectSection: React.FC = () => {
             <p className="selected-work__problem">{leadWork.problem}</p>
             <p>{leadWork.approach}</p>
             <p>{leadWork.outcome}</p>
-            <ol className="selected-work__sequence" aria-label="Delivery sequence">
-              <li><span>01</span>Requirements</li>
-              <li><span>02</span>UAT</li>
-              <li><span>03</span>Release</li>
-            </ol>
           </div>
-          <aside className="selected-work__scale" aria-label="Shoalter public company evidence">
-            <p className="selected-work__scale-label">Company-reported scale</p>
+          <aside className="selected-work__context" aria-label="Shoalter public company evidence">
+            <p>Company context</p>
             <ul>
               {leadWork.technologies
                 .filter((item) => item !== "Company-reported scale")

@@ -27,7 +27,7 @@ test("homepage presents the working-systems narrative and bilingual quote", asyn
   await expect(page.getByRole("heading", { level: 1, name: "Anson Leung" })).toBeVisible();
   await expect(page.getByText("From intent to working systems.")).toBeVisible();
   await expect(page.locator("#home").getByRole("link", { name: "Explore selected work" })).toBeVisible();
-  await expect(page.getByRole("figure", { name: /Travel Planner/i })).toBeVisible();
+  await expect(page.getByRole("figure", { name: /Anson Leung outdoors/i })).toBeVisible();
   await expect(page.getByRole("region", { name: "Career journey" })).toHaveCount(0);
   await expect
     .poll(() => page.locator("main > section").evaluateAll((sections) => sections.map(({ id }) => id)))
@@ -107,7 +107,7 @@ test("dark and reduced-motion preferences keep the hero usable", async ({
   const hero = page.locator("#home");
   await expect(hero).toBeVisible();
   await expect(hero.getByRole("link", { name: "Explore selected work" })).toBeVisible();
-  await expect(hero.getByRole("figure", { name: /Travel Planner/i })).toBeVisible();
+  await expect(hero.getByRole("figure", { name: /Anson Leung outdoors/i })).toBeVisible();
   await expect(page.getByRole("button", { name: "Pause carousel" })).toHaveCount(0);
   await expect(page.locator(".quote-en")).toBeVisible();
   expect(errors).toEqual([]);

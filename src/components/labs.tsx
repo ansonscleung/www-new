@@ -11,10 +11,10 @@ const LabsSection: React.FC = () => (
     aria-labelledby="labs-title"
   >
     <div className="container">
-      <div className="labs-intro">
-        <p className="labs-kicker">Small tools, real questions</p>
+      <div className="section-heading">
+        <p className="section-label">Small tools, real questions</p>
         <h2 className="title is-2" id="labs-title">Outside the brief</h2>
-        <p className="labs-lede">
+        <p className="section-description">
           Small projects and experiments that keep the hands-on technical side
           alive outside day-to-day product work.
         </p>
@@ -22,7 +22,7 @@ const LabsSection: React.FC = () => (
       <article className="labs-feature">
         <StaticImage src="../images/MusicCompare.png" alt="MusicCompare comparing two music tracks in a browser" placeholder="blurred" />
         <div>
-          <p className="labs-kicker">Featured project</p>
+          <p className="section-label">Featured project</p>
           <h3 className="title is-3">MusicCompare</h3>
           <p>Steven Wong and I built MusicCompare to experiment with comparing two pieces of music directly in the browser. It later became part of the 2020 GitHub Archive Program.</p>
           <a className="lab-link" href="https://ansonscleung.github.io/MusicCompare/" target="_blank" rel="noopener noreferrer">Visit MusicCompare <span aria-hidden="true">↗</span><span className="is-sr-only"> (opens in a new tab)</span></a>

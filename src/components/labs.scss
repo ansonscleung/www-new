@@ -1,22 +1,18 @@
 .labs-section { padding: var(--section-space) var(--gutter); border-bottom: 1px solid var(--border); background: transparent; }
 .labs-section > .container { width: min(100%, var(--content)); max-width: none !important; }
-.labs-intro { max-width: 42rem; margin-bottom: 3rem; }
-.labs-kicker { color: var(--muted); font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; }
 .labs-section .title { color: var(--fg); font-family: var(--display); letter-spacing: -.02em; }
-.labs-lede { color: var(--muted); font-size: 1.1rem; line-height: 1.6; }
 .labs-feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 1fr); gap: clamp(2rem, 6vw, 6rem); align-items: center; margin-bottom: 4rem; padding: 1.5rem; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .labs-feature img { width: 100%; height: auto; border: 1px solid var(--border); }
-.labs-feature p:not(.labs-kicker) { max-width: 48ch; color: var(--muted); }
+.labs-feature p:not(.section-label) { max-width: 48ch; color: var(--muted); }
 .labs-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(2rem, 5vw, 5rem); }
 .lab-entry { display: flex; flex-direction: column; gap: 2rem; padding: 1.75rem 0; border-top: 1px solid var(--border); }
 .lab-heading .title { margin-bottom: .5rem; }
 .lab-meta { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
 .lab-technologies { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0; padding: 0; list-style: none; }
 .lab-heading p, .lab-technologies { color: var(--muted); }
-.lab-technologies li { font-family: var(--mono); font-size: .78rem; }
+.lab-technologies li { font-size: .82rem; }
 .lab-link { color: var(--fg); font-weight: 700; text-decoration: underline; text-underline-offset: .2em; }
 @media (max-width: 800px) {
-  .labs-intro { margin-bottom: 2rem; }
   .labs-feature { grid-template-columns: 1fr; padding: 1rem; }
   .labs-list { grid-template-columns: 1fr; }
 }

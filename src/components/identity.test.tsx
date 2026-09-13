@@ -35,6 +35,6 @@ describe("Hero", () => {
     expect(
       screen.queryByRole("button", { name: /pause carousel/i })
     ).not.toBeInTheDocument();
-    expect(screen.getByRole("figure", { name: /Travel Planner/i })).toBeInTheDocument();
+    expect(screen.getByRole("figure", { name: /Anson Leung outdoors/i })).toBeInTheDocument();
   });
 });

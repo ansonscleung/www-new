@@ -28,7 +28,7 @@ describe("ProjectSection", () => {
     expect(screen.getByRole("heading", { level: 3, name: "Travel Planner" })).toBeInTheDocument();
     expect(screen.getByText(/278,000\+ unique customers/i)).toBeInTheDocument();
     expect(screen.getByText(/approximately 70,000 product items/i)).toBeInTheDocument();
-    expect(screen.getByText(/company-reported scale/i)).toBeInTheDocument();
+    expect(screen.getByText(/company context/i)).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: /Unlimited Add-on — 2024 annual results/i })
     ).toHaveAttribute(
@@ -66,9 +66,7 @@ describe("ProjectSection", () => {
     expect(leadCase).toContainElement(
       screen.getByRole("heading", { level: 3, name: /Shoalter/i })
     );
-    expect(screen.getByText("Requirements")).toBeInTheDocument();
-    expect(screen.getByText("UAT")).toBeInTheDocument();
-    expect(screen.getByText("Release")).toBeInTheDocument();
+    expect(screen.getByText(/through specification, development, UAT and release/i)).toBeInTheDocument();
     expect(document.querySelectorAll(".selected-work__secondary")).toHaveLength(2);
   });
 });

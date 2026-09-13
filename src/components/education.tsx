@@ -9,12 +9,12 @@ const EducationSection: React.FC = () => (
     aria-labelledby="education-title"
   >
     <div className="container">
-      <div className="education-intro">
-        <p className="education-kicker">Where it started</p>
+      <div className="section-heading">
+        <p className="section-label">Where it started</p>
         <h3 className="title is-3" id="education-title">
           Education
         </h3>
-        <p className="education-lede">
+        <p className="section-description">
           Computer Science at CUHK came first, followed later by an MSc in
           Information Systems Management at HKUST, with an exchange semester at
           Aalto University in between.
