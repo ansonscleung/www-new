@@ -3,12 +3,9 @@ import { expect, test, type Page } from "@playwright/test";
 const sectionOrder = [
   "home",
   "capabilities",
-  "impact",
   "selected-work",
   "experience",
   "labs",
-  "education",
-  "quote",
   "contact",
 ];
 
@@ -21,34 +18,20 @@ const collectRuntimeErrors = (page: Page) => {
   return errors;
 };
 
-test("homepage presents the complete narrative and bilingual quote", async ({
+test("homepage presents the working-systems narrative and bilingual quote", async ({
   page,
 }) => {
   const errors = collectRuntimeErrors(page);
   await page.goto("/");
 
   await expect(page.getByRole("heading", { level: 1, name: "Anson Leung" })).toBeVisible();
-  await expect(page.getByRole("heading", {
-    level: 2,
-    name: "Technical Product & Solution Delivery Professional",
-  })).toBeVisible();
-  await expect(page.locator("#home .identity-system-map")).toBeVisible();
-  await expect(page.locator("#home").getByRole("link", { name: "View selected work" })).toBeVisible();
-  await expect(page.locator("#home").getByRole("link", { name: /^LinkedIn/ })).toBeVisible();
+  await expect(page.getByText("From intent to working systems.")).toBeVisible();
+  await expect(page.locator("#home").getByRole("link", { name: "Explore selected work" })).toBeVisible();
+  await expect(page.getByRole("figure", { name: /Travel Planner/i })).toBeVisible();
   await expect(page.getByRole("region", { name: "Career journey" })).toHaveCount(0);
   await expect
     .poll(() => page.locator("main > section").evaluateAll((sections) => sections.map(({ id }) => id)))
     .toEqual(sectionOrder);
-
-  const impact = page.locator("#impact");
-  await expect(impact.getByText("278,000+ unique customers")).toBeVisible();
-  await expect(impact.getByText("Approximately 70,000 product items")).toBeVisible();
-  await expect(
-    impact.getByRole("link", { name: /HKTV 2024 annual results/i })
-  ).toHaveAttribute("target", "_blank");
-  await expect(
-    impact.getByRole("link", { name: /HKTV 2025 annual results/i })
-  ).toHaveAttribute("target", "_blank");
 
   const selectedWork = page.locator("#selected-work");
   await expect(selectedWork.getByText(/278,000\+ unique customers/i)).toBeVisible();
@@ -56,6 +39,9 @@ test("homepage presents the complete narrative and bilingual quote", async ({
   await expect(
     selectedWork.getByRole("link", { name: /Unlimited Add-on — 2024 annual results/i })
   ).toHaveAttribute("target", "_blank");
+  await expect(page.locator("#experience")).toContainText("Senior Business Designer");
+  await expect(page.locator("#experience")).toContainText("2023–Aug 2026");
+  await expect(page.locator("#education")).toContainText("Aalto University");
   await expect(
     selectedWork.getByRole("link", { name: /3 Hr Mart — 2025 annual results/i })
   ).toHaveAttribute("target", "_blank");
@@ -99,7 +85,7 @@ test("mobile navigation reaches sections without horizontal overflow", async ({
   const menuButton = page.getByRole("button", { name: "Toggle navigation menu" });
   await menuButton.click();
   await expect(menuButton).toHaveAttribute("aria-expanded", "true");
-  await page.getByRole("link", { name: "Labs", exact: true }).click();
+  await page.getByRole("link", { name: "Outside work", exact: true }).click();
   await expect(menuButton).toHaveAttribute("aria-expanded", "false");
   await expect(page).toHaveURL(/#labs$/);
 
@@ -120,8 +106,8 @@ test("dark and reduced-motion preferences keep the hero usable", async ({
 
   const hero = page.locator("#home");
   await expect(hero).toBeVisible();
-  await expect(hero.getByRole("link", { name: "View selected work" })).toBeVisible();
-  await expect(hero.locator(".identity-system-map")).toBeVisible();
+  await expect(hero.getByRole("link", { name: "Explore selected work" })).toBeVisible();
+  await expect(hero.getByRole("figure", { name: /Travel Planner/i })).toBeVisible();
   await expect(page.getByRole("button", { name: "Pause carousel" })).toHaveCount(0);
   await expect(page.locator(".quote-en")).toBeVisible();
   expect(errors).toEqual([]);

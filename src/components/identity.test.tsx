@@ -12,24 +12,18 @@ describe("Hero", () => {
       screen.getByRole("heading", { level: 1, name: "Anson Leung" })
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", {
-        level: 2,
-        name: "Technical Product & Solution Delivery Professional",
-      })
+      screen.getByText("From intent to working systems.")
     ).toBeInTheDocument();
     expect(
       screen.getByText(
-        "Turning ambiguous requirements into shipped systems, integrations, and working prototypes."
+        /I work across business needs, technical implementation and project delivery/
       )
     ).toBeInTheDocument();
 
     expect(
-      screen.getByRole("link", { name: "View selected work" })
+      screen.getByRole("link", { name: "Explore selected work" })
     ).toHaveAttribute("href", "#selected-work");
-    expect(screen.getByRole("link", { name: /^LinkedIn/ })).toHaveAttribute(
-      "href",
-      "https://www.linkedin.com/in/ansonscleung/"
-    );
+    expect(screen.getByRole("link", { name: /How I work/ })).toHaveAttribute("href", "#capabilities");
   });
 
   it("uses a static hero without carousel controls", () => {
@@ -41,6 +35,6 @@ describe("Hero", () => {
     expect(
       screen.queryByRole("button", { name: /pause carousel/i })
     ).not.toBeInTheDocument();
-    expect(document.querySelector(".identity-system-map")).toBeInTheDocument();
+    expect(screen.getByRole("figure", { name: /Travel Planner/i })).toBeInTheDocument();
   });
 });

@@ -1,60 +1,45 @@
 .identity-hero {
   display: grid;
-  grid-template-columns: minmax(0, 9fr) minmax(14rem, 3fr);
-  align-items: end;
-  gap: clamp(3rem, 7vw, 8rem);
+  grid-template-columns: minmax(0, 7fr) minmax(19rem, 5fr);
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 6rem);
   width: min(100%, var(--content));
-  min-height: min(46rem, calc(100svh - 4.75rem));
+  min-height: min(42rem, calc(100svh - 4.75rem));
   margin: 0 auto;
-  padding: clamp(6.5rem, 12vw, 10rem) var(--gutter) clamp(4.5rem, 8vw, 7.5rem);
+  padding: clamp(7rem, 12vw, 9rem) var(--gutter) clamp(3.5rem, 7vw, 6rem);
   border-bottom: 1px solid var(--border);
 }
 
 .identity-copy {
-  max-width: 68rem;
-}
-
-.identity-eyebrow,
-.identity-system-map,
-.identity-actions {
-  font-family: var(--mono);
-}
-
-.identity-eyebrow {
-  margin: 0 0 1.5rem;
-  color: var(--accent);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  max-width: 40rem;
 }
 
 .identity-copy h1 {
-  max-width: 16ch;
   margin: 0;
   color: var(--fg);
   font-family: var(--display);
-  font-size: clamp(3.25rem, 6vw, 4.5rem);
-  font-weight: 600;
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  font-weight: 650;
   letter-spacing: -0.03em;
   line-height: 1.02;
 }
 
-.identity-copy h2 {
-  max-width: 24ch;
-  margin: 1rem 0 0;
+.identity-statement {
+  max-width: 13ch;
+  margin: 1.25rem 0 0;
   color: var(--fg);
   font-family: var(--display);
-  font-size: clamp(1.65rem, 3.2vw, 3rem);
-  font-weight: 550;
+  font-size: clamp(2.5rem, 5.2vw, 4rem);
+  font-weight: 600;
   letter-spacing: -0.025em;
   line-height: 1.1;
 }
 
 .identity-intro {
-  max-width: 56ch;
+  max-width: 58ch;
   margin: 1.75rem 0 0;
   color: var(--muted);
-  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
   line-height: 1.6;
 }
 
@@ -63,7 +48,7 @@
   align-items: center;
   gap: 1.25rem;
   margin-top: 2.25rem;
-  font-size: 0.82rem;
+  font-size: 0.9rem;
 }
 
 .identity-actions a {
@@ -76,7 +61,7 @@
 }
 
 .identity-actions a:not(.identity-primary):hover {
-  color: var(--accent);
+  color: var(--focus);
   text-decoration: underline;
   text-underline-offset: 0.35rem;
 }
@@ -84,7 +69,7 @@
 .identity-actions .identity-primary {
   padding: 0.75rem 1rem;
   background: var(--accent);
-  color: var(--bg);
+  color: #fff;
   font-weight: 600;
 }
 
@@ -92,68 +77,61 @@
   background: var(--focus);
 }
 
-.identity-system-map {
-  align-self: center;
+.identity-case-summary {
+  margin: 0;
+  padding: 1.5rem;
+  background: var(--surface);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   color: var(--muted);
-  font-size: 0.72rem;
 }
 
-.identity-system-map > p {
+.identity-case-summary figcaption {
   margin: 0;
-  padding: 0.8rem 0;
+  padding-bottom: 1rem;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.identity-system-map ol {
+.identity-case-summary ol {
   margin: 0;
   padding: 0;
   border-top: 1px solid var(--border);
   list-style: none;
 }
 
-.identity-system-map li {
+.identity-case-summary li {
   display: grid;
-  grid-template-columns: 2.5rem 1fr;
-  gap: 0.75rem;
-  padding: 1rem 0;
+  grid-template-columns: 2rem 1fr;
+  column-gap: 0.75rem;
+  padding: 1rem 0 1rem;
   border-bottom: 1px solid var(--border);
   color: var(--fg);
 }
 
-.identity-system-map li span {
+.identity-case-summary li span {
   color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.75rem;
 }
 
-.identity-system-status {
-  padding: 1rem 0;
-  line-height: 1.5;
-}
-
-.identity-system-status span {
-  display: inline-block;
-  width: 0.45rem;
-  height: 0.45rem;
-  margin-right: 0.5rem;
-  border-radius: 50%;
-  background: var(--accent);
-}
+.identity-case-summary strong { color: var(--fg); font-size: 1rem; }
+.identity-case-summary li p { grid-column: 2; margin: 0.35rem 0 0; font-size: 0.88rem; line-height: 1.5; }
+.identity-case-summary > a { display: inline-flex; min-height: 2.75rem; align-items: center; margin-top: 0.5rem; font-weight: 600; }
 
 @media (max-width: 800px) {
   .identity-hero {
     grid-template-columns: 1fr;
     align-items: start;
-    gap: 3.5rem;
+    gap: 3rem;
     min-height: auto;
     padding-top: 7rem;
   }
 
-  .identity-system-map {
-    width: 100%;
-    max-width: 34rem;
-  }
+  .identity-case-summary { width: 100%; max-width: 38rem; }
 }
 
 @media (max-width: 430px) {

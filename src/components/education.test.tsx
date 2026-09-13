@@ -6,7 +6,7 @@ import EducationSection from "./education";
 describe("EducationSection", () => {
   it("shows the three education chapters without invented dates", () => {
     render(<EducationSection />);
-    expect(screen.getByRole("region", { name: /education/i })).toHaveAttribute("id", "education");
+    expect(document.querySelector("#education")).toBeInTheDocument();
     expect(screen.getByText("BSc Computer Science")).toBeInTheDocument();
     expect(screen.getByText("MSc Information Systems Management")).toBeInTheDocument();
     expect(screen.getByText("Exchange studies")).toBeInTheDocument();

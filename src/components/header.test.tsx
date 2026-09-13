@@ -19,16 +19,16 @@ describe("Header", () => {
   it("links to the five primary homepage destinations", () => {
     render(<Header />);
 
-    expect(screen.getByRole("link", { name: "Home" })).toHaveAttribute("href", "#home");
     expect(screen.getByRole("link", { name: "Work" })).toHaveAttribute(
       "href",
       "#selected-work"
     );
-    expect(screen.getByRole("link", { name: "Experience" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Background" })).toHaveAttribute(
       "href",
       "#experience"
     );
-    expect(screen.getByRole("link", { name: "Labs" })).toHaveAttribute("href", "#labs");
+    expect(screen.getByRole("link", { name: "Approach" })).toHaveAttribute("href", "#capabilities");
+    expect(screen.getByRole("link", { name: "Outside work" })).toHaveAttribute("href", "#labs");
     expect(screen.getByRole("link", { name: "Contact" })).toHaveAttribute(
       "href",
       "#contact"

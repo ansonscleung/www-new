@@ -1,5 +1,6 @@
 import React from "react";
 import { experienceEvidence } from "../data/profile-evidence";
+import EducationSection from "./education";
 import "./experience.scss";
 
 const ExperienceSection: React.FC = () => {
@@ -11,11 +12,10 @@ const ExperienceSection: React.FC = () => {
     >
       <div className="container">
         <div className="experience-intro">
-          <p className="experience-kicker">Where I have worked</p>
-          <h2 className="title is-2" id="experience-title">Experience</h2>
+          <p className="experience-kicker">The context behind the work</p>
+          <h2 className="title is-2" id="experience-title">Background</h2>
           <p className="experience-lede">
-            Started with a startup, moved into consulting, then spent the last
-            few years working on e-commerce products at Shoalter.
+            A route through startups, consulting, e-commerce and digital delivery.
           </p>
         </div>
         <div className="experience-timeline">
@@ -28,15 +28,18 @@ const ExperienceSection: React.FC = () => {
                 </p>
                 <h3 className="title is-4">{experience.title}</h3>
                 <p>{experience.summary}</p>
-                <ul>
-                  {experience.highlights.map((highlight) => (
-                    <li key={highlight}>{highlight}</li>
-                  ))}
-                </ul>
+                {experience.highlights.length ? (
+                  <ul>
+                    {experience.highlights.map((highlight) => (
+                      <li key={highlight}>{highlight}</li>
+                    ))}
+                  </ul>
+                ) : null}
               </div>
             </article>
           ))}
         </div>
+        <EducationSection />
       </div>
     </section>
   );

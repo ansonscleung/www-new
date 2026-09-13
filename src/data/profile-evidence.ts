@@ -16,31 +16,31 @@ export type ExperienceEvidence = ExperienceChapter;
 
 export const capabilities: CapabilityEvidence[] = [
   {
-    id: "product",
-    title: "Product",
-    eyebrow: "Figure out what needs building",
+    id: "needs",
+    title: "What needs to change?",
+    eyebrow: "Understand the work",
     description:
-      "Turn requests and operational needs into clear requirements, user flows and priorities the team can work from.",
+      "Understand the working process, the need behind a request, and the acceptance criteria that make a change useful.",
     details:
-      "Requirements, user flows, priorities and acceptance criteria based on how the work actually happens.",
+      "Requirements, user flows and priorities grounded in how the work actually happens.",
   },
   {
-    id: "technical",
-    title: "Technical",
-    eyebrow: "Stay close to the system",
+    id: "build",
+    title: "What can we build?",
+    eyebrow: "Make constraints visible",
     description:
-      "Work through APIs, data flows and technical trade-offs with engineers instead of treating implementation as a black box.",
+      "Clarify data flows, system limits and technical options, then prototype when that is the fastest way to learn.",
     details:
-      "Web applications, APIs, data flows, automation and prototypes when building one is the quickest way to test an idea.",
+      "Web applications, APIs, data flows, automation and prototypes that make a decision concrete.",
   },
   {
-    id: "delivery",
-    title: "Delivery",
-    eyebrow: "Get it shipped",
+    id: "use",
+    title: "How do we get it into use?",
+    eyebrow: "Carry the work through",
     description:
-      "Keep business, design, engineering and QA aligned from definition through UAT and release.",
+      "Coordinate scope, development, UAT, rollout and follow-through so a useful idea makes it into everyday work.",
     details:
-      "UAT, release planning, follow-ups and the inevitable decisions about what ships now and what waits.",
+      "UAT, release planning and the decisions about what ships now and what needs more work.",
   },
 ];
 
@@ -84,8 +84,17 @@ export const impactEvidence: ImpactEvidence[] = [
 
 export const experienceEvidence: ExperienceEvidence[] = [
   {
+    id: "greentomato",
+    period: "Sep 2026–Present",
+    title: "Senior Business Designer",
+    organisation: "GreenTomato",
+    summary:
+      "Working across project management, business analysis and business development to help shape and deliver digital work.",
+    highlights: [],
+  },
+  {
     id: "shoalter",
-    period: "2023–Present",
+    period: "2023–Aug 2026",
     title: "Product Specialist → Senior Product Specialist",
     organisation: "Shoalter Technology (member of HKTV Group)",
     summary:

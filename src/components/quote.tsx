@@ -15,8 +15,8 @@ const QuoteOfTheDay: React.FC = () => {
   const quote = quotes[quoteIndex];
 
   return (
-    <section id="quote" className="section quote-of-the-day" aria-labelledby="quote-title">
-      <div className="container">
+    <div id="quote" className="quote-of-the-day" aria-labelledby="quote-title">
+      <div>
         <article className="quote-card">
           <p className="quote-kicker">Quote of the day</p>
           <h2 id="quote-title" className="title is-3">A practical idea to carry forward</h2>
@@ -47,7 +47,7 @@ const QuoteOfTheDay: React.FC = () => {
           </button>
         </article>
       </div>
-    </section>
+    </div>
   );
 };
 

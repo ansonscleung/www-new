@@ -7,20 +7,17 @@ const viewports = [
   { width: 1920, height: 1080 },
 ];
 
-for (const viewport of viewports) {
-  test(`static technology hero is readable without overflow at ${viewport.width}px`, async ({
+for (const viewport of [...viewports, { width: 320, height: 800 }]) {
+  test(`working-systems hero is readable without overflow at ${viewport.width}px`, async ({
     page,
   }) => {
     await page.setViewportSize(viewport);
     await page.goto("/");
 
     await expect(page.getByRole("heading", { level: 1, name: "Anson Leung" })).toBeVisible();
-    await expect(page.getByRole("heading", {
-      level: 2,
-      name: "Technical Product & Solution Delivery Professional",
-    })).toBeVisible();
-    await expect(page.getByRole("link", { name: "View selected work" })).toBeVisible();
-    await expect(page.locator(".identity-system-map")).toBeVisible();
+    await expect(page.getByText("From intent to working systems.")).toBeVisible();
+    await expect(page.getByRole("link", { name: "Explore selected work" })).toBeVisible();
+    await expect(page.getByRole("figure", { name: /Travel Planner/i })).toBeVisible();
 
     const layout = await page.locator("#home").evaluate((hero) => ({
       heroWidth: hero.getBoundingClientRect().width,

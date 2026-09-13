@@ -25,15 +25,6 @@ export const selectedWork: readonly Readonly<WorkSummary>[] = Object.freeze([
     ],
   }),
   Object.freeze({
-    id: "itinni",
-    title: "itinni",
-    role: "Co-founder & Product Director",
-    problem: "Groups of 6–12 travellers needed a shared way to shape plans that worked for everyone.",
-    approach: "We grew the team to 10 developers and designers and built shared itinerary planning for groups travelling together. At its peak, the product had roughly 100 daily users.",
-    outcome: "Along the way, we pitched it at startup competitions and picked up three awards.",
-    technologies: ["Team of 10", "~100 daily users", "3 awards"],
-  }),
-  Object.freeze({
     id: "travel-planner",
     title: "Travel Planner",
     role: "Product × Engineering case study",
@@ -42,5 +33,14 @@ export const selectedWork: readonly Readonly<WorkSummary>[] = Object.freeze([
     outcome: "The prototype generates a structured starting point, but keeps the itinerary editable instead of treating the AI's answer as final.",
     technologies: ["Family constraints", "Structured itineraries", "Validated MVP"],
     href: "/work/travel-planner/",
+  }),
+  Object.freeze({
+    id: "itinni",
+    title: "itinni",
+    role: "Co-founder & Product Director",
+    problem: "Groups of 6–12 travellers needed a shared way to shape plans that worked for everyone.",
+    approach: "We grew the team to 10 developers and designers and built shared itinerary planning for groups travelling together. At its peak, the product had roughly 100 daily users.",
+    outcome: "Along the way, we pitched it at startup competitions and picked up three awards.",
+    technologies: ["Team of 10", "~100 daily users", "3 awards"],
   }),
 ]);

@@ -24,7 +24,6 @@ const Header: React.FC = () => {
     >
       <div className="navbar-brand">
         <Link to="/" className="navbar-item" onClick={closeMenu}>
-          <span className="header-status" aria-hidden="true" />
           {data.site.siteMetadata.title}
         </Link>
         <button
@@ -46,20 +45,17 @@ const Header: React.FC = () => {
         className={`navbar-menu${isMenuOpen ? " is-active" : ""}`}
       >
         <div className="navbar-end">
-          <a href="#home" className="navbar-item" onClick={closeMenu}>
-            Home
-          </a>
-          <a href="#capabilities" className="navbar-item" onClick={closeMenu}>
-            Capabilities
-          </a>
           <a href="#selected-work" className="navbar-item" onClick={closeMenu}>
             Work
           </a>
           <a href="#experience" className="navbar-item" onClick={closeMenu}>
-            Experience
+            Background
+          </a>
+          <a href="#capabilities" className="navbar-item" onClick={closeMenu}>
+            Approach
           </a>
           <a href="#labs" className="navbar-item" onClick={closeMenu}>
-            Labs
+            Outside work
           </a>
           <a href="#contact" className="navbar-item" onClick={closeMenu}>
             Contact

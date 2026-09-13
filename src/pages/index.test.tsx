@@ -14,9 +14,6 @@ vi.mock("../components/identity", () => ({
 vi.mock("../components/capabilities", () => ({
   default: () => <section data-section="capabilities" />,
 }));
-vi.mock("../components/impact", () => ({
-  default: () => <section data-section="impact" />,
-}));
 vi.mock("../components/projects", () => ({
   default: () => <section data-section="selected-work" />,
 }));
@@ -25,12 +22,6 @@ vi.mock("../components/experience", () => ({
 }));
 vi.mock("../components/labs", () => ({
   default: () => <section data-section="labs" />,
-}));
-vi.mock("../components/education", () => ({
-  default: () => <section data-section="education" />,
-}));
-vi.mock("../components/quote", () => ({
-  default: () => <section data-section="quote" />,
 }));
 vi.mock("../components/contact", () => ({
   default: () => <section data-section="contact" id="contact" />,
@@ -48,12 +39,9 @@ describe("IndexPage", () => {
     expect(order).toEqual([
       "hero",
       "capabilities",
-      "impact",
       "selected-work",
       "experience",
       "labs",
-      "education",
-      "quote",
       "contact",
     ]);
   });

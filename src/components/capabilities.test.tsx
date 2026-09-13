@@ -4,16 +4,17 @@ import { describe, expect, it } from "vitest";
 import CapabilitiesSection from "./capabilities";
 
 describe("CapabilitiesSection", () => {
-  it("presents exactly three product, technical, and delivery pillars", () => {
+  it("presents three working questions with links to supporting work", () => {
     render(<CapabilitiesSection />);
 
-    expect(screen.getByRole("region", { name: /what i bring/i })).toHaveAttribute(
+    expect(screen.getByRole("region", { name: /how i work/i })).toHaveAttribute(
       "id",
       "capabilities",
     );
     expect(screen.getAllByRole("heading", { level: 3 })).toHaveLength(3);
-    expect(screen.getByRole("heading", { name: "Product" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "Technical" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "Delivery" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "What needs to change?" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "What can we build?" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "How do we get it into use?" })).toBeInTheDocument();
+    expect(screen.getAllByRole("link", { name: /See related work/ })).toHaveLength(3);
   });
 });

@@ -19,10 +19,10 @@ const ProjectSection: React.FC = () => {
           <p>Work where product decisions, system detail and delivery meet.</p>
         </div>
 
-        <article className="selected-work__lead">
+        <article className="selected-work__lead" id="shoalter">
           <div className="selected-work__lead-story">
-            <p className="selected-work__role">{leadWork.role}</p>
             <h3 className="title is-3">{leadWork.title}</h3>
+            <p className="selected-work__role">{leadWork.role}</p>
             <p className="selected-work__problem">{leadWork.problem}</p>
             <p>{leadWork.approach}</p>
             <p>{leadWork.outcome}</p>
@@ -48,11 +48,11 @@ const ProjectSection: React.FC = () => {
           </aside>
         </article>
 
-        <div className="selected-work__secondary-grid">
+        <div id="impact" className="selected-work__secondary-grid">
           {secondaryWork.map((work) => (
-            <article className="selected-work__secondary" key={work.id}>
-              <p className="selected-work__role">{work.role}</p>
+            <article className={`selected-work__secondary selected-work__secondary--${work.id}`} id={work.id} key={work.id}>
               <h3 className="title is-4">{work.title}</h3>
+              <p className="selected-work__role">{work.role}</p>
               <dl className="selected-work__summary">
                 <div><dt>Context</dt><dd>{work.problem}</dd></div>
                 <div><dt>What I did</dt><dd>{work.approach}</dd></div>

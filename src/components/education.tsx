@@ -3,17 +3,17 @@ import { educationEntries } from "../data/labs-education";
 import "./education.scss";
 
 const EducationSection: React.FC = () => (
-  <section
-    className="section education-section"
+  <div
+    className="education-section"
     id="education"
     aria-labelledby="education-title"
   >
     <div className="container">
       <div className="education-intro">
         <p className="education-kicker">Where it started</p>
-        <h2 className="title is-2" id="education-title">
+        <h3 className="title is-3" id="education-title">
           Education
-        </h2>
+        </h3>
         <p className="education-lede">
           Computer Science at CUHK came first, followed later by an MSc in
           Information Systems Management at HKUST, with an exchange semester at
@@ -32,7 +32,7 @@ const EducationSection: React.FC = () => (
         ))}
       </div>
     </div>
-  </section>
+  </div>
 );
 
 export default EducationSection;
