@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link } from "gatsby";
 import Seo from "../../components/seo";
+import ThemeControl from "../../components/theme-control";
 import "../styles.scss";
 import "./travel-planner.scss";
 
@@ -32,8 +33,11 @@ const TravelPlannerPage: React.FC = () => (
     <main className="travel-case">
       <div className="travel-case__shell">
         <nav className="travel-case__nav" aria-label="Case study navigation">
-          <Link to="/#selected-work">← Back to selected work</Link>
-          <Link to="/">Anson Leung</Link>
+          <div className="travel-case__nav-links">
+            <Link to="/#selected-work">← Back to selected work</Link>
+            <Link to="/">Anson Leung</Link>
+          </div>
+          <ThemeControl />
         </nav>
         <header className="travel-case__hero">
           <p className="travel-case__eyebrow">Product × Engineering case study</p>

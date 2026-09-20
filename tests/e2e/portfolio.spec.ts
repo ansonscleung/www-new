@@ -106,10 +106,40 @@ test("dark and reduced-motion preferences keep the hero usable", async ({
   await page.goto("/");
 
   const hero = page.locator("#home");
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
   await expect(hero).toBeVisible();
   await expect(hero.getByRole("link", { name: "Explore selected work" })).toBeVisible();
   await expect(hero.getByRole("figure", { name: /Anson Leung outdoors/i })).toBeVisible();
   await expect(page.getByRole("button", { name: "Pause carousel" })).toHaveCount(0);
   await expect(page.locator(".quote-en")).toBeVisible();
   expect(errors).toEqual([]);
+});
+
+test("theme control follows the system and remembers forced choices", async ({
+  page,
+}, testInfo) => {
+  test.skip(!testInfo.project.name.includes("desktop"), "Desktop theme coverage");
+  await page.emulateMedia({ colorScheme: "dark" });
+  await page.goto("/");
+
+  const themeControl = page.getByRole("group", { name: "Colour theme" });
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  await expect(themeControl.getByRole("button", { name: "System" })).toHaveAttribute(
+    "aria-pressed",
+    "true"
+  );
+
+  await themeControl.getByRole("button", { name: "Light" }).click();
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+  await page.reload();
+  await expect(themeControl.getByRole("button", { name: "Light" })).toHaveAttribute(
+    "aria-pressed",
+    "true"
+  );
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+
+  await themeControl.getByRole("button", { name: "Dark" }).click();
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  await themeControl.getByRole("button", { name: "System" }).click();
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
 });

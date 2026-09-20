@@ -33,6 +33,7 @@ describe("Header", () => {
       "href",
       "#contact"
     );
+    expect(screen.getByRole("group", { name: "Colour theme" })).toBeInTheDocument();
   });
 
   it("opens the mobile menu and closes it after choosing a destination", async () => {

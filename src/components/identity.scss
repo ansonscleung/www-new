@@ -69,7 +69,7 @@
 .identity-actions .identity-primary {
   padding: 0.75rem 1rem;
   background: var(--accent);
-  color: #fff;
+  color: var(--on-accent);
   font-weight: 600;
 }
 
@@ -83,7 +83,7 @@
   min-height: 31rem;
   margin: 0;
   overflow: hidden;
-  background: #d8e2e7;
+  background: var(--portrait-bg);
 }
 
 .identity-portrait .gatsby-image-wrapper,

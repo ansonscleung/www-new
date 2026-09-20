@@ -11,6 +11,8 @@
     --border: #d4dbde;
     --accent: #315fad;
     --focus: #244b8a;
+    --on-accent: #ffffff;
+    --portrait-bg: #d8e2e7;
     --display: "Geologica", "Noto Sans HK", sans-serif;
     --body: "Geologica", "Noto Sans HK", sans-serif;
     --content: 75rem;
@@ -26,6 +28,52 @@
     --bulma-border-weak: var(--border);
     --bulma-link: var(--accent);
     --bulma-link-text: var(--accent);
+    --bulma-primary: var(--accent);
+    --bulma-primary-invert: var(--on-accent);
+    --bulma-primary-h: 218deg;
+    --bulma-primary-s: 56%;
+    --bulma-primary-l: 44%;
+    --bulma-primary-invert-l: 100%;
+    --bulma-body-background-color: var(--bg);
+    --bulma-body-color: var(--fg);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        color-scheme: dark;
+        --bg: #12181c;
+        --surface: #1a2227;
+        --fg: #edf1f2;
+        --muted: #aeb9bf;
+        --border: #39464d;
+        --accent: #91b5f5;
+        --focus: #b7cdf5;
+        --on-accent: #111a20;
+        --portrait-bg: #27343b;
+        --bulma-scheme-main-ter: #222c31;
+        --bulma-primary-h: 218deg;
+        --bulma-primary-s: 83%;
+        --bulma-primary-l: 76%;
+        --bulma-primary-invert-l: 8%;
+    }
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #12181c;
+    --surface: #1a2227;
+    --fg: #edf1f2;
+    --muted: #aeb9bf;
+    --border: #39464d;
+    --accent: #91b5f5;
+    --focus: #b7cdf5;
+    --on-accent: #111a20;
+    --portrait-bg: #27343b;
+    --bulma-scheme-main-ter: #222c31;
+    --bulma-primary-h: 218deg;
+    --bulma-primary-s: 83%;
+    --bulma-primary-l: 76%;
+    --bulma-primary-invert-l: 8%;
 }
 
 html {
@@ -52,6 +100,16 @@ body {
 
 a { color: var(--accent); transition: color 180ms ease, text-decoration-color 180ms ease; }
 a:hover { color: var(--focus); }
+
+.theme-control {
+    flex-wrap: nowrap;
+    margin-bottom: 0 !important;
+}
+
+.theme-control .button {
+    min-height: 2.75rem;
+    border-color: var(--border);
+}
 
 :focus-visible {
     outline: 3px solid var(--focus);

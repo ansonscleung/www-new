@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
+import ThemeControl from "./theme-control";
 import "./header.scss";
 
 const Header: React.FC = () => {
@@ -60,6 +61,9 @@ const Header: React.FC = () => {
           <a href="#contact" className="navbar-item" onClick={closeMenu}>
             Contact
           </a>
+          <div className="navbar-item refined-header__theme">
+            <ThemeControl />
+          </div>
         </div>
       </div>
     </nav>

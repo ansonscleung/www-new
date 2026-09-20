@@ -12,9 +12,17 @@
 
 .travel-case__nav {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
   font-weight: 700;
+}
+
+.travel-case__nav-links {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  gap: 1rem;
 }
 
 .travel-case__nav a {
@@ -157,5 +165,10 @@
 
   .travel-case__hero {
     padding: 4rem 0 3rem;
+  }
+
+  .travel-case__nav {
+    align-items: stretch;
+    flex-direction: column;
   }
 }
