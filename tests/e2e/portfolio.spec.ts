@@ -25,7 +25,7 @@ test("homepage presents the working-systems narrative and bilingual quote", asyn
   await page.goto("/");
 
   await expect(page.getByRole("heading", { level: 1, name: "Anson Leung" })).toBeVisible();
-  await expect(page.getByText("From intent to working systems.")).toBeVisible();
+  await expect(page.getByText("Business Analyst & Technical Product Builder")).toBeVisible();
   await expect(page.locator("#home").getByRole("link", { name: "Explore selected work" })).toBeVisible();
   await expect(page.getByRole("figure", { name: /Anson Leung outdoors/i })).toBeVisible();
   await expect(page.getByRole("region", { name: "Career journey" })).toHaveCount(0);
@@ -39,8 +39,9 @@ test("homepage presents the working-systems narrative and bilingual quote", asyn
   await expect(
     selectedWork.getByRole("link", { name: /Unlimited Add-on — 2024 annual results/i })
   ).toHaveAttribute("target", "_blank");
-  await expect(page.locator("#experience")).toContainText("Senior Business Designer");
-  await expect(page.locator("#experience")).toContainText("2023–Aug 2026");
+  await expect(page.locator("#experience")).toContainText("Business Analyst");
+  await expect(page.locator("#experience")).toContainText("February 2023–August 2026");
+  await expect(page.locator("#experience")).toContainText("2019–December 2022");
   await expect(page.locator("#education")).toContainText("Aalto University");
   await expect(
     selectedWork.getByRole("link", { name: /3 Hr Mart — 2025 annual results/i })

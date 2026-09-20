@@ -12,11 +12,11 @@ describe("Hero", () => {
       screen.getByRole("heading", { level: 1, name: "Anson Leung" })
     ).toBeInTheDocument();
     expect(
-      screen.getByText("From intent to working systems.")
+      screen.getByText("Business Analyst & Technical Product Builder")
     ).toBeInTheDocument();
     expect(
       screen.getByText(
-        /I work across business needs, technical implementation and project delivery/
+        /intersection of business, product and technology/
       )
     ).toBeInTheDocument();
 

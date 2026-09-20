@@ -1,8 +1,21 @@
 [
   {
+    "title": "Business Analyst",
+    "company": "GreenTomato",
+    "start_date": "2026-09-01",
+    "location": "Hong Kong",
+    "responsibilities": [
+      "Support business analysis and solution delivery for a large-scale client-facing digital transformation project.",
+      "Translate business requirements into user journeys, functional specifications, system flows, acceptance criteria, and implementation-ready requirements.",
+      "Work across client stakeholders, UX/UI, solution architects, and engineering teams to clarify requirements, technical dependencies, and delivery constraints.",
+      "Analyse complex business rules and edge cases, aligning business expectations with feasible system behaviour."
+    ]
+  },
+  {
     "title": "Senior Product Specialist",
     "company": "Shoalter Technology (member of HKTV Group)",
     "start_date": "2025-10-01",
+    "end_date": "2026-08-31",
     "location": "Hong Kong",
     "responsibilities": [
       "Owned end-to-end product requirements and user flows for HKTVmall, Wet Market Express, and 3-hour delivery initiatives.",
@@ -25,7 +38,7 @@
     ]
   },
   {
-    "title": "Consultant, Cloud & Application Services",
+    "title": "Cloud & Application Consultant",
     "company": "Protiviti Hong Kong",
     "start_date": "2022-09-05",
     "end_date": "2023-02-12",
@@ -40,7 +53,7 @@
     "title": "Co-Founder & Product Director",
     "company": "itinni",
     "start_date": "2019-10-01",
-    "end_date": "2021-12-31",
+    "end_date": "2022-12-31",
     "location": "Hong Kong",
     "responsibilities": [
       "Managed two B2B and B2C travel technology products at an HKSTP-incubated startup.",

@@ -83,6 +83,7 @@ export interface ExperienceChapter {
   period: string;
   title: string;
   organisation: string;
+  location?: string;
   summary: string;
   highlights: string[];
 }

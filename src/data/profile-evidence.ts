@@ -85,32 +85,38 @@ export const impactEvidence: ImpactEvidence[] = [
 export const experienceEvidence: ExperienceEvidence[] = [
   {
     id: "greentomato",
-    period: "Sep 2026–Present",
-    title: "Senior Business Designer",
+    period: "September 2026–Present",
+    title: "Business Analyst",
     organisation: "GreenTomato",
+    location: "Hong Kong",
     summary:
-      "Working across project management, business analysis and business development to help shape and deliver digital work.",
-    highlights: [],
+      "Support business analysis and solution delivery for a large-scale client-facing digital transformation project.",
+    highlights: [
+      "Translate business requirements into user journeys, functional specifications, system flows, acceptance criteria and implementation-ready requirements",
+      "Work across client stakeholders, UX/UI, solution architects and engineering teams to clarify requirements, technical dependencies and delivery constraints",
+      "Analyse complex business rules and edge cases, aligning business expectations with feasible system behaviour",
+    ],
   },
   {
     id: "shoalter",
-    period: "2023–Aug 2026",
+    period: "February 2023–August 2026",
     title: "Product Specialist → Senior Product Specialist",
     organisation: "Shoalter Technology (member of HKTV Group)",
     summary:
-      "Worked with business and operations teams on e-commerce changes, then took them through requirements, user flows, development, UAT and release with engineering.",
+      "Owned cross-system product requirements for large-scale e-commerce and delivery experiences, translating business needs into functional specifications, acceptance criteria, UAT plans and implementation scope.",
     highlights: [
-      "Checkout, promotions, fulfilment, accelerated delivery and partner-channel experiences",
-      "Cross-functional product definition, UAT, rollout and production follow-through",
+      "Product Specialist, February 2023–September 2025; Senior Product Specialist, October 2025–August 2026",
+      "Authored integration plans and technical decision artefacts for third-party commerce and authentication flows; coordinated UAT and investigated production integration issues",
+      "Worked across Operations, Commercial, UX/UI, QA and Engineering throughout discovery, development, testing, rollout and production support",
     ],
   },
   {
     id: "protiviti",
-    period: "2022–2023",
-    title: "Consultant, Cloud & Application Services",
+    period: "September 2022–February 2023",
+    title: "Cloud & Application Consultant",
     organisation: "Protiviti Hong Kong",
     summary:
-      "Worked on client projects involving automation, cloud migration and web applications.",
+      "Worked on client-facing technology consulting engagements across cloud and data migration automation, Python data extraction and application development.",
     highlights: [
       "Python data extraction and cloud migration",
       "Virtual-reality sourcing management platform",
@@ -118,14 +124,14 @@ export const experienceEvidence: ExperienceEvidence[] = [
   },
   {
     id: "itinni",
-    period: "2019–2021",
+    period: "2019–December 2022",
     title: "Co-Founder & Product Director",
     organisation: "itinni",
     summary:
-      "Co-founded the company and worked across product, engineering and the less glamorous jobs needed to get two travel products off the ground.",
+      "Co-founded the company and worked across product strategy, agile development and hands-on technical delivery to take B2B and B2C travel products from concept to launch.",
     highlights: [
       "Scrum leadership for a 10-person software and UX team",
-      "Itinerary planning for groups of 6–12 travellers",
+      "Led developers and designers through product discovery, development and release",
     ],
   },
   {

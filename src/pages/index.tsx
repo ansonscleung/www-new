@@ -61,7 +61,7 @@ const IndexPage: React.FC = () => {
 };
 
 export const Head = () => (
-  <Seo title="Anson Leung | From intent to working systems" pathname="/" />
+  <Seo title="Anson Leung | Business Analyst & Technical Product" pathname="/" />
 );
 
 export default IndexPage;

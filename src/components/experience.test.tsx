@@ -8,20 +8,22 @@ describe("ExperienceSection", () => {
     render(<ExperienceSection />);
 
     expect(screen.getByRole("region", { name: /background/i })).toHaveAttribute("id", "experience");
-    expect(screen.getByText("Senior Business Designer")).toBeInTheDocument();
-    expect(screen.getByText("Sep 2026–Present")).toBeInTheDocument();
+    expect(screen.getByText("Business Analyst")).toBeInTheDocument();
+    expect(screen.getByText("September 2026–Present")).toBeInTheDocument();
+    expect(screen.getByText("GreenTomato · Hong Kong")).toBeInTheDocument();
     expect(screen.getByText("Product Specialist → Senior Product Specialist")).toBeInTheDocument();
-    expect(screen.getByText("2023–Aug 2026")).toBeInTheDocument();
+    expect(screen.getByText("February 2023–August 2026")).toBeInTheDocument();
+    expect(screen.getByText("2019–December 2022")).toBeInTheDocument();
     expect(screen.getByText("Protiviti Hong Kong")).toBeInTheDocument();
     expect(screen.getByText("itinni")).toBeInTheDocument();
     expect(screen.getByText("OOCL")).toBeInTheDocument();
     expect(screen.getByText("Aalto University")).toBeInTheDocument();
     expect(screen.getAllByText(/Shoalter Technology/i)).toHaveLength(1);
     expect(
-      screen.getByText(/worked with business and operations teams on e-commerce changes/i)
+      screen.getByText(/owned cross-system product requirements for large-scale e-commerce/i)
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/checkout, promotions, fulfilment, accelerated delivery/i)
+      screen.getByText(/Product Specialist, February 2023–September 2025/i)
     ).toBeInTheDocument();
     expect(screen.queryByText(/13 tickets|6 backend services|MAO|UAO/i)).not.toBeInTheDocument();
   });

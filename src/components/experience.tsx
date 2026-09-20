@@ -25,6 +25,7 @@ const ExperienceSection: React.FC = () => {
               <div className="experience-body">
                 <p className="experience-organisation">
                   {experience.organisation}
+                  {experience.location ? ` · ${experience.location}` : null}
                 </p>
                 <h3 className="title is-4">{experience.title}</h3>
                 <p>{experience.summary}</p>

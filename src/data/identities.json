@@ -23,12 +23,12 @@
   },
   {
     "stage": "Today",
-    "description": "A career increasingly centred on the space between product decisions and technical implementation.",
+    "description": "Client-facing business analysis and solution delivery at GreenTomato, working between business stakeholders and technical teams.",
     "backgroundImage": "../images/pi_centre.jpg"
   },
   {
     "stage": "Next",
-    "description": "Looking for roles where the problem, the system and the people building it stay close together.",
+    "description": "Deepening the work between product decisions, business analysis and technical implementation.",
     "backgroundImage": "../images/aalto_vappu.jpg"
   }
 ]
