@@ -4,10 +4,10 @@ export const selectedWork: readonly Readonly<WorkSummary>[] = Object.freeze([
   Object.freeze({
     id: "shoalter",
     title: "Shoalter",
-    role: "Technical Product Management · Large-scale e-commerce",
-    problem: "Changes to checkout or fulfilment rarely stay in one place. A single request can affect promotions, operations, customer flows and several systems at once.",
-    approach: "Worked with business and operations teams to understand the request, map the edge cases and user flows, then take it through specification, development, UAT and release.",
-    outcome: "That work included products such as Unlimited Add-on and 3 Hr Mart, both of which later reached substantial scale on HKTVmall.",
+    role: "Technical Product · Large-scale e-commerce & systems integration",
+    problem: "E-commerce and delivery changes crossed checkout, address, mobile, search, promotion and partner systems, with dense business rules and delivery dependencies.",
+    approach: "Owned cross-system requirements, functional specifications, acceptance criteria, UAT plans and implementation scope. Authored integration plans for third-party commerce and authentication flows, and worked across Operations, Commercial, UX/UI, QA and Engineering through rollout and production support.",
+    outcome: "Specified a pickup-point recommendation workflow across six filtering dimensions and 10 acceptance scenarios, coordinating a 12-ticket implementation. Also defined promotion and eligibility logic across backend, search, checkout and mobile surfaces.",
     technologies: [
       "278,000+ unique customers used Unlimited Add-on in 2024",
       "Approximately 70,000 product items at 3 Hr Mart launch",
@@ -39,8 +39,8 @@ export const selectedWork: readonly Readonly<WorkSummary>[] = Object.freeze([
     title: "itinni",
     role: "Co-founder & Product Director",
     problem: "Groups of 6–12 travellers needed a shared way to shape plans that worked for everyone.",
-    approach: "We grew the team to 10 developers and designers and built shared itinerary planning for groups travelling together. At its peak, the product had roughly 100 daily users.",
-    outcome: "Along the way, we pitched it at startup competitions and picked up three awards.",
+    approach: "Led a team of 10 developers and designers through product strategy, agile development and hands-on technical delivery for B2B and B2C travel products.",
+    outcome: "Took the products from concept through development and launch. At its peak, the product had roughly 100 daily users, and the team picked up three startup competition awards.",
     technologies: ["Team of 10", "~100 daily users", "3 awards"],
   }),
 ]);

@@ -4,8 +4,8 @@ import "./capabilities.scss";
 
 const evidenceLinks: Record<string, string> = {
   needs: "#shoalter",
-  build: "/work/travel-planner/",
-  use: "#shoalter",
+  build: "#shoalter",
+  use: "/work/travel-planner/",
 };
 
 const CapabilitiesSection: React.FC = () => (

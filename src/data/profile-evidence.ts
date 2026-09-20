@@ -17,30 +17,30 @@ export type ExperienceEvidence = ExperienceChapter;
 export const capabilities: CapabilityEvidence[] = [
   {
     id: "needs",
-    title: "What needs to change?",
+    title: "Product & analysis",
     eyebrow: "Understand the work",
     description:
-      "Understand the working process, the need behind a request, and the acceptance criteria that make a change useful.",
+      "Turn ambiguous business needs into clear product scope and implementation-ready requirements.",
     details:
-      "Requirements, user flows and priorities grounded in how the work actually happens.",
+      "Product management, business analysis, requirements analysis, product discovery, functional specifications, user journeys, acceptance criteria and UAT.",
   },
   {
     id: "build",
-    title: "What can we build?",
+    title: "Solution & delivery",
     eyebrow: "Make constraints visible",
     description:
-      "Clarify data flows, system limits and technical options, then prototype when that is the fastest way to learn.",
+      "Align stakeholders and technical teams around system behaviour, dependencies, delivery constraints and practical decisions.",
     details:
-      "Web applications, APIs, data flows, automation and prototypes that make a decision concrete.",
+      "Systems integration, API integration, solution analysis, cross-functional delivery, stakeholder management and Agile/Scrum.",
   },
   {
     id: "use",
-    title: "How do we get it into use?",
+    title: "Technical fluency",
     eyebrow: "Carry the work through",
     description:
-      "Coordinate scope, development, UAT, rollout and follow-through so a useful idea makes it into everyday work.",
+      "Use hands-on technical understanding to make requirements more precise and collaborate effectively with engineering teams.",
     details:
-      "UAT, release planning and the decisions about what ships now and what needs more work.",
+      "REST APIs, Python, SQL, JavaScript/TypeScript, React/Next.js, data analysis, automation and cloud fundamentals.",
   },
 ];
 
@@ -49,7 +49,7 @@ export const impactEvidence: ImpactEvidence[] = [
     value: "278,000+ unique customers",
     label: "Unlimited Add-on",
     context:
-      "Company-reported usage for a product experience I owned and delivered at HKTVmall.",
+      "Company-reported usage for a product experience supported during my Shoalter tenure.",
     publicEvidence: [
       {
         label: "from HKTV 2024 annual results",
@@ -60,7 +60,7 @@ export const impactEvidence: ImpactEvidence[] = [
   {
     value: "Approximately 70,000 product items",
     label: "3 Hr Mart",
-    context: "Company-reported launch scale of 3 Hr Mart, a project I owned and delivered.",
+    context: "Company-reported launch scale for a Shoalter initiative covered by my technical-product work.",
     publicEvidence: [
       {
         label: "from HKTV 2025 annual results",

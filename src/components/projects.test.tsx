@@ -41,7 +41,9 @@ describe("ProjectSection", () => {
       "href",
       "https://www.hktv.com.hk/uploads/1774859727851-EW01137-ann.pdf"
     );
-    expect(screen.queryByText(/13 tickets|6 backend services|MAO|UAO/i)).not.toBeInTheDocument();
+    expect(screen.getByText(/six filtering dimensions and 10 acceptance scenarios/i)).toBeInTheDocument();
+    expect(screen.getByText(/12-ticket implementation/i)).toBeInTheDocument();
+    expect(screen.queryByText(/6 backend services|MAO|UAO/i)).not.toBeInTheDocument();
   });
 
   it("presents the three selected-work summaries with a case-study CTA only for Travel Planner", () => {
@@ -66,7 +68,7 @@ describe("ProjectSection", () => {
     expect(leadCase).toContainElement(
       screen.getByRole("heading", { level: 3, name: /Shoalter/i })
     );
-    expect(screen.getByText(/through specification, development, UAT and release/i)).toBeInTheDocument();
+    expect(screen.getByText(/owned cross-system requirements, functional specifications/i)).toBeInTheDocument();
     expect(document.querySelectorAll(".selected-work__secondary")).toHaveLength(2);
   });
 });

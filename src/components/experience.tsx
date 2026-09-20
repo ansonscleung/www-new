@@ -15,7 +15,9 @@ const ExperienceSection: React.FC = () => {
           <p className="section-label">The context behind the work</p>
           <h2 className="title is-2" id="experience-title">Background</h2>
           <p className="section-description">
-            A route through startups, consulting, e-commerce and digital delivery.
+            Product and business analysis work across startups, consulting, e-commerce and
+            client-facing solution delivery, grounded in Computer Science and Information
+            Systems Management.
           </p>
         </div>
         <div className="experience-timeline">

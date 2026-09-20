@@ -12,9 +12,11 @@ describe("CapabilitiesSection", () => {
       "capabilities",
     );
     expect(screen.getAllByRole("heading", { level: 3 })).toHaveLength(3);
-    expect(screen.getByRole("heading", { name: "What needs to change?" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "What can we build?" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "How do we get it into use?" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Product & analysis" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Solution & delivery" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Technical fluency" })).toBeInTheDocument();
+    expect(screen.getByText(/functional specifications, user journeys, acceptance criteria and UAT/i)).toBeInTheDocument();
+    expect(screen.getByText(/REST APIs, Python, SQL, JavaScript\/TypeScript/i)).toBeInTheDocument();
     expect(screen.getAllByRole("link", { name: /See related work/ })).toHaveLength(3);
   });
 });
