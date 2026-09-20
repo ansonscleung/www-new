@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { quotes } from "../data/quotes";
-import { quoteIndexForDate } from "../utils/quote-of-day";
+import { nextRandomQuoteIndex, quoteIndexForDate } from "../utils/quote-of-day";
 import "./quote.scss";
 
 const QuoteOfTheDay: React.FC = () => {
@@ -36,11 +36,11 @@ const QuoteOfTheDay: React.FC = () => {
             <a href={quote.source.url} target="_blank" rel="noopener noreferrer">Read source</a>
           </div>
           <button
-            className="button is-primary is-rounded"
+            className="button is-primary"
             type="button"
             onClick={() => {
               setHasManualSelection(true);
-              setQuoteIndex((index) => (index + 1) % quotes.length);
+              setQuoteIndex((index) => nextRandomQuoteIndex(quotes, index));
             }}
           >
             Another quote

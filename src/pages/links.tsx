@@ -1,4 +1,5 @@
 import React from "react";
+import "./styles.scss";
 import "./links.scss";
 import { faXTwitter, faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
@@ -52,7 +53,7 @@ const LinksPage: React.FC = () => {
             href={link.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="button is-info is-light is-fullwidth is-rounded is-medium has-text-weight-semibold link-link"
+            className="button is-primary is-light is-fullwidth is-medium has-text-weight-semibold link-link"
           >
             <span className="icon">
               <FontAwesomeIcon icon={link.icon} />

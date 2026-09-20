@@ -40,7 +40,7 @@ const ThemeControl: React.FC = () => {
   };
 
   return (
-    <div className="buttons has-addons theme-control" role="group" aria-label="Colour theme">
+    <div className="buttons theme-control" role="group" aria-label="Colour theme">
       {themePreferences.map((option) => (
         <button
           key={option}

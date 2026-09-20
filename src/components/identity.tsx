@@ -12,10 +12,10 @@ const Hero: React.FC = () => (
         requirements into digital systems that teams can actually build and operate.
       </p>
       <div className="identity-actions">
-        <a className="identity-primary" href="#selected-work">
+        <a className="button is-primary" href="#selected-work">
           Explore selected work
         </a>
-        <a href="#capabilities">
+        <a className="button is-light" href="#capabilities">
           How I work <span aria-hidden="true">↓</span>
         </a>
       </div>

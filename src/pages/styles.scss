@@ -101,13 +101,17 @@ body {
 a { color: var(--accent); transition: color 180ms ease, text-decoration-color 180ms ease; }
 a:hover { color: var(--focus); }
 
+.button {
+    min-height: 2.75rem;
+    border-radius: var(--bulma-radius);
+}
+
 .theme-control {
     flex-wrap: nowrap;
     margin-bottom: 0 !important;
 }
 
 .theme-control .button {
-    min-height: 2.75rem;
     border-color: var(--border);
 }
 

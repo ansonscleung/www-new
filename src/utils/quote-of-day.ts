@@ -66,3 +66,26 @@ export const quoteIndexForDate = (date: Date, count: number): number => {
   if (!Number.isInteger(count) || count < 1) throw new Error("Quote count must be a positive integer.");
   return [...getHongKongDateKey(date)].reduce((hash, char) => (hash * 31 + char.charCodeAt(0)) >>> 0, 0) % count;
 };
+
+export const nextRandomQuoteIndex = (
+  items: readonly Pick<Quote, "category">[],
+  currentIndex: number,
+  random: () => number = Math.random
+): number => {
+  if (items.length < 2) return currentIndex;
+
+  const currentCategory = items[currentIndex]?.category;
+  const otherCategories = items
+    .map((item, index) => ({ item, index }))
+    .filter(({ item, index }) => index !== currentIndex && item.category !== currentCategory)
+    .map(({ index }) => index);
+  const candidates = otherCategories.length
+    ? otherCategories
+    : items.map((_, index) => index).filter((index) => index !== currentIndex);
+  const randomIndex = Math.min(
+    candidates.length - 1,
+    Math.floor(Math.max(0, random()) * candidates.length)
+  );
+
+  return candidates[randomIndex];
+};

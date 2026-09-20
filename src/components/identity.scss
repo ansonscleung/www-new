@@ -51,31 +51,7 @@
   font-size: 0.9rem;
 }
 
-.identity-actions a {
-  display: inline-flex;
-  min-height: 2.75rem;
-  align-items: center;
-  justify-content: center;
-  color: var(--fg);
-  text-decoration: none;
-}
-
-.identity-actions a:not(.identity-primary):hover {
-  color: var(--focus);
-  text-decoration: underline;
-  text-underline-offset: 0.35rem;
-}
-
-.identity-actions .identity-primary {
-  padding: 0.75rem 1rem;
-  background: var(--accent);
-  color: var(--on-accent);
-  font-weight: 600;
-}
-
-.identity-actions .identity-primary:hover {
-  background: var(--focus);
-}
+.identity-actions .button { font-weight: 600; }
 
 .identity-portrait {
   position: relative;

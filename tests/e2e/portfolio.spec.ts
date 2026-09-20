@@ -56,8 +56,15 @@ test("homepage presents the working-systems narrative and bilingual quote", asyn
   await expect(page.locator(".quote-attribution cite")).toContainText("·");
 
   const firstQuote = await englishQuote.textContent();
+  const firstCategory = await page.locator(".quote-meta .tag").textContent();
   await page.getByRole("button", { name: "Another quote" }).click();
   await expect(englishQuote).not.toHaveText(firstQuote ?? "");
+  await expect(page.locator(".quote-meta .tag")).not.toHaveText(firstCategory ?? "");
+
+  const buttonRadii = await page.locator(".button").evaluateAll((buttons) =>
+    buttons.map((button) => getComputedStyle(button).borderTopLeftRadius)
+  );
+  expect(new Set(buttonRadii).size).toBe(1);
 
   expect(await page.locator("#contact").count()).toBe(1);
   expect(errors).toEqual([]);

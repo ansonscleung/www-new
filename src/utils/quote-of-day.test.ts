@@ -1,7 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { quotes } from "../data/quotes";
 import { Quote } from "../types/portfolio";
-import { getHongKongDateKey, quoteIndexForDate, validateQuotes } from "./quote-of-day";
+import {
+  getHongKongDateKey,
+  nextRandomQuoteIndex,
+  quoteIndexForDate,
+  validateQuotes,
+} from "./quote-of-day";
 
 const validQuote: Quote = {
   id: "test",
@@ -62,6 +67,28 @@ describe("quote-of-day", () => {
     expect(quoteIndexForDate(new Date("2026-08-25T01:00:00.000Z"), 100)).toBe(
       quoteIndexForDate(new Date("2026-08-25T14:00:00.000Z"), 100)
     );
+  });
+
+  it("randomly selects another category when one is available", () => {
+    const items = [
+      { category: "technology" as const },
+      { category: "technology" as const },
+      { category: "learning" as const },
+      { category: "product" as const },
+    ];
+
+    expect(nextRandomQuoteIndex(items, 0, () => 0)).toBe(2);
+    expect(nextRandomQuoteIndex(items, 0, () => 0.999)).toBe(3);
+  });
+
+  it("falls back to another quote when every quote has the same category", () => {
+    const items = [
+      { category: "technology" as const },
+      { category: "technology" as const },
+    ];
+
+    expect(nextRandomQuoteIndex(items, 0, () => 0.5)).toBe(1);
+    expect(nextRandomQuoteIndex(items.slice(0, 1), 0, () => 0.5)).toBe(0);
   });
 
   it("rejects missing nested objects and bilingual fields cleanly", () => {
