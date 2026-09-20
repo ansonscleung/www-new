@@ -39,8 +39,9 @@ test("homepage presents the working-systems narrative and bilingual quote", asyn
   await expect(
     selectedWork.getByRole("link", { name: /Unlimited Add-on — 2024 annual results/i })
   ).toHaveAttribute("target", "_blank");
-  await expect(page.locator("#experience")).toContainText("Business Analyst");
+  await expect(page.locator("#experience")).toContainText("Senior Business Designer");
   await expect(page.locator("#experience")).toContainText("February 2023–August 2026");
+  await expect(page.locator("#experience")).toContainText("Promoted October 2025");
   await expect(page.locator("#experience")).toContainText("2019–December 2022");
   await expect(page.locator("#education")).toContainText("Aalto University");
   await expect(

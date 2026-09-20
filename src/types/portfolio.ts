@@ -86,6 +86,11 @@ export interface ExperienceChapter {
   location?: string;
   summary: string;
   highlights: string[];
+  roleProgression?: Array<{
+    title: string;
+    period: string;
+    milestone?: string;
+  }>;
 }
 
 export interface LabProject {

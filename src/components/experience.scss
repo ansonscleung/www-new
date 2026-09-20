@@ -6,10 +6,33 @@
 .experience-period { color: var(--accent); font-size: .82rem; font-weight: 600; font-variant-numeric: tabular-nums; }
 .experience-organisation { color: var(--muted); font-size: .95rem; margin-bottom: .35rem; }
 .experience-body .title { margin: 0 0 .75rem; }
+.experience-progression {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem;
+  margin: 1rem 0 1.25rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  list-style: none;
+}
+.experience-role { position: relative; }
+.experience-role + .experience-role::before {
+  position: absolute;
+  top: .15rem;
+  left: -1.6rem;
+  color: var(--accent);
+  content: "→";
+}
+.experience-role__title { margin: 0; color: var(--fg) !important; font-weight: 650; }
+.experience-role__period { margin: .2rem 0 0; font-size: .85rem; font-variant-numeric: tabular-nums; }
+.experience-role .tag { margin-top: .65rem; }
 .experience-body ul { margin-top: .75rem; }
 .experience-body p, .experience-body li { color: var(--muted); }
 .experience-body li + li { margin-top: .25rem; }
 
 @media (max-width: 768px) {
   .experience-entry { grid-template-columns: 1fr; gap: .5rem; padding: 1.5rem 0; }
+  .experience-progression { grid-template-columns: 1fr; gap: 2rem; }
+  .experience-role + .experience-role::before { top: -1.5rem; left: 0; content: "↓"; }
 }

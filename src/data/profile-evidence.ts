@@ -86,7 +86,7 @@ export const experienceEvidence: ExperienceEvidence[] = [
   {
     id: "greentomato",
     period: "September 2026–Present",
-    title: "Business Analyst",
+    title: "Senior Business Designer",
     organisation: "GreenTomato",
     location: "Hong Kong",
     summary:
@@ -104,8 +104,18 @@ export const experienceEvidence: ExperienceEvidence[] = [
     organisation: "Shoalter Technology (member of HKTV Group)",
     summary:
       "Owned cross-system product requirements for large-scale e-commerce and delivery experiences, translating business needs into functional specifications, acceptance criteria, UAT plans and implementation scope.",
+    roleProgression: [
+      {
+        title: "Product Specialist",
+        period: "February 2023–September 2025",
+      },
+      {
+        title: "Senior Product Specialist",
+        period: "October 2025–August 2026",
+        milestone: "Promoted October 2025",
+      },
+    ],
     highlights: [
-      "Product Specialist, February 2023–September 2025; Senior Product Specialist, October 2025–August 2026",
       "Authored integration plans and technical decision artefacts for third-party commerce and authentication flows; coordinated UAT and investigated production integration issues",
       "Worked across Operations, Commercial, UX/UI, QA and Engineering throughout discovery, development, testing, rollout and production support",
     ],

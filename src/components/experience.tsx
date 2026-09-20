@@ -30,6 +30,22 @@ const ExperienceSection: React.FC = () => {
                   {experience.location ? ` · ${experience.location}` : null}
                 </p>
                 <h3 className="title is-4">{experience.title}</h3>
+                {experience.roleProgression?.length ? (
+                  <ol
+                    className="experience-progression"
+                    aria-label={`Role progression at ${experience.organisation}`}
+                  >
+                    {experience.roleProgression.map((role) => (
+                      <li className="experience-role" key={`${role.title}-${role.period}`}>
+                        <p className="experience-role__title">{role.title}</p>
+                        <p className="experience-role__period">{role.period}</p>
+                        {role.milestone ? (
+                          <span className="tag is-primary is-light">{role.milestone}</span>
+                        ) : null}
+                      </li>
+                    ))}
+                  </ol>
+                ) : null}
                 <p>{experience.summary}</p>
                 {experience.highlights.length ? (
                   <ul>
