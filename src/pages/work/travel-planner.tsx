@@ -40,6 +40,10 @@ const TravelPlannerPage: React.FC = () => (
           <ThemeControl />
         </nav>
         <header className="travel-case__hero">
+          <div className="travel-case__status">
+            <span className="tag is-primary is-light">Work in progress</span>
+            <span>Ongoing personal product · Private development build</span>
+          </div>
           <p className="travel-case__eyebrow">Product × Engineering case study</p>
           <h1>Travel Planner</h1>
           <p className="travel-case__lede">
@@ -77,7 +81,7 @@ const TravelPlannerPage: React.FC = () => (
           aria-labelledby="mvp-title"
         >
           <div>
-            <h2 id="mvp-title">A tested, editable MVP</h2>
+            <h2 id="mvp-title">An editable MVP in development</h2>
             <p>
               The core experience is an editable structured itinerary: people
               can create, update and remove items manually, reorder plans, and

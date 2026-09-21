@@ -41,6 +41,16 @@
   font-weight: 600;
 }
 
+.travel-case__status {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .65rem;
+  margin-bottom: 1.5rem;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
 .travel-case__hero h1 {
   margin: 0;
   color: var(--fg);

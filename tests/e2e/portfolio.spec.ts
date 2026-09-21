@@ -2,8 +2,8 @@ import { expect, test, type Page } from "@playwright/test";
 
 const sectionOrder = [
   "home",
-  "capabilities",
   "selected-work",
+  "capabilities",
   "experience",
   "labs",
   "contact",
@@ -25,7 +25,8 @@ test("homepage presents the working-systems narrative and bilingual quote", asyn
   await page.goto("/");
 
   await expect(page.getByRole("heading", { level: 1, name: "Anson Leung" })).toBeVisible();
-  await expect(page.getByText("Business Analyst & Technical Product Builder")).toBeVisible();
+  await expect(page.getByText("From intent to working systems.")).toBeVisible();
+  await expect(page.getByText(/Business analysis · Product delivery/)).toBeVisible();
   await expect(page.locator("#home").getByRole("link", { name: "Explore selected work" })).toBeVisible();
   await expect(page.getByRole("figure", { name: /Anson Leung outdoors/i })).toBeVisible();
   await expect(page.getByRole("region", { name: "Career journey" })).toHaveCount(0);
@@ -70,11 +71,13 @@ test("homepage presents the working-systems narrative and bilingual quote", asyn
   expect(errors).toEqual([]);
 });
 
-test("Travel Planner opens as a complete case study", async ({ page }) => {
+test("Travel Planner opens as a private work-in-progress case study", async ({ page }) => {
   const errors = collectRuntimeErrors(page);
   await page.goto("/work/travel-planner/");
 
   await expect(page.getByRole("heading", { level: 1, name: "Travel Planner" })).toBeVisible();
+  await expect(page.getByText("Work in progress")).toBeVisible();
+  await expect(page.getByText(/Private development build/)).toBeVisible();
   await expect(page.getByRole("heading", { name: "From constraints to validation" })).toBeVisible();
   await expect(page.locator(".travel-case__flow > li")).toHaveCount(5);
   await expect(page.getByRole("link", { name: /Back to selected work/ })).toHaveAttribute(
@@ -120,6 +123,19 @@ test("dark and reduced-motion preferences keep the hero usable", async ({
   await expect(hero.getByRole("figure", { name: /Anson Leung outdoors/i })).toBeVisible();
   await expect(page.getByRole("button", { name: "Pause carousel" })).toHaveCount(0);
   await expect(page.locator(".quote-en")).toBeVisible();
+  expect(errors).toEqual([]);
+});
+
+test("not-found page uses the portfolio navigation and theme control", async ({ page }) => {
+  const errors = collectRuntimeErrors(page);
+  await page.goto("/404/");
+
+  await expect(page.getByRole("heading", { level: 1, name: "Page not found." })).toBeVisible();
+  await expect(page.getByRole("group", { name: "Colour theme" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Back to the homepage" })).toHaveAttribute(
+    "href",
+    "/"
+  );
   expect(errors).toEqual([]);
 });
 

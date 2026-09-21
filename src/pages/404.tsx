@@ -1,49 +1,33 @@
-import * as React from "react"
-import { Link } from "gatsby"
-
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
+import * as React from "react";
+import { Link } from "gatsby";
+import Seo from "../components/seo";
+import ThemeControl from "../components/theme-control";
+import "./styles.scss";
+import "./404.scss";
 
 const NotFoundPage = () => {
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry 😔, we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
+    <main className="not-found">
+      <nav className="not-found__nav" aria-label="Page not found navigation">
+        <Link to="/">Anson Leung</Link>
+        <ThemeControl />
+      </nav>
+      <section className="not-found__content" aria-labelledby="not-found-title">
+        <p className="section-label">404</p>
+        <h1 id="not-found-title">Page not found.</h1>
+        <p>The page may have moved, or the address may be incomplete.</p>
+        <Link className="button is-primary" to="/">Back to the homepage</Link>
+      </section>
     </main>
-  )
-}
+  );
+};
 
-export default NotFoundPage
+export default NotFoundPage;
 
-export const Head = () => <title>Not found</title>
+export const Head = () => (
+  <Seo
+    title="Page not found | Anson Leung"
+    description="The requested page could not be found."
+    pathname="/404/"
+  />
+);

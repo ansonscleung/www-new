@@ -15,7 +15,7 @@ for (const viewport of [...viewports, { width: 320, height: 800 }]) {
     await page.goto("/");
 
     await expect(page.getByRole("heading", { level: 1, name: "Anson Leung" })).toBeVisible();
-    await expect(page.getByText("Business Analyst & Technical Product Builder")).toBeVisible();
+    await expect(page.getByText("From intent to working systems.")).toBeVisible();
     await expect(page.getByRole("link", { name: "Explore selected work" })).toBeVisible();
     await expect(page.getByRole("figure", { name: /Anson Leung outdoors/i })).toBeVisible();
 

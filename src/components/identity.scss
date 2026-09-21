@@ -35,9 +35,16 @@
   line-height: 1.1;
 }
 
+.identity-disciplines {
+  margin: 1.5rem 0 0;
+  color: var(--accent);
+  font-size: .95rem;
+  font-weight: 650;
+}
+
 .identity-intro {
   max-width: 58ch;
-  margin: 1.75rem 0 0;
+  margin: 1rem 0 0;
   color: var(--muted);
   font-size: clamp(1rem, 1.4vw, 1.125rem);
   line-height: 1.6;

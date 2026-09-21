@@ -38,8 +38,8 @@ describe("IndexPage", () => {
     );
     expect(order).toEqual([
       "hero",
-      "capabilities",
       "selected-work",
+      "capabilities",
       "experience",
       "labs",
       "contact",

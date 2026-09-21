@@ -6,7 +6,10 @@ const Hero: React.FC = () => (
   <section id="home" className="identity-hero" aria-labelledby="identity-name">
     <div className="identity-copy">
       <h1 id="identity-name">Anson Leung</h1>
-      <p className="identity-statement">Business Analyst &amp; Technical Product Builder</p>
+      <p className="identity-statement">From intent to working systems.</p>
+      <p className="identity-disciplines">
+        Business analysis · Product delivery · Technical implementation
+      </p>
       <p className="identity-intro">
         I work at the intersection of business, product and technology, turning complex
         requirements into digital systems that teams can actually build and operate.

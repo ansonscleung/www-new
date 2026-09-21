@@ -11,8 +11,9 @@ describe("Hero", () => {
     expect(
       screen.getByRole("heading", { level: 1, name: "Anson Leung" })
     ).toBeInTheDocument();
+    expect(screen.getByText("From intent to working systems.")).toBeInTheDocument();
     expect(
-      screen.getByText("Business Analyst & Technical Product Builder")
+      screen.getByText(/Business analysis · Product delivery · Technical implementation/)
     ).toBeInTheDocument();
     expect(
       screen.getByText(
