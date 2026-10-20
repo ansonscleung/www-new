@@ -4,13 +4,11 @@ import { describe, expect, it } from "vitest";
 import ExperienceSection from "./experience";
 
 describe("ExperienceSection", () => {
-  it("renders the background with the current role, closed Shoalter period and nested education", () => {
+  it("starts with the closed Shoalter period and preserves career progression", () => {
     render(<ExperienceSection />);
 
     expect(screen.getByRole("region", { name: /background/i })).toHaveAttribute("id", "experience");
-    expect(screen.getByText("Senior Business Designer")).toBeInTheDocument();
-    expect(screen.getByText("September 2026–Present")).toBeInTheDocument();
-    expect(screen.getByText("GreenTomato · Hong Kong")).toBeInTheDocument();
+    expect(screen.getAllByRole("article")[0]).toHaveTextContent("Shoalter Technology");
     expect(screen.getByText("Product Specialist → Senior Product Specialist")).toBeInTheDocument();
     expect(screen.getByText("February 2023–August 2026")).toBeInTheDocument();
     expect(screen.getByText("2019–December 2022")).toBeInTheDocument();

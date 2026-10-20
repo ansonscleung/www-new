@@ -84,20 +84,6 @@ export const impactEvidence: ImpactEvidence[] = [
 
 export const experienceEvidence: ExperienceEvidence[] = [
   {
-    id: "greentomato",
-    period: "September 2026–Present",
-    title: "Senior Business Designer",
-    organisation: "GreenTomato",
-    location: "Hong Kong",
-    summary:
-      "Support business analysis and solution delivery for a large-scale client-facing digital transformation project.",
-    highlights: [
-      "Translate business requirements into user journeys, functional specifications, system flows, acceptance criteria and implementation-ready requirements",
-      "Work across client stakeholders, UX/UI, solution architects and engineering teams to clarify requirements, technical dependencies and delivery constraints",
-      "Analyse complex business rules and edge cases, aligning business expectations with feasible system behaviour",
-    ],
-  },
-  {
     id: "shoalter",
     period: "February 2023–August 2026",
     title: "Product Specialist → Senior Product Specialist",
