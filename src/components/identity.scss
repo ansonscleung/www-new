@@ -77,7 +77,8 @@
 .identity-portrait .gatsby-image-wrapper img {
   object-fit: cover;
   object-position: 57% 54%;
-  
+  transform: scale(2.3);
+  transform-origin: 57% 100%;
 }
 
 .identity-portrait::after {

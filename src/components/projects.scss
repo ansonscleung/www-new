@@ -86,10 +86,6 @@
   padding-top: 1.5rem;
   border-top: 1px solid var(--border);
 }
-.selected-work__secondary--travel-planner { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: clamp(2rem, 7vw, 7rem); }
-.selected-work__secondary--travel-planner .title, .selected-work__secondary--travel-planner .selected-work__role { grid-column: 1; }
-.selected-work__secondary--travel-planner .selected-work__summary { grid-column: 1; }
-.selected-work__secondary--travel-planner .selected-work__focus, .selected-work__secondary--travel-planner .selected-work__link { grid-column: 2; }
 
 .selected-work__summary { margin: 0 0 1.25rem; }
 .selected-work__summary div + div { margin-top: 1rem; }
@@ -112,7 +108,5 @@
 @media (max-width: 800px) {
   .selected-work__lead,
   .selected-work__secondary-grid { grid-template-columns: 1fr; }
-  .selected-work__secondary--travel-planner { grid-template-columns: 1fr; }
-  .selected-work__secondary--travel-planner > * { grid-column: auto !important; }
   .selected-work__context { margin-top: .5rem; }
 }

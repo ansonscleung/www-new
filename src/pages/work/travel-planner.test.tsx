@@ -17,7 +17,7 @@ describe("TravelPlannerPage", () => {
     render(<TravelPlannerPage />);
 
     expect(screen.getByRole("heading", { level: 1, name: /Travel Planner/i })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /Back to selected work/ })).toHaveAttribute("href", "/#selected-work");
+    expect(screen.getByRole("link", { name: /Back to explorations/ })).toHaveAttribute("href", "/#explorations");
     expect(screen.getByRole("group", { name: "Colour theme" })).toBeInTheDocument();
     expect(screen.getByText("Work in progress")).toBeInTheDocument();
     expect(screen.getByText(/Ongoing personal product · Private development build/)).toBeInTheDocument();

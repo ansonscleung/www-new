@@ -4,8 +4,8 @@ const sectionOrder = [
   "home",
   "selected-work",
   "capabilities",
-  "experience",
-  "labs",
+  "journey",
+  "explorations",
   "contact",
 ];
 
@@ -28,7 +28,7 @@ test("homepage presents the working-systems narrative and bilingual quote", asyn
   await expect(page.getByText("From intent to working systems.")).toBeVisible();
   await expect(page.getByText(/Business analysis · Product delivery/)).toBeVisible();
   await expect(page.locator("#home").getByRole("link", { name: "Explore selected work" })).toBeVisible();
-  await expect(page.getByRole("figure", { name: /Anson Leung outdoors/i })).toBeVisible();
+  await expect(page.getByRole("figure", { name: /Anson Leung in Central/i })).toBeVisible();
   await expect(page.getByRole("region", { name: "Career journey" })).toHaveCount(0);
   await expect
     .poll(() => page.locator("main > section").evaluateAll((sections) => sections.map(({ id }) => id)))
@@ -40,11 +40,11 @@ test("homepage presents the working-systems narrative and bilingual quote", asyn
   await expect(
     selectedWork.getByRole("link", { name: /Unlimited Add-on — 2024 annual results/i })
   ).toHaveAttribute("target", "_blank");
-  await expect(page.locator("#experience")).toContainText("Senior Business Designer");
+  await expect(page.locator("#experience").locator("article").first()).toContainText("Shoalter Technology");
   await expect(page.locator("#experience")).toContainText("February 2023–August 2026");
   await expect(page.locator("#experience")).toContainText("Promoted October 2025");
   await expect(page.locator("#experience")).toContainText("2019–December 2022");
-  await expect(page.locator("#education")).toContainText("Aalto University");
+  await expect(page.locator("#journey-aalto")).toContainText("Aalto University");
   await expect(
     selectedWork.getByRole("link", { name: /3 Hr Mart — 2025 annual results/i })
   ).toHaveAttribute("target", "_blank");
@@ -80,9 +80,9 @@ test("Travel Planner opens as a private work-in-progress case study", async ({ p
   await expect(page.getByText(/Private development build/)).toBeVisible();
   await expect(page.getByRole("heading", { name: "From constraints to validation" })).toBeVisible();
   await expect(page.locator(".travel-case__flow > li")).toHaveCount(5);
-  await expect(page.getByRole("link", { name: /Back to selected work/ })).toHaveAttribute(
+  await expect(page.getByRole("link", { name: /Back to explorations/ })).toHaveAttribute(
     "href",
-    "/#selected-work"
+    "/#explorations"
   );
   expect(errors).toEqual([]);
 });
@@ -97,9 +97,9 @@ test("mobile navigation reaches sections without horizontal overflow", async ({
   const menuButton = page.getByRole("button", { name: "Toggle navigation menu" });
   await menuButton.click();
   await expect(menuButton).toHaveAttribute("aria-expanded", "true");
-  await page.getByRole("link", { name: "Outside work", exact: true }).click();
+  await page.getByRole("link", { name: "Explorations", exact: true }).click();
   await expect(menuButton).toHaveAttribute("aria-expanded", "false");
-  await expect(page).toHaveURL(/#labs$/);
+  await expect(page).toHaveURL(/#explorations$/);
 
   const hasHorizontalOverflow = await page.evaluate(
     () => document.documentElement.scrollWidth > document.documentElement.clientWidth
@@ -120,7 +120,7 @@ test("dark and reduced-motion preferences keep the hero usable", async ({
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
   await expect(hero).toBeVisible();
   await expect(hero.getByRole("link", { name: "Explore selected work" })).toBeVisible();
-  await expect(hero.getByRole("figure", { name: /Anson Leung outdoors/i })).toBeVisible();
+  await expect(hero.getByRole("figure", { name: /Anson Leung in Central/i })).toBeVisible();
   await expect(page.getByRole("button", { name: "Pause carousel" })).toHaveCount(0);
   await expect(page.locator(".quote-en")).toBeVisible();
   expect(errors).toEqual([]);

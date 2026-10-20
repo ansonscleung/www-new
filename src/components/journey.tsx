@@ -1,10 +1,12 @@
 import React from "react";
+import useJourneyStage from "../hooks/use-journey-stage";
 import { journeyChapters } from "../data/journey";
 import ExperienceSection from "./experience";
 import JourneyImage from "./journey-image";
 import "./journey.scss";
 
 export default function JourneySection() {
+  const { trackRef, enhanced, activeChapter, selectChapter } = useJourneyStage();
   return (
     <section id="journey" className="journey-section" aria-labelledby="journey-title">
       <div className="section journey-heading">
@@ -14,12 +16,14 @@ export default function JourneySection() {
           <p className="section-description">Computer Science, an exchange semester, Information Systems Management — and the work of putting ideas into practice.</p>
         </div>
       </div>
-      <div className="journey-track">
+      <div className="journey-track" ref={trackRef} data-enhanced={enhanced} data-active-chapter={activeChapter}>
         <div className="journey-stage">
           <nav className="journey-navigation" aria-label="Journey chapters">
             <div className="journey-chapter-links">
               {journeyChapters.map((chapter, index) => (
-                <a key={chapter.id} href={"#journey-" + chapter.id}>
+                <a key={chapter.id} href={"#journey-" + chapter.id}
+                  aria-current={enhanced && activeChapter === index ? "step" : undefined}
+                  onClick={(event) => selectChapter(event, index)}>
                   <span className="journey-number">{String(index + 1).padStart(2, "0")}</span> {chapter.label}
                 </a>
               ))}
@@ -30,7 +34,7 @@ export default function JourneySection() {
             {journeyChapters.map((chapter, index) => (
               <article
                 key={chapter.id} id={"journey-" + chapter.id}
-                className="journey-chapter" aria-labelledby={"journey-title-" + chapter.id}
+                className="journey-chapter" data-active={activeChapter === index} aria-labelledby={"journey-title-" + chapter.id}
                 style={{ "--image-position": chapter.imagePosition } as React.CSSProperties}
               >
                 {index === 0 && <span id="education" className="journey-legacy-anchor" />}

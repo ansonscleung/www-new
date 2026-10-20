@@ -45,13 +45,6 @@ const ExperienceSection: React.FC = () => {
                   </ol>
                 ) : null}
                 <p>{experience.summary}</p>
-                {experience.highlights.length ? (
-                  <ul>
-                    {experience.highlights.map((highlight) => (
-                      <li key={highlight}>{highlight}</li>
-                    ))}
-                  </ul>
-                ) : null}
               </div>
             </article>
           ))}

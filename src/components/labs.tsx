@@ -12,7 +12,7 @@ const LabsSection: React.FC = () => (
     id="explorations"
     aria-labelledby="labs-title"
   >
-    <div className="container">
+    <div className="container" id="labs">
       <div className="section-heading">
         <p className="section-label">Small tools, real questions</p>
         <h2 className="title is-2" id="labs-title">Explorations & personal work</h2>

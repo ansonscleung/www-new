@@ -16,6 +16,7 @@ describe("LabsSection", () => {
     expect(screen.getByText("jyutpingify")).toBeInTheDocument();
     expect(screen.getByText("ICT SBA — Football Match Scoring")).toBeInTheDocument();
     expect(screen.queryByText("daydaycode.tech")).not.toBeInTheDocument();
+    expect(document.querySelector("#labs")).toBeInTheDocument();
     expect(document.querySelector("#quote")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /visit musiccompare/i })).toHaveAttribute("href", "https://ansonscleung.github.io/MusicCompare/");
   });

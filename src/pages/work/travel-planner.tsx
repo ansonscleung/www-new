@@ -34,7 +34,7 @@ const TravelPlannerPage: React.FC = () => (
       <div className="travel-case__shell">
         <nav className="travel-case__nav" aria-label="Case study navigation">
           <div className="travel-case__nav-links">
-            <Link to="/#selected-work">← Back to selected work</Link>
+            <Link to="/#explorations">← Back to explorations</Link>
             <Link to="/">Anson Leung</Link>
           </div>
           <ThemeControl />

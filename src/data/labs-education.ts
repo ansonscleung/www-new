@@ -29,31 +29,3 @@ export const labProjects: LabProject[] = [
     linkLabel: "View ICT SBA on GitLab",
   },
 ];
-
-export interface EducationEntry {
-  id: string;
-  award: string;
-  institution: string;
-  note: string;
-}
-
-export const educationEntries: EducationEntry[] = [
-  {
-    id: "cuhk",
-    award: "BSc Computer Science",
-    institution: "The Chinese University of Hong Kong",
-    note: "Where the software foundation came from.",
-  },
-  {
-    id: "hkust",
-    award: "MSc Information Systems Management",
-    institution: "The Hong Kong University of Science and Technology",
-    note: "A broader view of how technology works inside organisations.",
-  },
-  {
-    id: "aalto",
-    award: "Exchange studies",
-    institution: "Aalto University",
-    note: "One semester studying and living in Finland.",
-  },
-];

@@ -21,7 +21,7 @@ vi.mock("../components/journey", () => ({
   default: () => <section data-section="journey" />,
 }));
 vi.mock("../components/labs", () => ({
-  default: () => <section data-section="labs" />,
+  default: () => <section data-section="explorations" />,
 }));
 vi.mock("../components/contact", () => ({
   default: () => <section data-section="contact" id="contact" />,
@@ -41,7 +41,7 @@ describe("IndexPage", () => {
       "selected-work",
       "capabilities",
       "journey",
-      "labs",
+      "explorations",
       "contact",
     ]);
   });

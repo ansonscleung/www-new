@@ -33,7 +33,7 @@ export const journeyChapters: readonly JourneyChapter[] = [
       "I later studied Information Systems Management at The Hong Kong University of Science and Technology.",
       "Alongside experience in startups, consulting and e-commerce, this forms the background to my work across product requirements, technical systems and delivery.",
     ],
-    imageKey: "hkust", imagePosition: "50% 24%",
+    imageKey: "hkust", imagePosition: "50% 14%",
     caption: "HKUST · MSc Information Systems Management. Portrait by a photographer arranged by the department during my studies.",
   },
   {
@@ -42,7 +42,7 @@ export const journeyChapters: readonly JourneyChapter[] = [
       "Today, I bring business analysis, product delivery and technical implementation together.",
       "I keep building alongside that work. Travel Planner is an ongoing personal prototype exploring structured, editable planning for family trips.",
     ],
-    imageKey: "now", imagePosition: "58% 62%",
+    imageKey: "now", imagePosition: "58% 100%",
     caption: "Central, Hong Kong · A recent portrait",
   },
 ];
