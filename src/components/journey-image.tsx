@@ -11,6 +11,6 @@ export default function JourneyImage({ imageKey }: Pick<JourneyChapter, "imageKe
     case "hkust":
       return <StaticImage src="../images/hkust-department-portrait.jpg" alt="" layout="fullWidth" placeholder="blurred" loading="lazy" formats={["auto", "webp"]} />;
     case "now":
-      return <StaticImage src="../images/central-2026.jpg" alt="" layout="fullWidth" placeholder="blurred" loading="lazy" formats={["auto", "webp"]} />;
+      return <StaticImage src="../images/central-2026-upright.png" alt="" layout="fullWidth" placeholder="blurred" loading="lazy" formats={["auto", "webp"]} />;
   }
 }

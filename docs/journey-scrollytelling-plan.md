@@ -79,3 +79,19 @@ text and a background colour remain available while images load.
 - Update content/composition unit tests; Playwright covers actual scrolling and fallback.
 - Run npm run test:run, npm run typecheck, npm run build and npm run test:e2e.
   Ensure the test server serves this branch's worktree.
+
+
+## 21 October update: photo index and original photograph
+
+The Hero now introduces CUHK, Aalto, HKUST and Now in a four-photo chapter index
+(four columns above 800px, two columns otherwise). The standalone close portrait
+is superseded. The existing positioning, introduction and two primary links remain.
+
+Now uses the unretouched 20261003_120040.jpg supplied by Anson. The generated retouch
+drafts were rejected because they changed facial appearance and are not used by the site.
+src/images/central-2026-original.jpg is an exact copy of the supplied JPEG.
+src/images/central-2026-upright.png is its lossless decoded, orientation-normalized
+version, prepared using the already-installed Sharp dependency: rotate().png().
+Decoded RGB pixels were checked equal to the source after the same EXIF rotation.
+There is no facial reconstruction, exposure adjustment, background cleanup or reshaping.
+Gatsby performs its normal responsive image encoding; CSS controls the displayed crop.

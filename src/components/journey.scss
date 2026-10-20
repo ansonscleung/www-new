@@ -48,7 +48,6 @@
   .journey-track[data-enhanced="true"] .journey-chapter[data-active="true"] { opacity: 1; pointer-events: auto; z-index: 1; }
   .journey-track[data-enhanced="true"] .journey-photo { position: absolute; inset: 0; z-index: -2; }
   .journey-track[data-enhanced="true"] .journey-photo .gatsby-image-wrapper { height: 100%; }
-  .journey-track[data-enhanced="true"] #journey-now .journey-photo img { transform: scale(1.35); transform-origin: 57% 100%; }
   .journey-track[data-enhanced="true"] .journey-chapter::after {
     content: ""; position: absolute; inset: 0; z-index: -1;
     background: linear-gradient(90deg, rgb(12 19 24 / .94) 0%, rgb(12 19 24 / .85) 29%, rgb(12 19 24 / .28) 57%, transparent 76%);

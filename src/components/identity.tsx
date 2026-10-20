@@ -1,5 +1,6 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import JourneyImage from "./journey-image";
+import { journeyChapters } from "../data/journey";
 import "./identity.scss";
 
 const Hero: React.FC = () => (
@@ -24,14 +25,23 @@ const Hero: React.FC = () => (
       </div>
     </div>
 
-    <figure className="identity-portrait" aria-label="Anson Leung in Central, Hong Kong">
-      <StaticImage
-        src="../images/central-2026.jpg"
-        alt="Anson Leung in Central, Hong Kong"
-        placeholder="blurred"
-        loading="eager"
-      />
-      <figcaption>Hong Kong · Bringing business, product and technology together.</figcaption>
+    <figure className="identity-memories" aria-label="Four photographs from my journey">
+      <ol>
+        {journeyChapters.map((chapter) => (
+          <li key={chapter.id}>
+            <a href={"#journey-" + chapter.id} aria-label={chapter.label + " chapter"}>
+              <div className="identity-memory-photo" style={{ "--image-position": chapter.imagePosition } as React.CSSProperties}>
+                <JourneyImage imageKey={chapter.imageKey} />
+              </div>
+              <span className="identity-memory-label">
+                <span>{chapter.label}</span>
+                <span aria-hidden="true">↗</span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ol>
+      <figcaption>Four places along the way. Explore my journey.</figcaption>
     </figure>
   </section>
 );

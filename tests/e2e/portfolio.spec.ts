@@ -1,4 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
+import { quotes } from "../../src/data/quotes";
+import { quoteIndexForDate } from "../../src/utils/quote-of-day";
 
 const sectionOrder = [
   "home",
@@ -28,7 +30,7 @@ test("homepage presents the working-systems narrative and bilingual quote", asyn
   await expect(page.getByText("From intent to working systems.")).toBeVisible();
   await expect(page.getByText(/Business analysis · Product delivery/)).toBeVisible();
   await expect(page.locator("#home").getByRole("link", { name: "Explore selected work" })).toBeVisible();
-  await expect(page.getByRole("figure", { name: /Anson Leung in Central/i })).toBeVisible();
+  await expect(page.getByRole("figure", { name: /four photographs from my journey/i })).toBeVisible();
   await expect(page.getByRole("region", { name: "Career journey" })).toHaveCount(0);
   await expect
     .poll(() => page.locator("main > section").evaluateAll((sections) => sections.map(({ id }) => id)))
@@ -56,6 +58,8 @@ test("homepage presents the working-systems narrative and bilingual quote", asyn
   await expect(page.locator(".quote-attribution p")).toContainText("·");
   await expect(page.locator(".quote-attribution cite")).toContainText("·");
 
+  // Wait for the date-based client selection, rather than capturing the SSR fallback.
+  await expect(englishQuote).toHaveText("“" + quotes[quoteIndexForDate(new Date(), quotes.length)].text.en + "”");
   const firstQuote = await englishQuote.textContent();
   const firstCategory = await page.locator(".quote-meta .tag").textContent();
   await page.getByRole("button", { name: "Another quote" }).click();
@@ -120,7 +124,7 @@ test("dark and reduced-motion preferences keep the hero usable", async ({
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
   await expect(hero).toBeVisible();
   await expect(hero.getByRole("link", { name: "Explore selected work" })).toBeVisible();
-  await expect(hero.getByRole("figure", { name: /Anson Leung in Central/i })).toBeVisible();
+  await expect(hero.getByRole("figure", { name: /four photographs from my journey/i })).toBeVisible();
   await expect(page.getByRole("button", { name: "Pause carousel" })).toHaveCount(0);
   await expect(page.locator(".quote-en")).toBeVisible();
   expect(errors).toEqual([]);

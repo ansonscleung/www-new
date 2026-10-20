@@ -42,7 +42,7 @@ export const journeyChapters: readonly JourneyChapter[] = [
       "Today, I bring business analysis, product delivery and technical implementation together.",
       "I keep building alongside that work. Travel Planner is an ongoing personal prototype exploring structured, editable planning for family trips.",
     ],
-    imageKey: "now", imagePosition: "58% 100%",
+    imageKey: "now", imagePosition: "82% 62%",
     caption: "Central, Hong Kong · A recent portrait",
   },
 ];

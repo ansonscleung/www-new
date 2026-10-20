@@ -65,3 +65,34 @@ the complete npm run build succeeded. Existing WMIC, Sass and Browserslist tooli
 did not prevent compilation.
 
 No dependencies, CMS or animation library were added. No deployment, push or merge was performed.
+
+
+## Follow-up verification — 21 October 2026
+
+The previous standalone Hero crop is superseded by a four-photo chapter index.
+The Now photograph is now the unretouched 20261003_120040.jpg. Generated retouch
+drafts are not referenced or shipped. The source JPEG copy has the same SHA256 as
+the supplied file. Its orientation-normalized PNG has identical decoded RGB pixels
+to the original decoded with the EXIF rotation applied. No generative edits or
+exposure/shape changes were applied. Gatsby's usual responsive encoding remains.
+
+- Unit suite: 28 passed across 14 files.
+- Typecheck: passed.
+- Production clean/build: passed (139 seconds).
+- Browser suite: 33 passed, 3 existing device-specific skips; no new skips.
+- The new browser case verifies four desktop columns / two mobile columns,
+  chapter links and absence of image magnification.
+- The first run caught a test assumption: Gatsby's transform is an identity matrix,
+  rather than the literal string "none". The test now accepts either without accepting
+  a scale. A pre-existing quote test also captured the SSR fallback before the
+  daily client selection; it now waits for the expected daily quote before testing rotation.
+- Screenshots inspected at 320, 390, 1024, 1440 and 1920px. No horizontal overflow
+  or page errors in those browser runs. Faces remain visible and clear of story text.
+- Additional browser checks passed for dark/reduced-motion rendering, keyboard
+  selection from the Hero and Hero chapter links with JavaScript disabled.
+
+Updated screenshots and logs:
+C:/Users/Anson Leung/.codex/visualizations/2026/10/19/01a15531-04d7-7e21-83f8-4df0968bd3d3/journey-photo-update/
+
+Files include desktop/mobile/small/wide/minimum Hero and Now captures, dark-hero.png,
+visual-checks.json, production-build.log and e2e.log.

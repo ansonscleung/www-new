@@ -1,7 +1,8 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
+vi.mock("./journey-image", () => ({ default: () => <div data-testid="journey-photo" /> }));
 import Hero from "./identity";
 
 describe("Hero", () => {
@@ -27,7 +28,7 @@ describe("Hero", () => {
     expect(screen.getByRole("link", { name: /My journey/ })).toHaveAttribute("href", "#journey");
   });
 
-  it("uses a static hero without carousel controls", () => {
+  it("introduces the four journey chapters without a standalone headshot", () => {
     render(<Hero />);
 
     expect(
@@ -36,6 +37,11 @@ describe("Hero", () => {
     expect(
       screen.queryByRole("button", { name: /pause carousel/i })
     ).not.toBeInTheDocument();
-    expect(screen.getByRole("figure", { name: /Anson Leung in Central/i })).toBeInTheDocument();
+    expect(screen.getByRole("figure", { name: /four photographs from my journey/i })).toBeInTheDocument();
+    expect(screen.getAllByTestId("journey-photo")).toHaveLength(4);
+    for (const [label, id] of [["CUHK", "cuhk"], ["Aalto", "aalto"], ["HKUST", "hkust"], ["Now", "now"]]) {
+      expect(screen.getByRole("link", { name: new RegExp(label + " chapter") })).toHaveAttribute("href", "#journey-" + id);
+    }
+    expect(document.querySelector(".identity-portrait")).not.toBeInTheDocument();
   });
 });
