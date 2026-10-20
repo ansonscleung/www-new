@@ -6,7 +6,7 @@
 .capabilities-section > .container { width: min(100%, var(--content)); max-width: none !important; }
 .capabilities-section .title { color: var(--fg); font-family: var(--display); letter-spacing: -.02em; }
 .capabilities-list { border-top: 1px solid var(--border); }
-.capability-row { display: grid; grid-template-columns: minmax(14rem, .85fr) minmax(18rem, 1.4fr); gap: clamp(2rem, 6vw, 6rem); padding: 2.25rem 0; border-bottom: 1px solid var(--border); }
+.capability-row { display: grid; grid-template-columns: minmax(14rem, .85fr) minmax(18rem, 1.4fr); gap: clamp(2rem, 6vw, 6rem); padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
 .capability-main .title { margin: 0; }
 .capability-copy p { margin-bottom: .65rem; color: var(--muted); }
 .capability-detail { font-size: .92rem; }

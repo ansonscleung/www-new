@@ -7,7 +7,7 @@ describe("ExperienceSection", () => {
   it("starts with the closed Shoalter period and preserves career progression", () => {
     render(<ExperienceSection />);
 
-    expect(screen.getByRole("region", { name: /background/i })).toHaveAttribute("id", "experience");
+    expect(screen.getByRole("region", { name: /selected experience/i })).toHaveAttribute("id", "experience");
     expect(screen.getAllByRole("article")[0]).toHaveTextContent("Shoalter Technology");
     expect(screen.getByText("Product Specialist → Senior Product Specialist")).toBeInTheDocument();
     expect(screen.getByText("February 2023–August 2026")).toBeInTheDocument();
@@ -15,7 +15,6 @@ describe("ExperienceSection", () => {
     expect(screen.getByText("Protiviti Hong Kong")).toBeInTheDocument();
     expect(screen.getByText("itinni")).toBeInTheDocument();
     expect(screen.getByText("OOCL")).toBeInTheDocument();
-    expect(screen.getByText("Aalto University")).toBeInTheDocument();
     expect(screen.getAllByText(/Shoalter Technology/i)).toHaveLength(1);
     expect(
       screen.getByText(/owned cross-system product requirements for large-scale e-commerce/i)

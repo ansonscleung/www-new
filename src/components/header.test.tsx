@@ -23,12 +23,12 @@ describe("Header", () => {
       "href",
       "#selected-work"
     );
-    expect(screen.getByRole("link", { name: "Background" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Journey" })).toHaveAttribute(
       "href",
-      "#experience"
+      "#journey"
     );
     expect(screen.getByRole("link", { name: "Approach" })).toHaveAttribute("href", "#capabilities");
-    expect(screen.getByRole("link", { name: "Outside work" })).toHaveAttribute("href", "#labs");
+    expect(screen.getByRole("link", { name: "Explorations" })).toHaveAttribute("href", "#explorations");
     expect(screen.getByRole("link", { name: "Contact" })).toHaveAttribute(
       "href",
       "#contact"

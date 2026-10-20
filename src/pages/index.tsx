@@ -2,7 +2,7 @@ import * as React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import CapabilitiesSection from "../components/capabilities";
 import ContactSection from "../components/contact";
-import ExperienceSection from "../components/experience";
+import JourneySection from "../components/journey";
 import IdentitySection from "../components/identity";
 import LabsSection from "../components/labs";
 import ProjectSection from "../components/projects";
@@ -51,7 +51,7 @@ const IndexPage: React.FC = () => {
         <IdentitySection />
         <ProjectSection />
         <CapabilitiesSection />
-        <ExperienceSection />
+        <JourneySection />
         <LabsSection />
         <ContactSection />
       </main>

@@ -15,8 +15,8 @@ describe("CapabilitiesSection", () => {
     expect(screen.getByRole("heading", { name: "Product & analysis" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Solution & delivery" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Technical fluency" })).toBeInTheDocument();
-    expect(screen.getByText(/functional specifications, user journeys, acceptance criteria and UAT/i)).toBeInTheDocument();
-    expect(screen.getByText(/REST APIs, Python, SQL, JavaScript\/TypeScript/i)).toBeInTheDocument();
+    expect(screen.getByText(/implementation-ready requirements/i)).toBeInTheDocument();
+    expect(screen.getByText(/hands-on technical understanding/i)).toBeInTheDocument();
     expect(screen.getAllByRole("link", { name: /See related work/ })).toHaveLength(3);
   });
 });

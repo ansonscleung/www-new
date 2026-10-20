@@ -52,11 +52,11 @@ const Header: React.FC = () => {
           <a href="#capabilities" className="navbar-item" onClick={closeMenu}>
             Approach
           </a>
-          <a href="#experience" className="navbar-item" onClick={closeMenu}>
-            Background
+          <a href="#journey" className="navbar-item" onClick={closeMenu}>
+            Journey
           </a>
-          <a href="#labs" className="navbar-item" onClick={closeMenu}>
-            Outside work
+          <a href="#explorations" className="navbar-item" onClick={closeMenu}>
+            Explorations
           </a>
           <a href="#contact" className="navbar-item" onClick={closeMenu}>
             Contact

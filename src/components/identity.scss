@@ -76,8 +76,8 @@
 
 .identity-portrait .gatsby-image-wrapper img {
   object-fit: cover;
-  object-position: 50% 62%;
-  filter: saturate(0.78) contrast(0.95);
+  object-position: 57% 54%;
+  
 }
 
 .identity-portrait::after {
@@ -111,6 +111,7 @@
 
   .identity-portrait {
     width: 100%;
+    aspect-ratio: 4 / 5;
     max-width: 38rem;
     min-height: 22rem;
   }

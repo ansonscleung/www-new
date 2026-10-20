@@ -1,6 +1,5 @@
 import React from "react";
 import { experienceEvidence } from "../data/profile-evidence";
-import EducationSection from "./education";
 import "./experience.scss";
 
 const ExperienceSection: React.FC = () => {
@@ -12,12 +11,11 @@ const ExperienceSection: React.FC = () => {
     >
       <div className="container">
         <div className="section-heading">
-          <p className="section-label">The context behind the work</p>
-          <h2 className="title is-2" id="experience-title">Background</h2>
+          <p className="section-label">Experience in practice</p>
+          <h2 className="title is-2" id="experience-title">Selected experience</h2>
           <p className="section-description">
             Product and business analysis work across startups, consulting, e-commerce and
-            client-facing solution delivery, grounded in Computer Science and Information
-            Systems Management.
+            client-facing solution delivery, with hands-on technical work throughout.
           </p>
         </div>
         <div className="experience-timeline">
@@ -58,7 +56,6 @@ const ExperienceSection: React.FC = () => {
             </article>
           ))}
         </div>
-        <EducationSection />
       </div>
     </section>
   );

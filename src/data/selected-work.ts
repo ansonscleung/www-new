@@ -1,6 +1,6 @@
 import type { WorkSummary } from "../types/portfolio";
 
-export const selectedWork: readonly Readonly<WorkSummary>[] = Object.freeze([
+const workSummaries: readonly Readonly<WorkSummary>[] = Object.freeze([
   Object.freeze({
     id: "shoalter",
     title: "Shoalter",
@@ -44,3 +44,6 @@ export const selectedWork: readonly Readonly<WorkSummary>[] = Object.freeze([
     technologies: ["Team of 10", "~100 daily users", "3 awards"],
   }),
 ]);
+
+export const selectedWork = workSummaries.filter((work) => work.id !== "travel-planner");
+export const travelPlanner = workSummaries.find((work) => work.id === "travel-planner")!;

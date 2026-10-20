@@ -18,20 +18,20 @@ const Hero: React.FC = () => (
         <a className="button is-primary" href="#selected-work">
           Explore selected work
         </a>
-        <a className="button is-light" href="#capabilities">
-          How I work <span aria-hidden="true">↓</span>
+        <a className="button is-light" href="#journey">
+          My journey <span aria-hidden="true">↓</span>
         </a>
       </div>
     </div>
 
-    <figure className="identity-portrait" aria-label="Anson Leung outdoors at Aalto University">
+    <figure className="identity-portrait" aria-label="Anson Leung in Central, Hong Kong">
       <StaticImage
-        src="../images/Portrait.jpg"
-        alt="Anson Leung outdoors at sunset in Aalto University"
+        src="../images/central-2026.jpg"
+        alt="Anson Leung in Central, Hong Kong"
         placeholder="blurred"
         loading="eager"
       />
-      <figcaption>Systems work starts by paying attention to people and context.</figcaption>
+      <figcaption>Hong Kong · Bringing business, product and technology together.</figcaption>
     </figure>
   </section>
 );

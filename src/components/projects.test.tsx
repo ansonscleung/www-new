@@ -25,7 +25,7 @@ describe("ProjectSection", () => {
       screen.getByRole("heading", { level: 3, name: /Shoalter/i })
     ).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 3, name: "itinni" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { level: 3, name: "Travel Planner" })).toBeInTheDocument();
+    expect(screen.queryByRole("heading", { name: "Travel Planner" })).not.toBeInTheDocument();
     expect(screen.getByText(/278,000\+ unique customers/i)).toBeInTheDocument();
     expect(screen.getByText(/approximately 70,000 product items/i)).toBeInTheDocument();
     expect(screen.getByText(/company context/i)).toBeInTheDocument();
@@ -46,19 +46,13 @@ describe("ProjectSection", () => {
     expect(screen.queryByText(/6 backend services|MAO|UAO/i)).not.toBeInTheDocument();
   });
 
-  it("presents the three selected-work summaries with a case-study CTA only for Travel Planner", () => {
+  it("keeps delivered work separate from the ongoing prototype", () => {
     render(<ProjectSection />);
 
     expect(
       screen.getByText(/at its peak, the product had roughly 100 daily users/i)
     ).toBeInTheDocument();
-    expect(
-      screen.getByText(/keeps the itinerary editable instead of treating the AI's answer as final/i)
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole("link", { name: "Read the Travel Planner case study" })
-    ).toHaveAttribute("href", "/work/travel-planner/");
-    expect(screen.getAllByRole("link")).toHaveLength(3);
+    expect(screen.getAllByRole("link")).toHaveLength(2);
   });
 
   it("gives Shoalter the lead case-study treatment and keeps the other work secondary", () => {
@@ -69,6 +63,6 @@ describe("ProjectSection", () => {
       screen.getByRole("heading", { level: 3, name: /Shoalter/i })
     );
     expect(screen.getByText(/owned cross-system requirements, functional specifications/i)).toBeInTheDocument();
-    expect(document.querySelectorAll(".selected-work__secondary")).toHaveLength(2);
+    expect(document.querySelectorAll(".selected-work__secondary")).toHaveLength(1);
   });
 });

@@ -24,7 +24,7 @@ describe("Hero", () => {
     expect(
       screen.getByRole("link", { name: "Explore selected work" })
     ).toHaveAttribute("href", "#selected-work");
-    expect(screen.getByRole("link", { name: /How I work/ })).toHaveAttribute("href", "#capabilities");
+    expect(screen.getByRole("link", { name: /My journey/ })).toHaveAttribute("href", "#journey");
   });
 
   it("uses a static hero without carousel controls", () => {
@@ -36,6 +36,6 @@ describe("Hero", () => {
     expect(
       screen.queryByRole("button", { name: /pause carousel/i })
     ).not.toBeInTheDocument();
-    expect(screen.getByRole("figure", { name: /Anson Leung outdoors/i })).toBeInTheDocument();
+    expect(screen.getByRole("figure", { name: /Anson Leung in Central/i })).toBeInTheDocument();
   });
 });

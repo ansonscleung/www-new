@@ -20,9 +20,6 @@ const CapabilitiesSection: React.FC = () => (
         <h2 className="title is-2" id="capabilities-title">
           How I work
         </h2>
-        <p className="section-description">
-          I keep the question, the system and the work needed to use it in view at the same time.
-        </p>
       </div>
       <div className="capabilities-list">
         {capabilities.map((capability) => (
@@ -32,7 +29,6 @@ const CapabilitiesSection: React.FC = () => (
               </div>
               <div className="capability-copy">
                 <p>{capability.description}</p>
-                <p className="capability-detail">{capability.details}</p>
                 <a href={evidenceLinks[capability.id]}>See related work <span aria-hidden="true">→</span></a>
               </div>
           </article>
