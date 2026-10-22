@@ -120,7 +120,7 @@ export const experienceEvidence: ExperienceEvidence[] = [
   },
   {
     id: "itinni",
-    period: "2019–December 2022",
+    period: "December 2019–December 2021",
     title: "Co-Founder & Product Director",
     organisation: "itinni",
     summary:
@@ -128,18 +128,6 @@ export const experienceEvidence: ExperienceEvidence[] = [
     highlights: [
       "Scrum leadership for a 10-person software and UX team",
       "Led developers and designers through product discovery, development and release",
-    ],
-  },
-  {
-    id: "oocl",
-    period: "Summer 2019",
-    title: "Summer Intern",
-    organisation: "OOCL",
-    summary:
-      "Turned frontline user feedback into actionable product and documentation improvements for logistics software.",
-    highlights: [
-      "Synthesised 200 requests and 1,000 user cases",
-      "Designed a logistics-platform interface module",
     ],
   },
 ];

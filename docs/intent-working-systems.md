@@ -1,3 +1,5 @@
+> Superseded by chronological-portfolio-plan.md. Correct chronology: HKUST August 2021–June 2022; Aalto postgraduate exchange April–June 2022; itinni December 2019–December 2021.
+
 # From intent to working systems
 
 The September 2026 design is superseded by [the approved Journey plan](journey-scrollytelling-plan.md).
