@@ -12,5 +12,5 @@ promoted October 2025. Preserve overlapping study/work dates. Do not infer photo
 MusicCompare's 2020 archive selection is not its development date.
 No deployment, merge, new packages or CV edits. Preserve the other checkout's untracked docs.
 Verification: unit, typecheck, production build, browser tests, responsive screenshots and
-old/new comparison. ARTEMIS doctor found missing credentials and no device; testing
-exception requested before any new test code is authored.
+old/new comparison. ARTEMIS doctor found missing credentials and no device. The user explicitly approved
+real browser exploration followed by Playwright for this website on 23 October 2026.

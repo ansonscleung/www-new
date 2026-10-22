@@ -1,8 +1,8 @@
 import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
-import type { JourneyChapter } from "../data/journey";
+import type { StoryImageKey } from "../data/story";
 
-export default function JourneyImage({ imageKey }: Pick<JourneyChapter, "imageKey">) {
+export default function JourneyImage({ imageKey }: { imageKey: StoryImageKey }) {
   switch (imageKey) {
     case "cuhk":
       return <StaticImage src="../images/cuhk.jpg" alt="" layout="fullWidth" placeholder="blurred" loading="eager" formats={["auto", "webp"]} />;

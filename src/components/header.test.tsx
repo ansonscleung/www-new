@@ -16,19 +16,19 @@ vi.mock("gatsby", () => ({
 import Header from "./header";
 
 describe("Header", () => {
-  it("links to the five primary homepage destinations", () => {
+  it("links to the four primary homepage destinations", () => {
     render(<Header />);
 
     expect(screen.getByRole("link", { name: "Work" })).toHaveAttribute(
       "href",
       "#selected-work"
     );
-    expect(screen.getByRole("link", { name: "Journey" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Story" })).toHaveAttribute(
       "href",
       "#journey"
     );
-    expect(screen.getByRole("link", { name: "Approach" })).toHaveAttribute("href", "#capabilities");
-    expect(screen.getByRole("link", { name: "Explorations" })).toHaveAttribute("href", "#explorations");
+
+    expect(screen.getByRole("link", { name: "Now" })).toHaveAttribute("href", "#now");
     expect(screen.getByRole("link", { name: "Contact" })).toHaveAttribute(
       "href",
       "#contact"

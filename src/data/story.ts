@@ -1,0 +1,94 @@
+export type StoryImageKey = "cuhk" | "hkust" | "aalto" | "now";
+export interface StoryEntry {
+  id: string;
+  period: string;
+  start?: string;
+  end?: string;
+  title: string;
+  paragraphs: readonly string[];
+  image?: { key: StoryImageKey; caption: string };
+  links?: readonly { label: string; href: string }[];
+  details?: { label: string; paragraphs: readonly string[] };
+  evidence?: readonly { label: string; href: string }[];
+  milestone?: string;
+}
+
+export const story: readonly StoryEntry[] = [
+  {
+    id: "beginnings", period: "Before university", title: "A first programme",
+    paragraphs: ["My secondary-school ICT project was a football scoring system written in Pascal. It is an early example of the small, practical tools I have kept making since."],
+    links: [{ label: "The Pascal project", href: "https://gitlab.com/ansonscleung/ict-sba" }],
+  },
+  {
+    id: "cuhk-study", period: "September 2016–July 2020", start: "2016-09", end: "2020-07",
+    title: "Computer Science at CUHK",
+    paragraphs: ["I studied Computer Science at The Chinese University of Hong Kong, with a concentration in Intelligence Science.",
+      "For my final-year project, I worked on classifying lung cancer subtypes from histopathology images using deep neural networks. It was an academic project, alongside the broader computing foundation of the degree."],
+  },
+  {
+    id: "itinni", period: "December 2019–December 2021", start: "2019-12", end: "2021-12",
+    title: "Co-founding itinni",
+    paragraphs: ["While studying at CUHK, I co-founded itinni, a travel technology startup. As Co-Founder & Product Director, I worked on B2B and B2C products, from user research and product decisions to development and launch.",
+      "I led up to 10 software developers and UX designers using Scrum. The products supported shared itinerary editing for groups of 6–12 travellers and reached about 100 daily users."],
+    details: { label: "More about the product and delivery work", paragraphs: [
+      "I conducted user research and usability testing with three focus groups, working with developers and designers to turn findings into product scope and releases.",
+      "I also worked on AWS deployment workflows, connecting GitHub to Elastic Beanstalk and using S3 for application storage. Product demonstrations and pitches earned three awards across two startup competitions.",
+      "This role overlapped with my studies. My work at itinni ended in December 2021; the company history and my own tenure are separate."
+    ] },
+  },
+  {
+    id: "journey-cuhk", period: "July 2020", start: "2020-07", title: "Completing the degree",
+    paragraphs: ["I completed my BSc in Computer Science in July 2020.",
+      "One personal project from this earlier body of work is MusicCompare, which Steven Wong and I built to compare music in the browser. It was included in the 2020 GitHub Archive Program; that is an archive milestone, rather than a development date."],
+    image: { key: "cuhk", caption: "CUHK · BSc Computer Science." },
+    links: [{ label: "Try MusicCompare", href: "https://ansonscleung.github.io/MusicCompare/" }],
+  },
+  {
+    id: "journey-hkust", period: "August 2021–June 2022", start: "2021-08", end: "2022-06",
+    title: "Information Systems Management at HKUST",
+    paragraphs: ["I returned to study for an MSc in Information Systems Management at The Hong Kong University of Science and Technology, concentrating in Technology & Innovation Management.",
+      "The first part of the programme overlapped with my work at itinni."],
+    image: { key: "hkust", caption: "HKUST. A portrait taken during my studies by a photographer arranged by the department." },
+  },
+  {
+    id: "journey-aalto", period: "April–June 2022", start: "2022-04", end: "2022-06",
+    title: "An exchange in Finland",
+    paragraphs: ["During my postgraduate studies, I joined an exchange at Aalto University in Espoo, Finland, from April to June 2022.",
+      "The exchange took place during my HKUST master's programme."],
+    image: { key: "aalto", caption: "Aalto University, Finland. A photograph from my exchange." },
+  },
+  {
+    id: "protiviti", period: "September 2022–February 2023", start: "2022-09", end: "2023-02",
+    title: "Cloud and application consulting",
+    paragraphs: ["At Protiviti Hong Kong, I worked as a Consultant in Cloud & Application Service.",
+      "The work included cloud data migration and automation, Python-based data extraction, and a browser-based virtual-reality sourcing management platform built with HTML, CSS and JavaScript."],
+  },
+  {
+    id: "shoalter", period: "February 2023–August 2026", start: "2023-02", end: "2026-08",
+    title: "Product delivery at Shoalter",
+    paragraphs: ["At Shoalter Technology, part of HKTV Group, I worked on e-commerce and delivery initiatives whose requirements crossed multiple systems and teams.",
+      "My role covered functional specifications, user flows, acceptance criteria and UAT, followed by rollout and production support. I worked with Engineering, QA, Operations, Customer Service, Marketing and external partners."],
+    milestone: "Product Specialist: February 2023–September 2025. Promoted to Senior Product Specialist in October 2025; held the role until August 2026.",
+    details: { label: "More about the systems and delivery work", paragraphs: [
+      "I worked on integration planning for partner authentication and commerce flows, coordinating testing and investigating production sign-in issues.",
+      "Other work included pickup-point recommendation rules, promotion eligibility and delivery workflows. The recurring task was to make system behaviour and dependencies clear enough for teams to build, test and release.",
+      "Company context, separate from my personal contribution: HKTV reported 278,000+ unique customers for Unlimited Add-on in 2024 and approximately 70,000 product items at the 3 Hr Mart launch. These figures describe the initiatives' scale, not an outcome attributable to me alone."
+    ] },
+    evidence: [
+      { label: "Unlimited Add-on — 2024 annual results", href: "https://www.hktv.com.hk/uploads/1743067192193-PR_20250327_E_W.pdf" },
+      { label: "3 Hr Mart — 2025 annual results", href: "https://www.hktv.com.hk/uploads/1774859727851-EW01137-ann.pdf" }
+    ],
+  },
+  {
+    id: "now", period: "Now", title: "Still making things",
+    paragraphs: ["I bring product and business analysis experience to hands-on technical work. I continue to build personal software projects and use coding assistants as part of that practice.",
+      "Travel Planner is an ongoing personal prototype for family trips. It explores constraints such as pace, mobility and meals, with a structured itinerary that stays editable. It is in private development."],
+    image: { key: "now", caption: "Central, Hong Kong · A recent photograph." },
+    links: [{ label: "Read the Travel Planner case study", href: "/work/travel-planner/" }],
+  }
+];
+
+export const workIndex = [
+  { id: "itinni", label: "itinni", description: "Building and launching travel products" },
+  { id: "shoalter", label: "Shoalter", description: "E-commerce requirements, integration and delivery" },
+] as const;

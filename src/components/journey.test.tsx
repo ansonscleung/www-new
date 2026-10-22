@@ -1,22 +1,37 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-vi.mock("./journey-image", () => ({ default: () => <div data-testid="journey-image" /> }));
+vi.mock("./journey-image", () => ({ default: () => <div data-testid="story-image" /> }));
+vi.mock("gatsby", () => ({ Link: ({ children, to }: { children: React.ReactNode; to: string }) => <a href={to}>{children}</a> }));
 import JourneySection from "./journey";
-
-describe("Journey", () => {
-  it("provides one complete factual reading sequence before enhancement", () => {
+import NowSection from "./now";
+import { story } from "../data/story";
+describe("Chronological story", () => {
+  it("orders events by start, retains overlaps, and uses corrected dates", () => {
     render(<JourneySection />);
-    expect(screen.getByRole("region", { name: "A continuing journey" })).toHaveAttribute("id", "journey");
-    expect(screen.getAllByRole("heading", { level: 3 }).slice(0, 4).map((h) => h.textContent)).toEqual([
-      "Building a foundation", "Learning in another context", "Technology inside organisations", "Bringing it together",
+    expect(screen.getAllByRole("article").map((node) => node.id)).toEqual([
+      "beginnings", "cuhk-study", "itinni", "journey-cuhk", "journey-hkust", "journey-aalto", "protiviti", "shoalter",
     ]);
-    expect(screen.getAllByTestId("journey-image")).toHaveLength(4);
+    const starts = story.flatMap((entry) => entry.start ? [entry.start] : []);
+    expect(starts).toEqual([...starts].sort());
+    expect(screen.getByText("December 2019–December 2021")).toBeInTheDocument();
+    expect(screen.getByText("August 2021–June 2022")).toBeInTheDocument();
+    expect(screen.getByText("April–June 2022")).toBeInTheDocument();
+    expect(screen.getByText(/During my postgraduate studies/)).toBeInTheDocument();
     expect(screen.getByText(/photographer arranged by the department/)).toBeInTheDocument();
-    expect(screen.getByText(/CUHK · BSc Computer Science/)).toBeInTheDocument();
-    expect(document.querySelector("#education")).toBeInTheDocument();
-    expect(document.querySelector("#experience")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /Skip journey/ })).toHaveAttribute("href", "#explorations");
-    expect(document.querySelector(".journey-track")).not.toHaveAttribute("data-enhanced", "true");
+    expect(screen.getByText(/Promoted to Senior Product Specialist in October 2025/)).toBeInTheDocument();
+    expect(screen.queryByText(/OOCL|GreenTomato|December 2022/)).not.toBeInTheDocument();
+    expect(document.querySelector(".journey-stage")).toBeNull();
+    expect(screen.getAllByTestId("story-image")).toHaveLength(3);
+    expect(within(screen.getByRole("article", { name: "Product delivery at Shoalter" })).getByText(/separate from my personal contribution/)).toBeInTheDocument();
+  });
+  it("keeps the ongoing prototype in Now with the original photograph and legacy links", () => {
+    render(<NowSection />);
+    expect(screen.getByRole("region", { name: "Now" })).toBeInTheDocument();
+    expect(screen.getByText(/ongoing personal prototype/)).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /Travel Planner/ })).toHaveAttribute("href", "/work/travel-planner/");
+    for (const id of ["now", "journey-now", "explorations", "labs", "travel-planner"]) {
+      expect(document.getElementById(id)).not.toBeNull();
+    }
   });
 });

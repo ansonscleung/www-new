@@ -13,11 +13,11 @@
     --focus: #244b8a;
     --on-accent: #ffffff;
     --portrait-bg: #d8e2e7;
-    --display: "Geologica", "Noto Sans HK", sans-serif;
+    --display: Georgia, "Times New Roman", "Noto Sans HK", serif;
     --body: "Geologica", "Noto Sans HK", sans-serif;
     --content: 75rem;
     --gutter: clamp(1.25rem, 4vw, 3rem);
-    --section-space: clamp(3.5rem, 7vw, 6rem);
+    --section-space: clamp(2.5rem, 5vw, 4rem);
     --bulma-scheme-main: var(--bg);
     --bulma-scheme-main-bis: var(--surface);
     --bulma-scheme-main-ter: #edf1f3;
@@ -138,3 +138,6 @@ a:hover { color: var(--focus); }
         scroll-behavior: auto !important;
     }
 }
+
+.contact-section { max-width: 62rem; margin: 0 auto; }
+.contact-section .title { font-weight: 400; }

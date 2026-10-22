@@ -1,11 +1,10 @@
 import * as React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import CapabilitiesSection from "../components/capabilities";
+import NowSection from "../components/now";
 import ContactSection from "../components/contact";
 import JourneySection from "../components/journey";
 import IdentitySection from "../components/identity";
 import LabsSection from "../components/labs";
-import ProjectSection from "../components/projects";
 import { FooterData, FooterSection } from "../components/footer";
 import "./styles.scss";
 import Header from "../components/header";
@@ -49,11 +48,10 @@ const IndexPage: React.FC = () => {
       <Header />
       <main>
         <IdentitySection />
-        <ProjectSection />
-        <CapabilitiesSection />
         <JourneySection />
-        <LabsSection />
+        <NowSection />
         <ContactSection />
+        <LabsSection />
       </main>
       <FooterSection data={footer} />
     </>
