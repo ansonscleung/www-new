@@ -1,4 +1,4 @@
-export type StoryImageKey = "cuhk" | "hkust" | "aalto" | "now";
+export type StoryImageKey = "cuhk" | "hkust" | "aalto" | "now" | "musiccompare";
 export interface StoryEntry {
   id: string;
   period: string;
@@ -11,6 +11,7 @@ export interface StoryEntry {
   details?: { label: string; paragraphs: readonly string[] };
   evidence?: readonly { label: string; href: string }[];
   milestone?: string;
+  scope?: string;
 }
 
 export const story: readonly StoryEntry[] = [
@@ -32,14 +33,13 @@ export const story: readonly StoryEntry[] = [
       "I led up to 10 software developers and UX designers using Scrum. The products supported shared itinerary editing for groups of 6–12 travellers and reached about 100 daily users."],
     details: { label: "More about the product and delivery work", paragraphs: [
       "I conducted user research and usability testing with three focus groups, working with developers and designers to turn findings into product scope and releases.",
-      "I also worked on AWS deployment workflows, connecting GitHub to Elastic Beanstalk and using S3 for application storage. Product demonstrations and pitches earned three awards across two startup competitions.",
-      "This role overlapped with my studies. My work at itinni ended in December 2021; the company history and my own tenure are separate."
+      "I also worked on AWS deployment workflows, connecting GitHub to Elastic Beanstalk and using S3 for application storage. Product demonstrations and pitches earned three awards across two startup competitions."
     ] },
   },
   {
     id: "journey-cuhk", period: "July 2020", start: "2020-07", title: "Completing the degree",
     paragraphs: ["I completed my BSc in Computer Science in July 2020.",
-      "One personal project from this earlier body of work is MusicCompare, which Steven Wong and I built to compare music in the browser. It was included in the 2020 GitHub Archive Program; that is an archive milestone, rather than a development date."],
+      "One personal project from this earlier body of work is MusicCompare, which Steven Wong and I built to compare music in the browser. It was included in the 2020 GitHub Archive Program."],
     image: { key: "cuhk", caption: "CUHK · BSc Computer Science." },
     links: [{ label: "Try MusicCompare", href: "https://ansonscleung.github.io/MusicCompare/" }],
   },
@@ -53,8 +53,7 @@ export const story: readonly StoryEntry[] = [
   {
     id: "journey-aalto", period: "April–June 2022", start: "2022-04", end: "2022-06",
     title: "An exchange in Finland",
-    paragraphs: ["During my postgraduate studies, I joined an exchange at Aalto University in Espoo, Finland, from April to June 2022.",
-      "The exchange took place during my HKUST master's programme."],
+    paragraphs: ["During my postgraduate studies, I joined an exchange at Aalto University in Espoo, Finland, from April to June 2022."],
     image: { key: "aalto", caption: "Aalto University, Finland. A photograph from my exchange." },
   },
   {
@@ -88,7 +87,33 @@ export const story: readonly StoryEntry[] = [
   }
 ];
 
-export const workIndex = [
-  { id: "itinni", label: "itinni", description: "Building and launching travel products" },
-  { id: "shoalter", label: "Shoalter", description: "E-commerce requirements, integration and delivery" },
-] as const;
+
+
+// The project trail groups changes in scope; unknown creation dates remain unknown.
+export const projects: readonly StoryEntry[] = [
+  { ...story.find((entry) => entry.id === "beginnings")!, scope: "A single-purpose programme" },
+  {
+    id: "musiccompare", period: "Earlier personal work", title: "MusicCompare",
+    scope: "A browser-based tool",
+    paragraphs: ["Steven Wong and I built MusicCompare to compare music directly in the browser. It brought an audio-comparison tool into a web interface.",
+      "The project was included in the 2020 GitHub Archive Program."],
+    image: { key: "musiccompare", caption: "MusicCompare running in the browser." },
+    links: [{ label: "Try MusicCompare", href: "https://ansonscleung.github.io/MusicCompare/" }],
+  },
+  { ...story.find((entry) => entry.id === "itinni")!, scope: "A shared product for groups of travellers" },
+  { ...story.find((entry) => entry.id === "shoalter")!, scope: "Delivery across systems and teams" },
+  {
+    id: "travel-planner", period: "Ongoing private prototype", title: "Travel Planner",
+    scope: "Bringing product decisions and implementation into one personal project",
+    paragraphs: ["Travel Planner is an ongoing personal prototype for family trips. It explores constraints such as pace, mobility and meals, with a structured itinerary that stays editable.",
+      "I am working across the product question, data model and implementation. It is in private development."],
+    links: [{ label: "Read the Travel Planner case study", href: "/work/travel-planner/" }],
+  }
+];
+export const background = story.filter((entry) => !["beginnings", "itinni", "shoalter", "now"].includes(entry.id))
+  .map((entry) => entry.id === "journey-cuhk" ? { ...entry, paragraphs: [entry.paragraphs[0]], links: undefined } : entry);
+export const currentPractice: StoryEntry = {
+  ...story.find((entry) => entry.id === "now")!,
+  paragraphs: [story.find((entry) => entry.id === "now")!.paragraphs[0]],
+  links: [{ label: "See the current Travel Planner prototype above", href: "#travel-planner" }],
+};

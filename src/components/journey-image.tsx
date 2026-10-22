@@ -4,6 +4,8 @@ import type { StoryImageKey } from "../data/story";
 
 export default function JourneyImage({ imageKey }: { imageKey: StoryImageKey }) {
   switch (imageKey) {
+    case "musiccompare":
+      return <StaticImage src="../images/MusicCompare.png" alt="" layout="fullWidth" placeholder="blurred" loading="lazy" formats={["auto", "webp"]} />;
     case "cuhk":
       return <StaticImage src="../images/cuhk.jpg" alt="" layout="fullWidth" placeholder="blurred" loading="eager" formats={["auto", "webp"]} />;
     case "aalto":

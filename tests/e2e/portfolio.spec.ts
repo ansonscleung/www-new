@@ -2,14 +2,7 @@ import { expect, test, type Page } from "@playwright/test";
 import { quotes } from "../../src/data/quotes";
 import { quoteIndexForDate } from "../../src/utils/quote-of-day";
 
-const sectionOrder = [
-  "home",
-  "selected-work",
-  "capabilities",
-  "journey",
-  "explorations",
-  "contact",
-];
+const sectionOrder = ["home", "selected-work", "journey", "current", "contact"];
 
 const collectRuntimeErrors = (page: Page) => {
   const errors: string[] = [];
@@ -28,29 +21,12 @@ test("homepage presents the working-systems narrative and bilingual quote", asyn
 
   await expect(page.getByRole("heading", { level: 1, name: "Anson Leung" })).toBeVisible();
   await expect(page.getByText("From intent to working systems.")).toBeVisible();
-  await expect(page.getByText(/Business analysis · Product delivery/)).toBeVisible();
-  await expect(page.locator("#home").getByRole("link", { name: "Explore selected work" })).toBeVisible();
-  await expect(page.getByRole("figure", { name: /four photographs from my journey/i })).toBeVisible();
-  await expect(page.getByRole("region", { name: "Career journey" })).toHaveCount(0);
-  await expect
-    .poll(() => page.locator("main > section").evaluateAll((sections) => sections.map(({ id }) => id)))
-    .toEqual(sectionOrder);
-
-  const selectedWork = page.locator("#selected-work");
-  await expect(selectedWork.getByText(/278,000\+ unique customers/i)).toBeVisible();
-  await expect(selectedWork.getByText(/approximately 70,000 product items/i)).toBeVisible();
-  await expect(
-    selectedWork.getByRole("link", { name: /Unlimited Add-on — 2024 annual results/i })
-  ).toHaveAttribute("target", "_blank");
-  await expect(page.locator("#experience").locator("article").first()).toContainText("Shoalter Technology");
-  await expect(page.locator("#experience")).toContainText("February 2023–August 2026");
-  await expect(page.locator("#experience")).toContainText("Promoted October 2025");
-  await expect(page.locator("#experience")).toContainText("2019–December 2022");
-  await expect(page.locator("#journey-aalto")).toContainText("Aalto University");
-  await expect(
-    selectedWork.getByRole("link", { name: /3 Hr Mart — 2025 annual results/i })
-  ).toHaveAttribute("target", "_blank");
-
+  await expect(page.locator("#home").getByRole("link", { name: /Follow the projects/ })).toBeVisible();
+  await expect.poll(() => page.locator("main > section").evaluateAll(nodes => nodes.map(n => n.id))).toEqual(sectionOrder);
+  await expect(page.locator("#shoalter")).toContainText("February 2023–August 2026");
+  await expect(page.locator("#shoalter")).toContainText("October 2025");
+  await expect(page.locator("#itinni")).toContainText("December 2019–December 2021");
+  await expect(page.locator("#journey-aalto")).toContainText("postgraduate");
   const englishQuote = page.locator(".quote-en");
   const chineseQuote = page.locator('.quote-zh[lang="zh-Hant"]');
   await expect(englishQuote).toBeVisible();
@@ -101,9 +77,9 @@ test("mobile navigation reaches sections without horizontal overflow", async ({
   const menuButton = page.getByRole("button", { name: "Toggle navigation menu" });
   await menuButton.click();
   await expect(menuButton).toHaveAttribute("aria-expanded", "true");
-  await page.getByRole("link", { name: "Explorations", exact: true }).click();
+  await page.getByRole("link", { name: "Now", exact: true }).click();
   await expect(menuButton).toHaveAttribute("aria-expanded", "false");
-  await expect(page).toHaveURL(/#explorations$/);
+  await expect(page).toHaveURL(/#now$/);
 
   const hasHorizontalOverflow = await page.evaluate(
     () => document.documentElement.scrollWidth > document.documentElement.clientWidth
@@ -123,8 +99,8 @@ test("dark and reduced-motion preferences keep the hero usable", async ({
   const hero = page.locator("#home");
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
   await expect(hero).toBeVisible();
-  await expect(hero.getByRole("link", { name: "Explore selected work" })).toBeVisible();
-  await expect(hero.getByRole("figure", { name: /four photographs from my journey/i })).toBeVisible();
+  await expect(hero.getByRole("link", { name: /Follow the projects/ })).toBeVisible();
+  await expect(hero.locator("figure")).toHaveCount(0);
   await expect(page.getByRole("button", { name: "Pause carousel" })).toHaveCount(0);
   await expect(page.locator(".quote-en")).toBeVisible();
   expect(errors).toEqual([]);

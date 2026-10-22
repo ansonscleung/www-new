@@ -37,3 +37,8 @@
  .story-photo { margin: 1.5rem 0; }
 }
 @media print { .story-details { display: block; } .story-photo { break-inside: avoid; } }
+
+.background-section .story-photo { max-width: 16rem; }
+.background-section .story-photo--cuhk { max-width: 23rem; }
+.background-section .story-entry { padding-top: 2rem; padding-bottom: 2rem; }
+.now-section .story-photo { max-width: 16rem; }

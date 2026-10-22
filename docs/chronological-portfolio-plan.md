@@ -14,3 +14,13 @@ No deployment, merge, new packages or CV edits. Preserve the other checkout's un
 Verification: unit, typecheck, production build, browser tests, responsive screenshots and
 old/new comparison. ARTEMIS doctor found missing credentials and no device. The user explicitly approved
 real browser exploration followed by Playwright for this website on 23 October 2026.
+
+
+## User refinement: project evolution
+The user clarified that projects, not merely job records, were too scattered.
+The homepage now groups Pascal, MusicCompare, itinni, Shoalter work and Travel Planner
+in one Work trail, explaining changes in scope and contribution. This is an editorial
+progression, not a claim about unknown creation dates or causal learning.
+Education, graduation photographs and consulting form a shorter background sequence.
+Now links back to the current prototype rather than repeating its case.
+The user's corrected itinni dates and all legacy anchors remain.

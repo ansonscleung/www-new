@@ -38,6 +38,7 @@ describe("IndexPage", () => {
     );
     expect(order).toEqual([
       "hero",
+      "selected-work",
       "journey",
       "now",
       "contact",

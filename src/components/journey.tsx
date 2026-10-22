@@ -1,13 +1,13 @@
 import React from "react";
-import { story } from "../data/story";
+import { background } from "../data/story";
 import StoryEntry from "./story-entry";
 import "./journey.scss";
 
 export default function JourneySection() {
-  return <section id="journey" className="story-section" aria-labelledby="journey-title">
-    <header className="story-heading"><h2 id="journey-title">A few chapters along the way</h2>
-      <p>Study, work and the things I have made. Some of these happened alongside each other.</p>
+  return <section id="journey" className="story-section background-section" aria-labelledby="journey-title">
+    <header className="story-heading"><h2 id="journey-title">Study and the wider context</h2>
+      <p>The studies and consulting work alongside these projects. Dates overlap with the work above.</p>
     </header>
-    <div className="story-timeline">{story.filter((entry) => entry.id !== "now").map((entry) => <StoryEntry key={entry.id} entry={entry} />)}</div>
+    <div className="story-timeline">{background.map((entry) => <StoryEntry key={entry.id} entry={entry} />)}</div>
   </section>;
 }

@@ -1,17 +1,20 @@
 import { defineConfig, devices } from "@playwright/test";
 
+const port = process.env.PORTFOLIO_TEST_PORT ?? "8000";
+const baseURL = "http://127.0.0.1:" + port;
+
 export default defineConfig({
   testDir: "./tests/e2e",
   fullyParallel: false,
   retries: process.env.CI ? 2 : 0,
   reporter: "list",
   use: {
-    baseURL: "http://127.0.0.1:8000",
+    baseURL,
     trace: "retain-on-failure",
   },
   webServer: {
-    command: "yarn develop --host 127.0.0.1 --port 8000",
-    url: "http://127.0.0.1:8000",
+    command: "yarn develop --host 127.0.0.1 --port " + port,
+    url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,
   },

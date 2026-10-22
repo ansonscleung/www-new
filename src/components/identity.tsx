@@ -1,5 +1,4 @@
 import React from "react";
-import ProjectSection from "./projects";
 import "./identity.scss";
 export default function Hero() {
   return <section id="home" className="identity-hero" aria-labelledby="identity-name">
@@ -10,7 +9,11 @@ export default function Hero() {
       <p>My background spans Computer Science, a travel startup, consulting and e-commerce. I also build software of my own.</p>
     </div>
     <p className="identity-statement">From intent to working systems.</p>
-    <ProjectSection />
-    <a className="identity-story-link" href="#journey">Read my story ↓</a>
+    <nav className="identity-project-links" aria-label="Project shortcuts">
+      <a href="#selected-work">Follow the projects ↓</a>
+      <a href="#itinni">itinni</a>
+      <a href="#shoalter">Shoalter</a>
+    </nav>
+
   </section>;
 }

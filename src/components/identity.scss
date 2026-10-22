@@ -4,5 +4,7 @@
 .identity-intro { max-width: 40rem; font-size: clamp(1.1rem, 2vw, 1.3rem); line-height: 1.65; }
 .identity-intro p { margin: 0 0 1rem; }
 .identity-statement { margin: 1.75rem 0; color: var(--muted); font: italic 1.25rem/1.5 var(--display); }
-.identity-story-link { display: inline-block; margin-top: 1.5rem; padding: .75rem 0; }
 @media(max-width:600px) { .identity-hero { padding-top: 7rem; padding-bottom: 2rem; } }
+
+.identity-project-links { display: flex; flex-wrap: wrap; gap: .75rem 2rem; margin-top: 2rem; }
+.identity-project-links a { padding: .75rem 0; }
