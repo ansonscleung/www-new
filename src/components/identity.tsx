@@ -9,10 +9,9 @@ export default function Hero() {
       <p>My background spans Computer Science, a travel startup, consulting and e-commerce. I also build software of my own.</p>
     </div>
     <p className="identity-statement">From intent to working systems.</p>
-    <nav className="identity-project-links" aria-label="Project shortcuts">
-      <a href="#selected-work">Follow the projects ↓</a>
-      <a href="#itinni">itinni</a>
-      <a href="#shoalter">Shoalter</a>
+    <nav className="identity-project-links" aria-label="Explore the portfolio">
+      <a href="#journey">My experience ↓</a>
+      <a href="#now">What I’m making now ↓</a>
     </nav>
 
   </section>;

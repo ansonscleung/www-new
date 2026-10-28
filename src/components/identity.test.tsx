@@ -7,9 +7,8 @@ describe("Hero", () => {
     render(<Hero />);
     expect(screen.getByRole("heading", { level: 1, name: "Anson Leung" })).toBeInTheDocument();
     expect(screen.getByText("From intent to working systems.")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /Follow the projects/ })).toHaveAttribute("href", "#selected-work");
-    expect(screen.getByRole("link", { name: /itinni/ })).toHaveAttribute("href", "#itinni");
-    expect(screen.getByRole("link", { name: /Shoalter/ })).toHaveAttribute("href", "#shoalter");
+    expect(screen.getByRole("link", { name: /My experience/ })).toHaveAttribute("href", "#journey");
+    expect(screen.getByRole("link", { name: /What I’m making now/ })).toHaveAttribute("href", "#now");
     expect(document.querySelector("figure")).toBeNull();
   });
 });

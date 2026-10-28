@@ -16,14 +16,10 @@ vi.mock("gatsby", () => ({
 import Header from "./header";
 
 describe("Header", () => {
-  it("links to the four primary homepage destinations", () => {
+  it("links to the three primary homepage destinations", () => {
     render(<Header />);
 
-    expect(screen.getByRole("link", { name: "Work" })).toHaveAttribute(
-      "href",
-      "#selected-work"
-    );
-    expect(screen.getByRole("link", { name: "Story" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Experience" })).toHaveAttribute(
       "href",
       "#journey"
     );
@@ -44,7 +40,7 @@ describe("Header", () => {
     expect(toggle).toHaveAttribute("aria-expanded", "false");
     await user.click(toggle);
     expect(toggle).toHaveAttribute("aria-expanded", "true");
-    await user.click(screen.getByRole("link", { name: "Work" }));
+    await user.click(screen.getByRole("link", { name: "Experience" }));
     expect(toggle).toHaveAttribute("aria-expanded", "false");
   });
 });

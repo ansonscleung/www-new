@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-const ids = ["cuhk-study", "journey-cuhk", "journey-hkust", "journey-aalto", "protiviti"];
+const ids = ["cuhk-study", "itinni", "journey-hkust", "protiviti", "shoalter"];
 test("story is chronological, complete and naturally scrolling", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator("#journey article")).toHaveCount(5);
@@ -16,7 +16,7 @@ test("story is chronological, complete and naturally scrolling", async ({ page }
 });
 test("work links, keyboard disclosures and private case route work", async ({ page }) => {
   await page.goto("/");
-  await page.locator("#home").getByRole("link",{name:/Shoalter/}).click();
+  await page.goto("/#shoalter");
   await expect(page).toHaveURL(/#shoalter$/);
   const disclosure=page.locator("#shoalter details");
   const summary=disclosure.locator("summary");
@@ -36,11 +36,11 @@ test("work links, keyboard disclosures and private case route work", async ({ pa
 });
 test("old anchors resolve after direct navigation, reload and back", async ({ page }) => {
   await page.goto("/#journey-hkust");
-  await expect(page.locator("#journey-hkust h3")).toBeInViewport();
+  await expect(page.locator("#journey-hkust")).toBeInViewport();
   await page.reload();
-  await expect(page.locator("#journey-hkust h3")).toBeInViewport();
+  await expect(page.locator("#journey-hkust")).toBeInViewport();
   await page.goto("/#journey-aalto");
-  await expect(page.locator("#journey-aalto h3")).toBeInViewport();
+  await expect(page.locator("#journey-aalto")).toBeInViewport();
   await page.goBack();
   await expect(page).toHaveURL(/#journey-hkust$/);
   for(const id of ["education","experience","capabilities","impact","journey-now","labs","quote","explorations","travel-planner"]) {
@@ -54,12 +54,12 @@ test("native disclosures and links work without JavaScript", async ({ browser, b
   const page=await context.newPage();
   await page.goto(baseURL!);
   await page.evaluate(() => document.fonts.ready);
-  await page.locator("#home").getByRole("link",{name:/itinni/}).click();
+  await page.goto(baseURL! + "/#itinni");
   // The native anchor scroll is smooth: wait for its destination after font layout settles.
   await expect.poll(() => page.locator("#itinni").evaluate(entry =>
     Math.abs(entry.getBoundingClientRect().top - parseFloat(getComputedStyle(entry).scrollMarginTop))
   )).toBeLessThan(1);
-  await expect(page.locator("#itinni h3")).toBeInViewport();
+  await expect(page.locator("#itinni")).toBeInViewport();
   await page.locator("#itinni summary").click();
   await expect(page.locator("#itinni details")).toHaveAttribute("open","");
   await expect(page.locator("#itinni details")).toContainText("Elastic Beanstalk");
@@ -72,24 +72,44 @@ test("short windows, reduced motion and zoom-equivalent layouts retain the story
   for(const viewport of [{width:844,height:390},{width:1440,height:600},{width:720,height:450}]) {
     await page.setViewportSize(viewport);
     await page.goto("/#journey-aalto");
-    await expect(page.locator("#journey-aalto h3")).toBeInViewport();
+    await expect(page.locator("#journey-aalto")).toBeInViewport();
     expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
     await expect(page.locator("#journey article")).toHaveCount(5);
   }
 });
 
-test("one project trail shows progression without scattering cases across background and Now", async ({page})=>{
-  await page.goto("/#selected-work");
-  const projectIds=["beginnings","musiccompare","itinni","shoalter","travel-planner"];
-  expect(await page.locator("#selected-work article").evaluateAll(nodes=>nodes.map(n=>n.id))).toEqual(projectIds);
-  const index=page.getByRole("navigation",{name:"Project trail"});
-  await expect(index.getByRole("link")).toHaveCount(5);
-  await index.getByRole("link",{name:"MusicCompare",exact:true}).click();
-  await expect(page).toHaveURL(/#musiccompare$/);
-  await expect(page.locator("#musiccompare h3")).toBeInViewport();
-  await expect(page.locator("#journey")).not.toContainText("MusicCompare");
-  await expect(page.locator("#now")).not.toContainText("private development");
-  await page.locator("#now").getByRole("link",{name:/current Travel Planner/}).click();
-  await expect(page).toHaveURL(/#travel-planner$/);
-  await expect(page.locator("#travel-planner h3")).toBeInViewport();
+test("projects stay within their experience and the current prototype stays in Now", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator("#cuhk-study #musiccompare")).toHaveCount(1);
+  await expect(page.locator("#journey-hkust #journey-aalto")).toHaveCount(1);
+  await expect(page.locator("#now #travel-planner")).toHaveCount(1);
+  await expect(page.locator("#beginnings")).toHaveCount(0);
+  await expect(page.locator(".project-trail")).toHaveCount(0);
+  await expect(page.locator("#musiccompare")).toContainText("course project");
+  await expect(page.locator("#travel-planner")).toContainText("private development");
+});
+
+test("desktop images stick only inside their own row and release on leaving it", async ({ page }, testInfo) => {
+  test.skip(!testInfo.project.name.includes("desktop"), "Desktop sticky coverage");
+  await page.goto("/#shoalter");
+  await page.locator("#shoalter summary").click();
+  const row = page.locator("#shoalter > .story-row");
+  const photo = row.locator("figure");
+  const target = await row.evaluate(e => window.scrollY + e.getBoundingClientRect().top + 140);
+  await page.evaluate(y => window.scrollTo({top: y, behavior:"instant"}), target);
+  await expect.poll(() => photo.evaluate(e => Math.round(e.getBoundingClientRect().top))).toBe(112);
+  await page.evaluate(y => window.scrollTo({top:y + 90,behavior:"instant"}), target);
+  await expect.poll(() => photo.evaluate(e => Math.round(e.getBoundingClientRect().top))).toBe(112);
+  await page.locator("#now").evaluate(e => e.scrollIntoView({block:"start",behavior:"instant"}));
+  expect(await photo.evaluate(e => e.getBoundingClientRect().bottom)).toBeLessThan(112);
+});
+
+test("photos return to static flow on mobile, short windows and reduced motion", async ({ page }) => {
+  for (const [width,height,reduced] of [[390,844,"no-preference"],[1440,600,"no-preference"],[1440,900,"reduce"]] as const) {
+    await page.setViewportSize({width,height});
+    await page.emulateMedia({reducedMotion:reduced});
+    await page.goto("/#journey-hkust");
+    expect(await page.locator(".story-photo--hkust").evaluate(e => getComputedStyle(e).position)).toBe("static");
+    expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
+  }
 });

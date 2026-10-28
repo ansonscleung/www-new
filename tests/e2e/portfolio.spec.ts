@@ -2,7 +2,7 @@ import { expect, test, type Page } from "@playwright/test";
 import { quotes } from "../../src/data/quotes";
 import { quoteIndexForDate } from "../../src/utils/quote-of-day";
 
-const sectionOrder = ["home", "selected-work", "journey", "current", "contact"];
+const sectionOrder = ["home", "journey", "current", "contact"];
 
 const collectRuntimeErrors = (page: Page) => {
   const errors: string[] = [];
@@ -21,7 +21,7 @@ test("homepage presents the working-systems narrative and bilingual quote", asyn
 
   await expect(page.getByRole("heading", { level: 1, name: "Anson Leung" })).toBeVisible();
   await expect(page.getByText("From intent to working systems.")).toBeVisible();
-  await expect(page.locator("#home").getByRole("link", { name: /Follow the projects/ })).toBeVisible();
+  await expect(page.locator("#home").getByRole("link", { name: /My experience/ })).toBeVisible();
   await expect.poll(() => page.locator("main > section").evaluateAll(nodes => nodes.map(n => n.id))).toEqual(sectionOrder);
   await expect(page.locator("#shoalter")).toContainText("February 2023–August 2026");
   await expect(page.locator("#shoalter")).toContainText("October 2025");
@@ -99,7 +99,7 @@ test("dark and reduced-motion preferences keep the hero usable", async ({
   const hero = page.locator("#home");
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
   await expect(hero).toBeVisible();
-  await expect(hero.getByRole("link", { name: /Follow the projects/ })).toBeVisible();
+  await expect(hero.getByRole("link", { name: /My experience/ })).toBeVisible();
   await expect(hero.locator("figure")).toHaveCount(0);
   await expect(page.getByRole("button", { name: "Pause carousel" })).toHaveCount(0);
   await expect(page.locator(".quote-en")).toBeVisible();

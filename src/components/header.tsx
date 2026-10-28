@@ -46,8 +46,7 @@ const Header: React.FC = () => {
         className={`navbar-menu${isMenuOpen ? " is-active" : ""}`}
       >
         <div className="navbar-end">
-          <a href="#journey" className="navbar-item" onClick={closeMenu}>Story</a>
-          <a href="#selected-work" className="navbar-item" onClick={closeMenu}>Work</a>
+          <a href="#journey" className="navbar-item" onClick={closeMenu}>Experience</a>
           <a href="#now" className="navbar-item" onClick={closeMenu}>Now</a>
           <a href="#contact" className="navbar-item" onClick={closeMenu}>
             Contact
