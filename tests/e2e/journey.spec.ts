@@ -113,3 +113,20 @@ test("photos return to static flow on mobile, short windows and reduced motion",
     expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
   }
 });
+
+test("short chapters do not reserve empty scroll distance after their content", async ({ page }) => {
+  await page.setViewportSize({width:1440,height:900});
+  await page.goto("/");
+  await page.evaluate(() => document.fonts.ready);
+  const unusedSpace = await page.locator(".story-row--illustrated").evaluateAll(rows =>
+    rows.map(row => row.getBoundingClientRect().height -
+      Math.max(...Array.from(row.children, child => child.getBoundingClientRect().height)))
+  );
+  // Allow the figure's 4px top margin, but no viewport-height spacer.
+  for (const space of unusedSpace) expect(space).toBeLessThanOrEqual(5);
+  const gap = await page.locator("#musiccompare").evaluate(part => {
+    const previous = part.previousElementSibling!;
+    return part.querySelector(".story-row")!.getBoundingClientRect().top - previous.getBoundingClientRect().bottom;
+  });
+  expect(gap).toBeLessThanOrEqual(33);
+});

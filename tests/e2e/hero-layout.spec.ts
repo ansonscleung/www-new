@@ -12,6 +12,6 @@ for (const width of [320, 390, 768, 1024, 1440, 1920]) {
       font: getComputedStyle(document.querySelector("h1")!).fontFamily,
     }));
     expect(layout.columns).toBe(width >= 900 ? 2 : 1);
-    expect(layout.font).toContain("Georgia");
+    expect(layout.font).toContain("Geologica");
   });
 }

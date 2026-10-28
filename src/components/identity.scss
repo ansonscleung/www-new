@@ -1,9 +1,9 @@
-.identity-hero { width: min(100%, 62rem); margin: 0 auto; padding: 9rem var(--gutter) 3rem; }
+.identity-hero { width: min(100%, 62rem); margin: 0 auto; padding: 8rem var(--gutter) 2rem; }
 .identity-location { color: var(--muted); font-size: .85rem; margin-bottom: 1.25rem; }
-.identity-hero h1 { font-family: var(--display); color: var(--fg); font-size: clamp(3rem, 7vw, 5.25rem); font-weight: 400; letter-spacing: -.04em; line-height: 1.05; margin: 0 0 2rem; }
+.identity-hero h1 { font-family: var(--display); color: var(--fg); font-size: clamp(3rem, 7vw, 5.25rem); font-weight: 500; letter-spacing: -.04em; line-height: 1.05; margin: 0 0 2rem; }
 .identity-intro { max-width: 40rem; font-size: clamp(1.1rem, 2vw, 1.3rem); line-height: 1.65; }
 .identity-intro p { margin: 0 0 1rem; }
-.identity-statement { margin: 1.75rem 0; color: var(--muted); font: italic 1.25rem/1.5 var(--display); }
+.identity-statement { margin: 1.75rem 0; color: var(--muted); font: 400 1.15rem/1.5 var(--display); }
 @media(max-width:600px) { .identity-hero { padding-top: 7rem; padding-bottom: 2rem; } }
 
 .identity-project-links { display: flex; flex-wrap: wrap; gap: .75rem 2rem; margin-top: 2rem; }

@@ -34,3 +34,10 @@ The user previously approved browser exploration and Playwright as the ARTEMIS e
 - Preview: http://127.0.0.1:8002/#journey (production preview used for no-JS verification).
 - Review: one source record per experience, nested parts, native CSS sticky, no new runtime dependency or scroll state. Company scale and private prototype labels retained.
 - No deployment, push or merge. The other checkout's untracked docs were not changed.
+
+## Density and sans-serif refinement
+The follow-up review found that the 65vh minimum row height kept images sticky after short text had ended. Removed that viewport-height floor and the trailing content padding, reduced chapter / nested-part spacing, and reduced desktop portrait sizes where text is short. Sticky now has only the natural height of the row to work within; short rows need no extra scroll distance.
+Display headings now use the existing Geologica / Noto Sans HK sans-serif stack. Hero statement is upright, with slightly firmer heading weights. No new font download or dependency.
+Validation: 22 unit tests passed; TypeScript passed; clean production build passed in 114.29 seconds; 38 Playwright tests passed and 4 device-specific tests skipped. A new geometry regression checks that row height is determined by its actual children, not an empty viewport-sized spacer, and that the nested project gap stays within 33px.
+Actual Edge exploration and desktop/mobile screenshot inspection completed. Six viewport widths (320–1920px) have no horizontal overflow or page errors; reduced-motion, short-window, no-JS and sticky-release checks still pass.
+Updated screenshots: C:/Users/Anson Leung/.codex/visualizations/2026/10/19/01a15531-04d7-7e21-83f8-4df0968bd3d3/compact/
