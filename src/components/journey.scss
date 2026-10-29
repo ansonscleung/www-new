@@ -40,7 +40,7 @@
   .story-row { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(2rem, 4vw, 3.5rem); }
   .story-entry { padding: 2.5rem 0; }
   .story-part { padding-top: 2rem; }
-  .story-photo { margin-top: .25rem; }
+  .story-photo { margin-top: .25rem; justify-self: end; }
   .story-photo--cuhk { max-width: 22rem; }
   .story-photo--hkust { max-width: 17rem; }
   .story-photo--aalto { max-width: 16rem; }
