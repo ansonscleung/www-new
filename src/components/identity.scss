@@ -1,4 +1,4 @@
-.identity-hero { width: min(100%, 62rem); margin: 0 auto; padding: 8rem var(--gutter) 2rem; }
+.identity-hero { padding-block: 8rem 2rem; }
 .identity-location { color: var(--muted); font-size: .85rem; margin-bottom: 1.25rem; }
 .identity-hero h1 { font-family: var(--display); color: var(--fg); font-size: clamp(3rem, 7vw, 5.25rem); font-weight: 500; letter-spacing: -.04em; line-height: 1.05; margin: 0 0 2rem; }
 .identity-intro { max-width: 40rem; font-size: clamp(1.1rem, 2vw, 1.3rem); line-height: 1.65; }

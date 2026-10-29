@@ -90,7 +90,8 @@ body {
     line-height: 1.6;
 }
 
-.section { padding: var(--section-space) var(--gutter); }
+.page-shell { width: min(100%, calc(var(--content) + 2 * var(--gutter))); padding-inline: var(--gutter); margin-inline: auto; }
+.section { padding: var(--section-space) 0; }
 .section > .container { width: min(100%, var(--content)); max-width: none !important; }
 
 .section-heading { max-width: 42rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
@@ -139,5 +140,4 @@ a:hover { color: var(--focus); }
     }
 }
 
-.contact-section { max-width: 62rem; margin: 0 auto; }
 .contact-section .title { font-weight: 400; }

@@ -89,23 +89,22 @@ test("projects stay within their experience and the current prototype stays in N
   await expect(page.locator("#travel-planner")).toContainText("private development");
 });
 
-test("desktop images stick only inside their own row and release on leaving it", async ({ page }, testInfo) => {
-  test.skip(!testInfo.project.name.includes("desktop"), "Desktop sticky coverage");
-  await page.goto("/#shoalter");
+test("images scroll naturally with their text instead of sticking", async ({ page }) => {
+  await page.goto("/");
+  await page.evaluate(() => document.fonts.ready);
   await page.locator("#shoalter summary").click();
-  const row = page.locator("#shoalter > .story-row");
-  const photo = row.locator("figure");
-  const target = await row.evaluate(e => window.scrollY + e.getBoundingClientRect().top + 140);
-  await page.evaluate(y => window.scrollTo({top: y, behavior:"instant"}), target);
-  await expect.poll(() => photo.evaluate(e => Math.round(e.getBoundingClientRect().top))).toBe(112);
-  await page.evaluate(y => window.scrollTo({top:y + 90,behavior:"instant"}), target);
-  await expect.poll(() => photo.evaluate(e => Math.round(e.getBoundingClientRect().top))).toBe(112);
-  await page.locator("#now").evaluate(e => e.scrollIntoView({block:"start",behavior:"instant"}));
-  expect(await photo.evaluate(e => e.getBoundingClientRect().bottom)).toBeLessThan(112);
+  const photo = page.locator("#shoalter > .story-row figure");
+  expect(await photo.evaluate(e => getComputedStyle(e).position)).toBe("static");
+  await photo.scrollIntoViewIfNeeded();
+  const before = await photo.evaluate(e => ({top:e.getBoundingClientRect().top, scroll:scrollY}));
+  await page.evaluate(y => scrollTo({top:y + 90,behavior:"instant"}),before.scroll);
+  await expect.poll(() => page.evaluate(() => scrollY)).toBeCloseTo(before.scroll + 90,0);
+  // Measure document position as well as viewport motion, so native scroll completion is explicit.
+  await expect.poll(() => photo.evaluate(e => e.getBoundingClientRect().top + scrollY)).toBeCloseTo(before.top + before.scroll,0);
 });
 
-test("photos return to static flow on mobile, short windows and reduced motion", async ({ page }) => {
-  for (const [width,height,reduced] of [[390,844,"no-preference"],[1440,600,"no-preference"],[1440,900,"reduce"]] as const) {
+test("photos stay static on desktop, mobile, short windows and reduced motion", async ({ page }) => {
+  for (const [width,height,reduced] of [[1440,900,"no-preference"],[390,844,"no-preference"],[1440,600,"no-preference"],[1440,900,"reduce"]] as const) {
     await page.setViewportSize({width,height});
     await page.emulateMedia({reducedMotion:reduced});
     await page.goto("/#journey-hkust");

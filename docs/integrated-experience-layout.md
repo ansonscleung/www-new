@@ -12,8 +12,8 @@ Keep the existing trial branch. Introduction → Experience with its associated 
 Remove the secondary-school Pascal entry. Keep undated jyutpingify and bilingual quotes in the footer.
 
 ## Layout
-Each illustrated row puts the original image or labelled concept illustration on the left and text on the right. Photos use native CSS sticky only inside their row at widths >= 900px and heights >= 700px with no reduced-motion preference. Reading stays natural; no full-screen stage, scroll interception or new animation dependency.
-On smaller / shorter viewports or with reduced motion, images use normal static flow. Mobile order is image then text. Natural row boundaries replace the image as readers reach the next part.
+Latest direction: normal scrolling throughout, with no sticky images or scrollytelling stage. Each illustrated row puts text first in the DOM: text left / image right at >=900px, and text above / image below on smaller screens. Portraits use rem-based maximum widths instead of viewport-height sizing.
+A shared page-shell uses the same content width, horizontal gutters and centering for Hero, Experience, Now, Contact, Other projects / quotes and footer. The navigation brand aligns to the same left edge. Full-width background bands remain outside the inner shell. Removed the old Contact 62rem cap and overridden Bulma's extra footer padding.
 Nested subsections keep MusicCompare within CUHK, Aalto within HKUST, and Travel Planner within Now. One DOM copy of all content, including without JavaScript. Native details preserve keyboard expansion.
 
 ## Assets and compatibility
@@ -41,3 +41,15 @@ Display headings now use the existing Geologica / Noto Sans HK sans-serif stack.
 Validation: 22 unit tests passed; TypeScript passed; clean production build passed in 114.29 seconds; 38 Playwright tests passed and 4 device-specific tests skipped. A new geometry regression checks that row height is determined by its actual children, not an empty viewport-sized spacer, and that the nested project gap stays within 33px.
 Actual Edge exploration and desktop/mobile screenshot inspection completed. Six viewport widths (320–1920px) have no horizontal overflow or page errors; reduced-motion, short-window, no-JS and sticky-release checks still pass.
 Updated screenshots: C:/Users/Anson Leung/.codex/visualizations/2026/10/19/01a15531-04d7-7e21-83f8-4df0968bd3d3/compact/
+
+## Text-first flow and section alignment verification
+This update supersedes the earlier local-sticky layout and its historical checks above.
+- Unit: 22 passed; TypeScript passed.
+- Clean production build passed (150.07 seconds); final alignment fix build passed (46.24 seconds).
+- Final Playwright: 39 passed, 3 existing device-specific skips. Replaced sticky expectations with natural image movement and static-position checks in every viewport mode.
+- At 320, 390, 768, 1024, 1440 and 1920px, all six section shells share identical left AND right content edges. Navigation brand aligns to the same left edge; no horizontal overflow or page errors.
+- At 1440px the shared content edges are 120px / 1320px; at 390px they are 20px / 370px.
+- Actual Edge exploration preceded revised tests. Desktop and mobile captures visually inspected for text/image order, original portrait proportions and readable headings.
+- E2E continues to cover no-JS reading, keyboard disclosures, themes, reduced motion, short windows, routes and legacy anchors.
+- Latest screenshots and visual-checks.json: C:/Users/Anson Leung/.codex/visualizations/2026/10/19/01a15531-04d7-7e21-83f8-4df0968bd3d3/aligned/
+- Production preview: http://127.0.0.1:8002/#journey. No deployment or merge.

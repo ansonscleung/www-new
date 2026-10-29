@@ -1,5 +1,6 @@
 .refined-header {
   min-height: 4.75rem;
+  padding-inline: max(var(--gutter), calc((100% - var(--content)) / 2));
   border-bottom: 1px solid var(--border);
   background: var(--bg);
   box-shadow: none;
@@ -11,6 +12,7 @@
 }
 
 .refined-header .navbar-brand > .navbar-item {
+  padding-left: 0;
   color: var(--fg);
   font-family: var(--body);
   font-weight: 600;
@@ -44,16 +46,12 @@
   cursor: pointer;
 }
 
-@media (min-width: 1024px) {
-  .refined-header { padding: 0 var(--gutter); }
-}
-
 @media (max-width: 1023px) {
-  .refined-header .navbar-brand { width: 100%; padding: 0 0.5rem; }
+  .refined-header .navbar-brand { width: 100%; padding: 0; }
   .refined-header .navbar-menu.is-active {
     display: block;
     max-height: calc(100vh - 4.75rem);
-    padding: 0.5rem 1rem 1rem;
+    padding: 0.5rem 0 1rem;
     overflow-y: auto;
     border-top: 1px solid var(--border);
     background: var(--bg);

@@ -13,10 +13,6 @@ export default function StoryEntry({ entry, nested = false }: { entry: StoryEntr
     {entry.id === "now" && <span id="journey-now" className="legacy-anchor" />}
     {entry.id === "travel-planner" && <><span id="explorations" className="legacy-anchor" /><span id="labs" className="legacy-anchor" /></>}
     <div className={"story-row" + (entry.image ? " story-row--illustrated" : "")}>
-      {entry.image && <figure className={"story-photo story-photo--" + entry.image.key}>
-        <JourneyImage imageKey={entry.image.key} />
-        <figcaption>{entry.image.caption}</figcaption>
-      </figure>}
       <div className="story-content">
         <p className="story-date">{entry.period}</p>
         <Heading id={entry.id + "-title"}>{entry.title}</Heading>
@@ -34,6 +30,10 @@ export default function StoryEntry({ entry, nested = false }: { entry: StoryEntr
           </li>)}</ul>}
         </details>}
       </div>
+      {entry.image && <figure className={"story-photo story-photo--" + entry.image.key}>
+        <JourneyImage imageKey={entry.image.key} />
+        <figcaption>{entry.image.caption}</figcaption>
+      </figure>}
     </div>
     {entry.parts?.map(part => <StoryEntry key={part.id} entry={part} nested />)}
   </Tag>;

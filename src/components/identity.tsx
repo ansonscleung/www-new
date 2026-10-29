@@ -1,7 +1,7 @@
 import React from "react";
 import "./identity.scss";
 export default function Hero() {
-  return <section id="home" className="identity-hero" aria-labelledby="identity-name">
+  return <section id="home" className="page-shell identity-hero" aria-labelledby="identity-name">
     <p className="identity-location">Anson Leung · Hong Kong</p>
     <h1 id="identity-name">Anson Leung</h1>
     <div className="identity-intro">

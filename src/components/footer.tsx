@@ -17,8 +17,8 @@ interface FooterProps {
 
 export const FooterSection: React.FC<FooterProps> = ({ data }) => {
   return (
-    <footer id="site-footer" className="footer">
-      <div className="container footer__inner">
+    <footer id="site-footer" className="footer site-footer">
+      <div className="page-shell footer__inner">
           <div className="footer__links">
             {data.map((item, index) => (
               <a key={index} href={item.link} className="icon is-large" target="_blank" rel="noopener noreferrer" aria-label={item.website}>

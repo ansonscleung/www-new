@@ -9,7 +9,7 @@ const ContactSection: React.FC = () => (
     id="contact"
     aria-labelledby="contact-title"
   >
-    <div className="container">
+    <div className="page-shell">
       <div className="contact-panel section-heading">
         <p className="section-label">Get in touch</p>
         <h2 className="title is-2" id="contact-title">Let’s stay in touch.</h2>
