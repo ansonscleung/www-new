@@ -53,3 +53,9 @@ This update supersedes the earlier local-sticky layout and its historical checks
 - E2E continues to cover no-JS reading, keyboard disclosures, themes, reduced motion, short windows, routes and legacy anchors.
 - Latest screenshots and visual-checks.json: C:/Users/Anson Leung/.codex/visualizations/2026/10/19/01a15531-04d7-7e21-83f8-4df0968bd3d3/aligned/
 - Production preview: http://127.0.0.1:8002/#journey. No deployment or merge.
+
+## Copy restraint
+Let the hierarchy and grouping explain the page. Avoid repeating the name, section heading, project status or surrounding paragraph in secondary labels and captions. Keep dates, material photo context, private-prototype status and the boundary between personal contribution and company-reported scale.
+Removed the experience introduction, repeated Hero background, contact eyebrow/invitation, duplicate diagram headings/status notes, obvious image captions and quote category badge/secondary heading. MusicCompare remains clearly identified as university coursework in its paragraph. The quote selector still uses categories internally.
+Verification: production build passed (164.58s); 22 unit tests and TypeScript passed; final browser suite passed 39 checks with 3 existing device-specific skips. An initial concurrent run timed out creating a browser page before a desktop-inapplicable test could skip; rerunning with two workers passed. Six viewport sizes retain aligned section edges without overflow or page errors.
+Screenshots: C:/Users/Anson Leung/.codex/visualizations/2026/10/19/01a15531-04d7-7e21-83f8-4df0968bd3d3/copy-cleanup/

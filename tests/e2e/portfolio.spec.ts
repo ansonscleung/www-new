@@ -37,10 +37,8 @@ test("homepage presents the working-systems narrative and bilingual quote", asyn
   // Wait for the date-based client selection, rather than capturing the SSR fallback.
   await expect(englishQuote).toHaveText("“" + quotes[quoteIndexForDate(new Date(), quotes.length)].text.en + "”");
   const firstQuote = await englishQuote.textContent();
-  const firstCategory = await page.locator(".quote-meta .tag").textContent();
   await page.getByRole("button", { name: "Another quote" }).click();
   await expect(englishQuote).not.toHaveText(firstQuote ?? "");
-  await expect(page.locator(".quote-meta .tag")).not.toHaveText(firstCategory ?? "");
 
   const buttonRadii = await page.locator(".button").evaluateAll((buttons) =>
     buttons.map((button) => getComputedStyle(button).borderTopLeftRadius)

@@ -14,7 +14,7 @@ export default function StoryEntry({ entry, nested = false }: { entry: StoryEntr
     {entry.id === "travel-planner" && <><span id="explorations" className="legacy-anchor" /><span id="labs" className="legacy-anchor" /></>}
     <div className={"story-row" + (entry.image ? " story-row--illustrated" : "")}>
       <div className="story-content">
-        <p className="story-date">{entry.period}</p>
+        {entry.period && <p className="story-date">{entry.period}</p>}
         <Heading id={entry.id + "-title"}>{entry.title}</Heading>
         {entry.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
         {entry.milestone && <p className="story-milestone">{entry.milestone}</p>}
@@ -32,7 +32,7 @@ export default function StoryEntry({ entry, nested = false }: { entry: StoryEntr
       </div>
       {entry.image && <figure className={"story-photo story-photo--" + entry.image.key}>
         <JourneyImage imageKey={entry.image.key} />
-        <figcaption>{entry.image.caption}</figcaption>
+        {entry.image.caption && <figcaption>{entry.image.caption}</figcaption>}
       </figure>}
     </div>
     {entry.parts?.map(part => <StoryEntry key={part.id} entry={part} nested />)}

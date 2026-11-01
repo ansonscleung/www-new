@@ -18,8 +18,7 @@ const QuoteOfTheDay: React.FC = () => {
     <div id="quote" className="quote-of-the-day" aria-labelledby="quote-title">
       <div>
         <article className="quote-card">
-          <p className="quote-kicker">Quote of the day</p>
-          <h2 id="quote-title" className="title is-3">A practical idea to carry forward</h2>
+          <h2 id="quote-title" className="title is-3">Quote of the day</h2>
           <blockquote
             aria-live={hasManualSelection ? "polite" : "off"}
             aria-atomic="true"
@@ -32,7 +31,6 @@ const QuoteOfTheDay: React.FC = () => {
             <cite>{quote.work.title.en} · <span lang="zh-Hant">{quote.work.title.zhHant}</span></cite>
           </footer>
           <div className="quote-meta">
-            <span className="tag is-primary is-light">{quote.category.replace("-", " ")}</span>
             <a href={quote.source.url} target="_blank" rel="noopener noreferrer">Read source</a>
           </div>
           <button

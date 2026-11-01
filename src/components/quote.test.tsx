@@ -34,6 +34,5 @@ describe("QuoteOfTheDay", () => {
     await user.click(screen.getByRole("button", { name: "Another quote" }));
     expect(screen.getByText((content) => content.includes(nextQuote.text.en))).toBeInTheDocument();
     expect(screen.getByText((content) => content.includes(nextQuote.text.zhHant))).toBeInTheDocument();
-    expect(screen.getByText(nextQuote.category.replace("-", " "))).toBeInTheDocument();
   });
 });

@@ -1,12 +1,12 @@
 export type StoryImageKey = "cuhk" | "hkust" | "aalto" | "now" | "musiccompare" | "itinni" | "delivery" | "planner";
 export interface StoryEntry {
   id: string;
-  period: string;
+  period?: string;
   start?: string;
   end?: string;
   title: string;
   paragraphs: readonly string[];
-  image?: { key: StoryImageKey; caption: string };
+  image?: { key: StoryImageKey; caption?: string };
   links?: readonly { label: string; href: string }[];
   details?: { label: string; paragraphs: readonly string[] };
   evidence?: readonly { label: string; href: string }[];
@@ -20,12 +20,12 @@ export const experience: readonly StoryEntry[] = [
     title: "Computer Science at CUHK",
     paragraphs: ["I studied Computer Science at The Chinese University of Hong Kong, with a concentration in Intelligence Science.",
       "For my final-year project, I worked on classifying lung cancer subtypes from histopathology images using deep neural networks. I completed my BSc in July 2020."],
-    image: { key: "cuhk", caption: "CUHK · Graduation photograph. I completed the degree in July 2020." },
+    image: { key: "cuhk", caption: "CUHK graduation." },
     parts: [{
-      id: "musiccompare", period: "A university course project", title: "MusicCompare",
+      id: "musiccompare", title: "MusicCompare",
       paragraphs: ["Steven Wong and I built MusicCompare as a course project during my undergraduate studies. We brought music comparison into a browser interface.",
         "The project was included in the 2020 GitHub Archive Program."],
-      image: { key: "musiccompare", caption: "MusicCompare · The browser interface." },
+      image: { key: "musiccompare" },
       links: [{ label: "Try MusicCompare", href: "https://ansonscleung.github.io/MusicCompare/" }],
     }],
   },
@@ -34,7 +34,7 @@ export const experience: readonly StoryEntry[] = [
     title: "Co-founding itinni",
     paragraphs: ["While studying at CUHK, I co-founded itinni, a travel technology startup. As Co-Founder & Product Director, I worked on B2B and B2C products, from user research and product decisions to development and launch.",
       "I led up to 10 software developers and UX designers using Scrum. The products supported shared itinerary editing for groups of 6–12 travellers and reached about 100 daily users."],
-    image: { key: "itinni", caption: "itinni · Original company logo. Shared itinerary editing was one part of the product." },
+    image: { key: "itinni" },
     details: { label: "More about the product and delivery work", paragraphs: [
       "I conducted user research and usability testing with three focus groups, working with developers and designers to turn findings into product scope and releases.",
       "I also worked on AWS deployment workflows, connecting GitHub to Elastic Beanstalk and using S3 for application storage. Product demonstrations and pitches earned three awards across two startup competitions."
@@ -50,7 +50,7 @@ export const experience: readonly StoryEntry[] = [
       id: "journey-aalto", period: "April–June 2022", start: "2022-04", end: "2022-06",
       title: "An exchange in Finland",
       paragraphs: ["During my postgraduate studies, I joined an exchange at Aalto University in Espoo, Finland, from April to June 2022."],
-      image: { key: "aalto", caption: "Aalto University, Finland · A photograph from my exchange." },
+      image: { key: "aalto", caption: "Aalto University, Finland." },
     }],
   },
   {
@@ -64,7 +64,7 @@ export const experience: readonly StoryEntry[] = [
     title: "Product delivery at Shoalter",
     paragraphs: ["At Shoalter Technology, part of HKTV Group, I worked on e-commerce and delivery initiatives whose requirements crossed multiple systems and teams.",
       "My role covered functional specifications, user flows, acceptance criteria and UAT, followed by rollout and production support. I worked with Engineering, QA, Operations, Customer Service, Marketing and external partners."],
-    image: { key: "delivery", caption: "A simplified view of my delivery responsibilities." },
+    image: { key: "delivery" },
     milestone: "Product Specialist: February 2023–September 2025. Promoted to Senior Product Specialist in October 2025; held the role until August 2026.",
     details: { label: "More about the systems and delivery work", paragraphs: [
       "I worked on integration planning for partner authentication and commerce flows, coordinating testing and investigating production sign-in issues.",
@@ -79,14 +79,14 @@ export const experience: readonly StoryEntry[] = [
 ];
 
 export const currentPractice: StoryEntry = {
-  id: "now", period: "Now", title: "Still making things",
+  id: "now", title: "Still making things",
   paragraphs: ["I bring product and business analysis experience to hands-on technical work. I continue to build personal software projects and use coding assistants as part of that practice."],
-  image: { key: "now", caption: "Central, Hong Kong · A recent photograph." },
+  image: { key: "now", caption: "Central, Hong Kong." },
   parts: [{
     id: "travel-planner", period: "Ongoing private prototype", title: "Travel Planner",
     paragraphs: ["Travel Planner is an ongoing personal prototype for family trips. It explores constraints such as pace, mobility and meals, with a structured itinerary that stays editable.",
       "I am working across the product question, data model and implementation. It is in private development."],
-    image: { key: "planner", caption: "The planning question · A concept sketch, not an application screenshot." },
+    image: { key: "planner", caption: "Concept sketch." },
     links: [{ label: "Read the Travel Planner case study", href: "/work/travel-planner/" }],
   }],
 };
