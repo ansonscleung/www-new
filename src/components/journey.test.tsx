@@ -11,11 +11,20 @@ describe("Experience with its projects", () => {
   it("keeps projects within the relevant experience and preserves corrected chronology", () => {
     render(<JourneySection />);
     expect(screen.getAllByRole("article").map(node => node.id)).toEqual([
-      "cuhk-study", "itinni", "journey-hkust", "protiviti", "shoalter",
+      "hkoi", "hkage", "cuhk-study", "itinni", "journey-hkust", "protiviti", "shoalter",
     ]);
     const starts = experience.map(entry => entry.start);
     expect(starts).toEqual([...starts].sort());
     const cuhk = document.getElementById("cuhk-study")!;
+    expect(Array.from(cuhk.querySelectorAll(":scope > section")).map(node => node.id)).toEqual([
+      "stem-teaching", "student-representation", "cuacs", "musiccompare", "psm",
+    ]);
+    expect(screen.getByText("July–December 2016")).toBeInTheDocument();
+    expect(screen.getByText(/Silver medal in the Junior Group of HKOI 2014/)).toBeInTheDocument();
+    expect(screen.getByText("December 2016–June 2020")).toBeInTheDocument();
+    expect(screen.getByText("Publication Officer, 24th session.")).toBeInTheDocument();
+    expect(screen.getByRole("link", {name:/PSM I certification/})).toHaveAttribute("href", "https://www.scrum.org/certificates/558764");
+    expect(document.querySelector(".story-compact figure")).toBeNull();
     expect(within(cuhk).getByRole("heading", { name: "MusicCompare", level: 4 })).toBeInTheDocument();
     expect(within(cuhk).getByText(/as a course project during my undergraduate/)).toBeInTheDocument();
     expect(document.getElementById("journey-hkust")!.contains(document.getElementById("journey-aalto"))).toBe(true);

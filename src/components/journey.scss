@@ -49,3 +49,17 @@
   .story-photo--cuhk, .story-photo--aalto, .story-photo--now { max-width: 23rem; }
 }
 @media print { .story-photo { position: static; break-inside: avoid; } .story-row { min-height: 0; } }
+
+.story-timeline { position: relative; }
+.story-timeline::before { content: ""; position: absolute; left: -.75rem; top: 0; bottom: 0; width: 1px; background: var(--border); }
+.story-timeline > .story-entry::before { content: ""; position: absolute; left: -1rem; top: 2.5rem; width: .5rem; height: .5rem; border-radius: 50%; background: var(--accent); }
+.story-timeline > .story-compact { padding-block: 1.5rem; border-top: 0; }
+.story-timeline > .story-compact::before { top: 2rem; }
+.story-compact .story-row { display: block; }
+.story-compact .story-date { margin-bottom: .5rem; }
+.story-compact .story-content h3, .story-compact .story-content h4 { font-size: 1.15rem; line-height: 1.4; letter-spacing: -.01em; margin-bottom: .5rem; }
+.story-compact .story-content > p:not(.story-date) { font-size: .95rem; margin-bottom: 0; }
+.story-compact .story-details { margin-top: .5rem; }
+.story-compact .story-links { margin-top: .5rem; }
+.story-part.story-compact { margin-top: 1.25rem; padding-top: 0; }
+@media print { .story-timeline::before, .story-timeline > .story-entry::before { display: none; } }

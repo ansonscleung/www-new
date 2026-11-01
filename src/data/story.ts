@@ -12,21 +12,59 @@ export interface StoryEntry {
   evidence?: readonly { label: string; href: string }[];
   milestone?: string;
   parts?: readonly StoryEntry[];
+  compact?: boolean;
 }
 
 export const experience: readonly StoryEntry[] = [
+  {
+    id: "hkoi", period: "2014–2015", start: "2014", end: "2015", compact: true,
+    title: "Hong Kong Olympiad in Informatics",
+    paragraphs: ["Silver medal in the Junior Group of HKOI 2014; bronze medal in the Senior Group of HKOI 2014–2015."],
+  },
+  {
+    id: "hkage", period: "July–December 2016", start: "2016-07", end: "2016-12", compact: true,
+    title: "Student Intern at HKAGE",
+    paragraphs: ["At the Hong Kong Academy for Gifted Education, I supported course administration and helped organise student activities."],
+  },
   {
     id: "cuhk-study", period: "September 2016–July 2020", start: "2016-09", end: "2020-07",
     title: "Computer Science at CUHK",
     paragraphs: ["I studied Computer Science at The Chinese University of Hong Kong, with a concentration in Intelligence Science.",
       "For my final-year project, I worked on classifying lung cancer subtypes from histopathology images using deep neural networks. I completed my BSc in July 2020."],
     image: { key: "cuhk", caption: "CUHK graduation." },
-    parts: [{
+    parts: [
+      {
+        id: "stem-teaching", period: "December 2016–June 2020", start: "2016-12", end: "2020-06", compact: true,
+        title: "STEM Courses Instructor",
+        paragraphs: ["At Progressive Education, I taught coding, robotics and engineering basics, and prepared course content for children."],
+      },
+      {
+        id: "student-representation", period: "2017–2020", start: "2017", end: "2020", compact: true,
+        title: "Student representation",
+        paragraphs: ["I represented students through Morningside College and CUHK student councils."],
+        details: { label: "Council appointments", paragraphs: [
+          "MCSU Representative Council: representative, 2017–2019; vice-chairperson, April 2017–March 2018.",
+          "CUSU Council: elected member for Morningside College, 2017–2019; Deputy / Acting Council Chair, 2018–2019.",
+          "CUSU Council: appointed member for Morningside College, 2020.",
+        ] },
+      },
+      {
+        id: "cuacs", period: "2019–2020", start: "2019", end: "2020", compact: true,
+        title: "CU Animation & Comic Society",
+        paragraphs: ["Publication Officer, 24th session."],
+      },
+      {
       id: "musiccompare", title: "MusicCompare",
       paragraphs: ["Steven Wong and I built MusicCompare as a course project during my undergraduate studies. We brought music comparison into a browser interface.",
         "The project was included in the 2020 GitHub Archive Program."],
       image: { key: "musiccompare" },
       links: [{ label: "Try MusicCompare", href: "https://ansonscleung.github.io/MusicCompare/" }],
+    },
+    {
+      id: "psm", period: "July 2020", start: "2020-07", compact: true,
+      title: "Professional Scrum Master I",
+      paragraphs: [],
+      links: [{ label: "PSM I certification", href: "https://www.scrum.org/certificates/558764" }],
     }],
   },
   {

@@ -1,8 +1,8 @@
 import { expect, test } from "@playwright/test";
-const ids = ["cuhk-study", "itinni", "journey-hkust", "protiviti", "shoalter"];
+const ids = ["hkoi", "hkage", "cuhk-study", "itinni", "journey-hkust", "protiviti", "shoalter"];
 test("story is chronological, complete and naturally scrolling", async ({ page }) => {
   await page.goto("/");
-  await expect(page.locator("#journey article")).toHaveCount(5);
+  await expect(page.locator("#journey article")).toHaveCount(7);
   expect(await page.locator("#journey article").evaluateAll(nodes => nodes.map(n => n.id))).toEqual(ids);
   await expect(page.locator("#itinni")).toContainText("December 2019–December 2021");
   await expect(page.locator("#journey-aalto")).toContainText("postgraduate");
@@ -63,6 +63,13 @@ test("native disclosures and links work without JavaScript", async ({ browser, b
   await page.locator("#itinni summary").click();
   await expect(page.locator("#itinni details")).toHaveAttribute("open","");
   await expect(page.locator("#itinni details")).toContainText("Elastic Beanstalk");
+  await page.goto(baseURL! + "/#student-representation");
+  await expect.poll(() => page.locator("#student-representation").evaluate(entry =>
+    Math.abs(entry.getBoundingClientRect().top - parseFloat(getComputedStyle(entry).scrollMarginTop))
+  )).toBeLessThan(1);
+  await page.locator("#student-representation summary").click();
+  await expect(page.locator("#student-representation details")).toHaveAttribute("open","");
+  await expect(page.locator("#student-representation details")).toContainText("appointed member for Morningside College, 2020");
   await page.locator("#travel-planner").getByRole("link",{name:/Read the Travel Planner/}).click();
   await expect(page.getByRole("heading",{level:1,name:"Travel Planner"})).toBeVisible();
   await context.close();
@@ -74,7 +81,7 @@ test("short windows, reduced motion and zoom-equivalent layouts retain the story
     await page.goto("/#journey-aalto");
     await expect(page.locator("#journey-aalto")).toBeInViewport();
     expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
-    await expect(page.locator("#journey article")).toHaveCount(5);
+    await expect(page.locator("#journey article")).toHaveCount(7);
   }
 });
 
@@ -128,4 +135,27 @@ test("short chapters do not reserve empty scroll distance after their content", 
     return part.querySelector(".story-row")!.getBoundingClientRect().top - previous.getBoundingClientRect().bottom;
   });
   expect(gap).toBeLessThanOrEqual(33);
+});
+
+test("personal timeline retains early roles, overlaps and keyboard-accessible council terms", async ({page}) => {
+  await page.goto("/#hkage");
+  await expect(page.locator("#hkage h3")).toBeInViewport();
+  await expect(page.locator("#hkage")).toContainText("July–December 2016");
+  await expect(page.locator("#hkoi")).toContainText("HKOI 2014–2015");
+  await expect(page.locator("#cuhk-study #stem-teaching")).toContainText("December 2016–June 2020");
+  await expect(page.locator("#cuhk-study #cuacs")).toContainText("Publication Officer, 24th session");
+  await expect(page.locator("#cuhk-study #psm")).toContainText("July 2020");
+  await expect(page.locator(".story-compact figure")).toHaveCount(0);
+  await expect(page.locator("#journey")).not.toContainText(/JA Company|Pascal|December 2013|Chief Technology Officer/);
+  await page.goto("/#student-representation");
+  const summary=page.locator("#student-representation summary");
+  await summary.focus();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#student-representation details")).toHaveAttribute("open","");
+  await expect(page.locator("#student-representation details")).toContainText("April 2017–March 2018");
+  await expect(page.locator("#student-representation details")).toContainText("appointed member for Morningside College, 2020");
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#student-representation details")).not.toHaveAttribute("open");
+  await page.reload();
+  await expect(page.locator("#student-representation h4")).toBeInViewport();
 });

@@ -6,7 +6,7 @@ import JourneyImage from "./journey-image";
 export default function StoryEntry({ entry, nested = false }: { entry: StoryEntryData; nested?: boolean }) {
   const Tag = nested ? "section" : "article";
   const Heading = nested ? "h4" : "h3";
-  return <Tag id={entry.id} className={nested ? "story-part" : "story-entry"} data-start={entry.start} aria-labelledby={entry.id + "-title"}>
+  return <Tag id={entry.id} className={(nested ? "story-part" : "story-entry") + (entry.compact ? " story-compact" : "")} data-start={entry.start} aria-labelledby={entry.id + "-title"}>
     {entry.id === "cuhk-study" && <><span id="education" className="legacy-anchor" /><span id="journey-cuhk" className="legacy-anchor" /></>}
     {entry.id === "itinni" && <><span id="experience" className="legacy-anchor" /><span id="selected-work" className="legacy-anchor" /></>}
     {entry.id === "shoalter" && <><span id="capabilities" className="legacy-anchor" /><span id="impact" className="legacy-anchor" /></>}
