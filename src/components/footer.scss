@@ -1,5 +1,5 @@
 .footer.site-footer { padding-block: 2rem; padding-inline: 0; background: var(--bg); color: var(--muted); border-top: 1px solid var(--border); }
 .footer__inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-.footer__links { display: flex; gap: .25rem; }
-.footer .icon { color: var(--accent); }
+.footer__links { display: flex; flex-wrap: wrap; gap: .75rem; }
+.footer__links .icon { color: var(--accent); width: 3rem; height: 3rem; font-size: 2rem; }
 @media (max-width: 600px) { .footer__inner { align-items: flex-start; flex-direction: column; } }
