@@ -62,7 +62,7 @@ export const experience: readonly StoryEntry[] = [
         paragraphs: ["Publication Officer, 24th session."],
       },
       {
-      id: "musiccompare", title: "MusicCompare",
+      id: "musiccompare", period: "Autumn 2019", title: "MusicCompare",
       paragraphs: ["Steven Wong and I built MusicCompare as a course project during my undergraduate studies. We brought music comparison into a browser interface.",
         "The project was included in the 2020 GitHub Archive Program."],
       image: { key: "musiccompare" },
