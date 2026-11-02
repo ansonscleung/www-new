@@ -25,6 +25,7 @@ export default function StoryEntry({ entry, nested = false }: { entry: StoryEntr
         {entry.details && <details className="story-details">
           <summary>{entry.details.label}</summary>
           {entry.details.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          {entry.details.items && <ul>{entry.details.items.map(item => <li key={item}>{item}</li>)}</ul>}
           {entry.evidence && <ul>{entry.evidence.map((link) => <li key={link.href}>
             <a href={link.href} target="_blank" rel="noopener noreferrer">{link.label} ↗<span className="is-sr-only"> (opens in a new tab)</span></a>
           </li>)}</ul>}

@@ -21,7 +21,7 @@
 .story-details { margin-top: 1.5rem; }
 .story-details summary { cursor: pointer; color: var(--accent); padding: .75rem 0; min-height: 2.75rem; }
 .story-details[open] summary { margin-bottom: 1rem; }
-.story-details ul { padding-left: 1.25rem; }
+.story-details ul { padding-left: 1.25rem; list-style: disc; }
 .story-details li { margin: .75rem 0; }
 .legacy-anchor { position: absolute; top: 0; left: 0; }
 .now-section { border-top: 1px solid var(--border); }
