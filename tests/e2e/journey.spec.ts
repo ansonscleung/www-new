@@ -69,7 +69,7 @@ test("native disclosures and links work without JavaScript", async ({ browser, b
   )).toBeLessThan(1);
   await page.locator("#student-representation summary").click();
   await expect(page.locator("#student-representation details")).toHaveAttribute("open","");
-  await expect(page.locator("#student-representation details")).toContainText("appointed member for Morningside College, 2020");
+  await expect(page.locator("#student-representation details")).toContainText("50th session (2020–2021): Appointed member for Morningside College, until 31 July 2020.");
   await page.locator("#travel-planner").getByRole("link",{name:/Read the Travel Planner/}).click();
   await expect(page.getByRole("heading",{level:1,name:"Travel Planner"})).toBeVisible();
   await context.close();
@@ -153,7 +153,7 @@ test("personal timeline retains early roles, overlaps and keyboard-accessible co
   await page.keyboard.press("Enter");
   await expect(page.locator("#student-representation details")).toHaveAttribute("open","");
   await expect(page.locator("#student-representation details")).toContainText("April 2017–March 2018");
-  await expect(page.locator("#student-representation details")).toContainText("appointed member for Morningside College, 2020");
+  await expect(page.locator("#student-representation details")).toContainText("50th session (2020–2021): Appointed member for Morningside College, until 31 July 2020.");
   await page.keyboard.press("Enter");
   await expect(page.locator("#student-representation details")).not.toHaveAttribute("open");
   await page.reload();
