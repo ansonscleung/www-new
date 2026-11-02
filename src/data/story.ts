@@ -44,13 +44,14 @@ export const experience: readonly StoryEntry[] = [
         paragraphs: ["I represented students through Morningside College and CUHK student councils."],
         details: { label: "Council appointments", paragraphs: [], groups: [
           { title: "MCSU Representative Council", items: [
-            "6th session (2017–2018): Representative; Vice-Chairperson, April 2017–March 2018.",
-            "7th session (2018–2019): Representative.",
+            "6th session (2017–2018): Elected Representative; Vice-Chairperson, April 2017–March 2018.",
+            "7th session (2018–2019): Elected Representative.",
           ] },
           { title: "CUSU Council", items: [
             "47th session (2017–2018): Elected member for Morningside College.",
             "48th session (2018–2019): Elected member for Morningside College; Deputy / Acting Council Chair.",
             "49th session (2019–2020): Appointed member for Morningside College.",
+            "Member of ITSC Student User Consultation Committee, 2019–2020.",
             "50th session (2020–2021): Appointed member for Morningside College, until 31 July 2020.",
           ] },
         ] },
