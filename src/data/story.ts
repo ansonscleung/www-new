@@ -8,7 +8,7 @@ export interface StoryEntry {
   paragraphs: readonly string[];
   image?: { key: StoryImageKey; caption?: string };
   links?: readonly { label: string; href: string }[];
-  details?: { label: string; paragraphs: readonly string[]; items?: readonly string[] };
+  details?: { label: string; paragraphs: readonly string[]; groups?: readonly { title: string; items: readonly string[] }[] };
   evidence?: readonly { label: string; href: string }[];
   milestone?: string;
   parts?: readonly StoryEntry[];
@@ -42,12 +42,17 @@ export const experience: readonly StoryEntry[] = [
         id: "student-representation", period: "2017–2020", start: "2017", end: "2020", compact: true,
         title: "Student representation",
         paragraphs: ["I represented students through Morningside College and CUHK student councils."],
-        details: { label: "Council appointments", paragraphs: [], items: [
-          "MCSU Representative Council: representative, 2017–2019; vice-chairperson, April 2017–March 2018.",
-          "CUSU Council, 47th session (2017–2018): Elected member for Morningside College.",
-          "CUSU Council, 48th session (2018–2019): Elected member for Morningside College; Deputy / Acting Council Chair.",
-          "CUSU Council, 49th session (2019–2020): Appointed member for Morningside College.",
-          "CUSU Council, 50th session (2020–2021): Appointed member for Morningside College, until 31 July 2020.",
+        details: { label: "Council appointments", paragraphs: [], groups: [
+          { title: "MCSU Representative Council", items: [
+            "6th session (2017–2018): Representative; Vice-Chairperson, April 2017–March 2018.",
+            "7th session (2018–2019): Representative.",
+          ] },
+          { title: "CUSU Council", items: [
+            "47th session (2017–2018): Elected member for Morningside College.",
+            "48th session (2018–2019): Elected member for Morningside College; Deputy / Acting Council Chair.",
+            "49th session (2019–2020): Appointed member for Morningside College.",
+            "50th session (2020–2021): Appointed member for Morningside College, until 31 July 2020.",
+          ] },
         ] },
       },
       {
