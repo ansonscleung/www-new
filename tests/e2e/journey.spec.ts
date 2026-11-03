@@ -30,8 +30,8 @@ test("work links, keyboard disclosures and private case route work", async ({ pa
   await expect(disclosure).not.toHaveAttribute("open");
   await page.locator("#travel-planner").getByRole("link",{name:/Read the Travel Planner/}).click();
   await expect(page.getByRole("heading",{level:1,name:"Travel Planner"})).toBeVisible();
-  await page.getByRole("link",{name:/Back to explorations/}).click();
-  await expect(page).toHaveURL(/#explorations$/);
+  await page.getByRole("link",{name:/Back to current projects/}).click();
+  await expect(page).toHaveURL(/#now$/);
   await expect(page.locator("#travel-planner")).toContainText("private development");
 });
 test("old anchors resolve after direct navigation, reload and back", async ({ page }) => {

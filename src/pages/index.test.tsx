@@ -11,6 +11,9 @@ vi.mock("../components/header", () => ({ default: () => <header /> }));
 vi.mock("../components/identity", () => ({
   default: () => <section data-section="hero" />,
 }));
+vi.mock("../components/selected-work", () => ({
+  default: () => <section data-section="selected-work" />,
+}));
 vi.mock("../components/now", () => ({
   default: () => <section data-section="now" />,
 }));
@@ -35,6 +38,7 @@ describe("IndexPage", () => {
     );
     expect(order).toEqual([
       "hero",
+      "selected-work",
       "journey",
       "now",
       "contact",

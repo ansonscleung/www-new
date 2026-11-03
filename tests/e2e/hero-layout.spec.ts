@@ -5,7 +5,7 @@ for (const width of [320, 390, 768, 1024, 1440, 1920]) {
     await page.goto("/");
     await expect(page.getByRole("heading", {level:1, name:"Anson Leung"})).toBeVisible();
     await expect(page.locator("#home figure")).toHaveCount(0);
-    await expect(page.locator(".identity-project-links a")).toHaveCount(2);
+    await expect(page.locator(".identity-project-links a")).toHaveCount(4);
     expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
     const layout = await page.locator("#itinni > .story-row").evaluate((entry) => ({
       columns: getComputedStyle(entry).gridTemplateColumns.split(" ").length,
