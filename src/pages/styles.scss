@@ -3,14 +3,126 @@
 
 :root {
     --bulma-family-primary: "Geologica", "Noto Sans HK", sans-serif;
+    color-scheme: light;
+    --bg: #f5f6f4;
+    --surface: #ffffff;
+    --fg: #202a30;
+    --muted: #59666f;
+    --border: #d4dbde;
+    --accent: #315fad;
+    --focus: #244b8a;
+    --on-accent: #ffffff;
+    --portrait-bg: #d8e2e7;
+    --display: "Geologica", "Noto Sans HK", sans-serif;
+    --body: "Geologica", "Noto Sans HK", sans-serif;
+    --content: 75rem;
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+    --section-space: clamp(2.5rem, 5vw, 4rem);
+    --bulma-scheme-main: var(--bg);
+    --bulma-scheme-main-bis: var(--surface);
+    --bulma-scheme-main-ter: #edf1f3;
+    --bulma-text: var(--muted);
+    --bulma-text-strong: var(--fg);
+    --bulma-text-weak: var(--muted);
+    --bulma-border: var(--border);
+    --bulma-border-weak: var(--border);
+    --bulma-link: var(--accent);
+    --bulma-link-text: var(--accent);
+    --bulma-primary: var(--accent);
+    --bulma-primary-invert: var(--on-accent);
+    --bulma-primary-h: 218deg;
+    --bulma-primary-s: 56%;
+    --bulma-primary-l: 44%;
+    --bulma-primary-invert-l: 100%;
+    --bulma-body-background-color: var(--bg);
+    --bulma-body-color: var(--fg);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        color-scheme: dark;
+        --bg: #12181c;
+        --surface: #1a2227;
+        --fg: #edf1f2;
+        --muted: #aeb9bf;
+        --border: #39464d;
+        --accent: #91b5f5;
+        --focus: #b7cdf5;
+        --on-accent: #111a20;
+        --portrait-bg: #27343b;
+        --bulma-scheme-main-ter: #222c31;
+        --bulma-primary-h: 218deg;
+        --bulma-primary-s: 83%;
+        --bulma-primary-l: 76%;
+        --bulma-primary-invert-l: 8%;
+    }
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #12181c;
+    --surface: #1a2227;
+    --fg: #edf1f2;
+    --muted: #aeb9bf;
+    --border: #39464d;
+    --accent: #91b5f5;
+    --focus: #b7cdf5;
+    --on-accent: #111a20;
+    --portrait-bg: #27343b;
+    --bulma-scheme-main-ter: #222c31;
+    --bulma-primary-h: 218deg;
+    --bulma-primary-s: 83%;
+    --bulma-primary-l: 76%;
+    --bulma-primary-invert-l: 8%;
 }
 
 html {
     scroll-behavior: smooth;
+    background: var(--bg);
+}
+
+body {
+    min-width: 20rem;
+    overflow-x: clip;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--body);
+    line-height: 1.6;
+}
+
+.page-shell { width: min(100%, calc(var(--content) + 2 * var(--gutter))); padding-inline: var(--gutter); margin-inline: auto; }
+.section { padding: var(--section-space) 0; }
+.section > .container { width: min(100%, var(--content)); max-width: none !important; }
+
+.section-heading { max-width: 42rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.section-heading .title { margin: .35rem 0 .75rem; color: var(--fg); font-family: var(--display); letter-spacing: -.02em; }
+.section-label { margin: 0; color: var(--accent); font-size: .82rem; font-weight: 600; }
+.section-description { max-width: 58ch; margin: 0; color: var(--muted); font-size: 1.1rem; line-height: 1.6; }
+
+a { color: var(--accent); transition: color 180ms ease, text-decoration-color 180ms ease; }
+a:hover { color: var(--focus); }
+
+.button {
+    min-height: 2.75rem;
+    border-radius: var(--bulma-radius);
+}
+
+.theme-control {
+    flex-wrap: nowrap;
+    margin-bottom: 0 !important;
+}
+
+.theme-control .button {
+    border-color: var(--border);
+}
+
+:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 4px;
 }
 
 [id] {
-    scroll-margin-top: 4rem;
+    scroll-margin-top: 5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -27,3 +139,5 @@ html {
         scroll-behavior: auto !important;
     }
 }
+
+.contact-section .title { font-weight: 400; }

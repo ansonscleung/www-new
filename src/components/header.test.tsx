@@ -16,23 +16,20 @@ vi.mock("gatsby", () => ({
 import Header from "./header";
 
 describe("Header", () => {
-  it("links to the five primary homepage destinations", () => {
+  it("links to the three primary homepage destinations", () => {
     render(<Header />);
 
-    expect(screen.getByRole("link", { name: "Home" })).toHaveAttribute("href", "#home");
-    expect(screen.getByRole("link", { name: "Work" })).toHaveAttribute(
-      "href",
-      "#selected-work"
-    );
     expect(screen.getByRole("link", { name: "Experience" })).toHaveAttribute(
       "href",
-      "#experience"
+      "#journey"
     );
-    expect(screen.getByRole("link", { name: "Labs" })).toHaveAttribute("href", "#labs");
+
+    expect(screen.getByRole("link", { name: "Now" })).toHaveAttribute("href", "#now");
     expect(screen.getByRole("link", { name: "Contact" })).toHaveAttribute(
       "href",
       "#contact"
     );
+    expect(screen.getByRole("group", { name: "Colour theme" })).toBeInTheDocument();
   });
 
   it("opens the mobile menu and closes it after choosing a destination", async () => {
@@ -43,7 +40,7 @@ describe("Header", () => {
     expect(toggle).toHaveAttribute("aria-expanded", "false");
     await user.click(toggle);
     expect(toggle).toHaveAttribute("aria-expanded", "true");
-    await user.click(screen.getByRole("link", { name: "Work" }));
+    await user.click(screen.getByRole("link", { name: "Experience" }));
     expect(toggle).toHaveAttribute("aria-expanded", "false");
   });
 });

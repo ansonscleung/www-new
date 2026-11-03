@@ -1,72 +1,37 @@
 import { expect, test } from "@playwright/test";
-
-const wideViewports = [
-  { width: 1920, height: 1080 },
-  { width: 2560, height: 1440 },
-];
-
-for (const viewport of wideViewports) {
-  test(`hero stays within the viewport and uses one compact surface at ${viewport.width}x${viewport.height}`, async ({
-    page,
-  }, testInfo) => {
-    test.skip(!testInfo.project.name.includes("desktop"), "Desktop wide-viewport coverage");
-    await page.setViewportSize(viewport);
+for (const width of [320, 390, 768, 1024, 1440, 1920]) {
+  test("introduction and story stay readable at " + width + "px", async ({ page }) => {
+    await page.setViewportSize({width, height: 900});
     await page.goto("/");
+    await expect(page.getByRole("heading", {level:1, name:"Anson Leung"})).toBeVisible();
+    await expect(page.locator("#home figure")).toHaveCount(0);
+    await expect(page.locator(".identity-project-links a")).toHaveCount(2);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
+    const layout = await page.locator("#itinni > .story-row").evaluate((entry) => ({
+      columns: getComputedStyle(entry).gridTemplateColumns.split(" ").length,
+      font: getComputedStyle(document.querySelector("h1")!).fontFamily,
+    }));
+    expect(layout.columns).toBe(width >= 900 ? 2 : 1);
+    expect(layout.font).toContain("Geologica");
+    const boxes = await page.locator(".page-shell").evaluateAll(nodes => nodes.map(node => {
+      const rect=node.getBoundingClientRect(), style=getComputedStyle(node);
+      return {left:rect.left+parseFloat(style.paddingLeft),right:rect.right-parseFloat(style.paddingRight)};
+    }));
+    for (const box of boxes) {
+      expect(box.left).toBeCloseTo(boxes[0].left,0);
+      expect(box.right).toBeCloseTo(boxes[0].right,0);
+    }
+    const brandLeft=await page.locator(".navbar-brand > .navbar-item").evaluate(e=>e.getBoundingClientRect().left);
+    expect(brandLeft).toBeCloseTo(boxes[0].left,0);
+    const rows=await page.locator(".story-row--illustrated").evaluateAll(nodes=>nodes.map(row=>{
+      const text=row.querySelector(".story-content")!, photo=row.querySelector("figure")!;
+      return {first:row.firstElementChild===text,text:text.getBoundingClientRect().toJSON(),photo:photo.getBoundingClientRect().toJSON()};
+    }));
+    for(const row of rows) {
+      expect(row.first).toBe(true);
+      if(width>=900) expect(row.text.right).toBeLessThan(row.photo.left);
+      else expect(row.text.bottom).toBeLessThanOrEqual(row.photo.top);
+    }
 
-    const layout = await page.locator("#home").evaluate((hero) => {
-      const surfaces = Array.from(
-        hero.querySelectorAll(".identity-surface")
-      ) as HTMLElement[];
-      const heroRect = hero.getBoundingClientRect();
-
-      return {
-        heroHeight: heroRect.height,
-        viewportHeight: window.innerHeight,
-        surfaceHeights: surfaces.map((surface) => surface.getBoundingClientRect().height),
-      };
-    });
-
-    expect(layout.heroHeight).toBeLessThanOrEqual(layout.viewportHeight + 1);
-    expect(layout.surfaceHeights).toHaveLength(1);
-    expect(layout.surfaceHeights[0]).toBeLessThan(layout.viewportHeight * 0.4);
   });
 }
-
-test("hero keeps mobile controls visible without page-level horizontal overflow", async (
-  { page },
-  testInfo
-) => {
-  test.skip(!testInfo.project.name.includes("mobile"), "Mobile viewport coverage");
-  await page.goto("/");
-
-  const controls = page.locator("#home .identity-controls");
-  await expect(controls).toBeVisible();
-  await expect(page.getByRole("button", { name: "Pause carousel", exact: true })).toBeVisible();
-  await expect(page.getByRole("button", { name: "Show Foundation stage", exact: true })).toBeVisible();
-
-  const layout = await page.locator("#home").evaluate((hero) => ({
-    heroBottom: hero.getBoundingClientRect().bottom,
-    controlsBottom: (hero.querySelector(".identity-controls") as HTMLElement).getBoundingClientRect()
-      .bottom,
-    hasPageOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
-  }));
-
-  expect(layout.controlsBottom).toBeLessThanOrEqual(layout.heroBottom + 1);
-  expect(layout.hasPageOverflow).toBe(false);
-});
-
-test("hero keeps controls inside a short desktop viewport", async ({ page }, testInfo) => {
-  test.skip(!testInfo.project.name.includes("desktop"), "Desktop short-height coverage");
-  await page.setViewportSize({ width: 1280, height: 640 });
-  await page.goto("/");
-
-  const layout = await page.locator("#home").evaluate((hero) => ({
-    heroBottom: hero.getBoundingClientRect().bottom,
-    controlsBottom: (hero.querySelector(".identity-controls") as HTMLElement).getBoundingClientRect()
-      .bottom,
-    hasPageOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
-  }));
-
-  expect(layout.controlsBottom).toBeLessThanOrEqual(layout.heroBottom + 1);
-  expect(layout.hasPageOverflow).toBe(false);
-});

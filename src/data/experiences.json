@@ -3,6 +3,7 @@
     "title": "Senior Product Specialist",
     "company": "Shoalter Technology (member of HKTV Group)",
     "start_date": "2025-10-01",
+    "end_date": "2026-08-31",
     "location": "Hong Kong",
     "responsibilities": [
       "Owned end-to-end product requirements and user flows for HKTVmall, Wet Market Express, and 3-hour delivery initiatives.",
@@ -25,7 +26,7 @@
     ]
   },
   {
-    "title": "Consultant, Cloud & Application Services",
+    "title": "Cloud & Application Consultant",
     "company": "Protiviti Hong Kong",
     "start_date": "2022-09-05",
     "end_date": "2023-02-12",
@@ -39,7 +40,7 @@
   {
     "title": "Co-Founder & Product Director",
     "company": "itinni",
-    "start_date": "2019-10-01",
+    "start_date": "2019-12-01",
     "end_date": "2021-12-31",
     "location": "Hong Kong",
     "responsibilities": [
@@ -49,19 +50,6 @@
       "Built an itinerary planning database supporting concurrent editing by groups of 6 to 12 travelers.",
       "Designed and presented award-winning startup pitches across two competitions with three awards.",
       "Promoted entrepreneurship culture as a guest speaker at CUHK Pi Centre."
-    ]
-  },
-  {
-    "title": "Summer Intern",
-    "company": "OOCL",
-    "start_date": "2019-06-03",
-    "end_date": "2019-08-30",
-    "location": "Hong Kong",
-    "responsibilities": [
-      "Provided software improvement suggestions from 200 user requests.",
-      "Summarized feature and error insights from 1,000 user cases.",
-      "Designed a new interface module in a logistics platform for around 100 clients.",
-      "Migrated user documentation for 10 modules in the MyPodium logistics platform."
     ]
   }
 ]

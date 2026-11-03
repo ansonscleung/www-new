@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
+import ThemeControl from "./theme-control";
 import "./header.scss";
 
 const Header: React.FC = () => {
@@ -13,28 +14,12 @@ const Header: React.FC = () => {
     }
   `);
 
-  const [isAtTop, setIsAtTop] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsAtTop(window.pageYOffset === 0);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const headerHeight = isAtTop ? "4rem" : "3rem";
-  const fontSize = isAtTop ? "18px" : "16px";
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <nav
-      className="navbar is-fixed-top"
-      style={{ fontSize, minHeight: headerHeight, transition: "all 0.5s" }}
+      className="navbar is-fixed-top refined-header"
       role="navigation"
       aria-label="main navigation"
     >
@@ -61,21 +46,14 @@ const Header: React.FC = () => {
         className={`navbar-menu${isMenuOpen ? " is-active" : ""}`}
       >
         <div className="navbar-end">
-          <a href="#home" className="navbar-item" onClick={closeMenu}>
-            Home
-          </a>
-          <a href="#selected-work" className="navbar-item" onClick={closeMenu}>
-            Work
-          </a>
-          <a href="#experience" className="navbar-item" onClick={closeMenu}>
-            Experience
-          </a>
-          <a href="#labs" className="navbar-item" onClick={closeMenu}>
-            Labs
-          </a>
+          <a href="#journey" className="navbar-item" onClick={closeMenu}>Experience</a>
+          <a href="#now" className="navbar-item" onClick={closeMenu}>Now</a>
           <a href="#contact" className="navbar-item" onClick={closeMenu}>
             Contact
           </a>
+          <div className="navbar-item refined-header__theme">
+            <ThemeControl />
+          </div>
         </div>
       </div>
     </nav>

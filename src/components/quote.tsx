@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { quotes } from "../data/quotes";
-import { quoteIndexForDate } from "../utils/quote-of-day";
+import { nextRandomQuoteIndex, quoteIndexForDate } from "../utils/quote-of-day";
 import "./quote.scss";
 
 const QuoteOfTheDay: React.FC = () => {
@@ -15,11 +15,10 @@ const QuoteOfTheDay: React.FC = () => {
   const quote = quotes[quoteIndex];
 
   return (
-    <section id="quote" className="section quote-of-the-day" aria-labelledby="quote-title">
-      <div className="container">
+    <div id="quote" className="quote-of-the-day" aria-labelledby="quote-title">
+      <div>
         <article className="quote-card">
-          <p className="quote-kicker">Quote of the day</p>
-          <h2 id="quote-title" className="title is-3">A practical idea to carry forward</h2>
+          <h2 id="quote-title" className="title is-3">Quote of the day</h2>
           <blockquote
             aria-live={hasManualSelection ? "polite" : "off"}
             aria-atomic="true"
@@ -32,22 +31,21 @@ const QuoteOfTheDay: React.FC = () => {
             <cite>{quote.work.title.en} · <span lang="zh-Hant">{quote.work.title.zhHant}</span></cite>
           </footer>
           <div className="quote-meta">
-            <span className="tag is-primary is-light">{quote.category.replace("-", " ")}</span>
             <a href={quote.source.url} target="_blank" rel="noopener noreferrer">Read source</a>
           </div>
           <button
-            className="button is-primary is-rounded"
+            className="button is-primary"
             type="button"
             onClick={() => {
               setHasManualSelection(true);
-              setQuoteIndex((index) => (index + 1) % quotes.length);
+              setQuoteIndex((index) => nextRandomQuoteIndex(quotes, index));
             }}
           >
             Another quote
           </button>
         </article>
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -17,10 +17,14 @@ describe("TravelPlannerPage", () => {
     render(<TravelPlannerPage />);
 
     expect(screen.getByRole("heading", { level: 1, name: /Travel Planner/i })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /Back to selected work/ })).toHaveAttribute("href", "/#selected-work");
+    expect(screen.getByRole("link", { name: /Back to explorations/ })).toHaveAttribute("href", "/#explorations");
+    expect(screen.getByRole("group", { name: "Colour theme" })).toBeInTheDocument();
+    expect(screen.getByText("Work in progress")).toBeInTheDocument();
+    expect(screen.getByText(/Ongoing personal product · Private development build/)).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2, name: "From constraints to validation" })).toBeInTheDocument();
     expect(screen.getByText(/elders, children, mobility needs/i)).toBeInTheDocument();
     expect(screen.getByText(/manual CRUD and reordering/i)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "An editable MVP in development" })).toBeInTheDocument();
     expect(screen.getByText(/Next\.js 16/i)).toBeInTheDocument();
     expect(screen.queryByRole("link", { name: /github/i })).not.toBeInTheDocument();
   });

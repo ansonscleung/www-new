@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 import { quotes } from "../data/quotes";
@@ -12,12 +12,13 @@ vi.mock("../utils/quote-of-day", async (importOriginal) => ({
 import QuoteOfTheDay from "./quote";
 
 describe("QuoteOfTheDay", () => {
-  it("renders both languages and advances sequentially with wrapping", async () => {
+  it("renders both languages and selects a random quote from another category", async () => {
     const user = userEvent.setup();
+    vi.spyOn(Math, "random").mockReturnValue(0);
     render(<QuoteOfTheDay />);
 
     const firstQuote = quotes[0];
-    const secondQuote = quotes[1];
+    const nextQuote = quotes.find((quote) => quote.category !== firstQuote.category)!;
 
     expect(screen.getByText((content) => content.includes(firstQuote.text.en))).toBeInTheDocument();
     expect(screen.getByText((content) => content.includes(firstQuote.text.zhHant))).toBeInTheDocument();
@@ -31,13 +32,7 @@ describe("QuoteOfTheDay", () => {
     expect(screen.getByText(firstQuote.work.title.zhHant)).toBeInTheDocument();
 
     await user.click(screen.getByRole("button", { name: "Another quote" }));
-    expect(screen.getByText((content) => content.includes(secondQuote.text.en))).toBeInTheDocument();
-    expect(screen.getByText((content) => content.includes(secondQuote.text.zhHant))).toBeInTheDocument();
-
-    for (let index = 1; index < quotes.length; index += 1) {
-      fireEvent.click(screen.getByRole("button", { name: "Another quote" }));
-    }
-    expect(screen.getByText((content) => content.includes(firstQuote.text.en))).toBeInTheDocument();
-    expect(screen.getByText((content) => content.includes(firstQuote.text.zhHant))).toBeInTheDocument();
+    expect(screen.getByText((content) => content.includes(nextQuote.text.en))).toBeInTheDocument();
+    expect(screen.getByText((content) => content.includes(nextQuote.text.zhHant))).toBeInTheDocument();
   });
 });

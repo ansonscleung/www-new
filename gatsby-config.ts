@@ -8,7 +8,7 @@ import path from "path";
 const gatsbyConfig = {
   siteMetadata: {
     title: `Anson Leung`,
-    description: `Technical product manager and former startup co-founder building and scaling digital products across e-commerce, consulting, and travel technology.`,
+    description: `Anson Leung works across business analysis, product management, technical implementation and project delivery to turn complex requirements into working digital systems.`,
     siteUrl: `https://ansonscleung.com`,
     links: [
       {

@@ -1,14 +1,10 @@
 import * as React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import CapabilitiesSection from "../components/capabilities";
+import NowSection from "../components/now";
 import ContactSection from "../components/contact";
-import EducationSection from "../components/education";
-import ExperienceSection from "../components/experience";
+import JourneySection from "../components/journey";
 import IdentitySection from "../components/identity";
-import ImpactSection from "../components/impact";
 import LabsSection from "../components/labs";
-import ProjectSection from "../components/projects";
-import QuoteOfTheDay from "../components/quote";
 import { FooterData, FooterSection } from "../components/footer";
 import "./styles.scss";
 import Header from "../components/header";
@@ -52,14 +48,10 @@ const IndexPage: React.FC = () => {
       <Header />
       <main>
         <IdentitySection />
-        <CapabilitiesSection />
-        <ImpactSection />
-        <ProjectSection />
-        <ExperienceSection />
-        <LabsSection />
-        <EducationSection />
-        <QuoteOfTheDay />
+        <JourneySection />
+        <NowSection />
         <ContactSection />
+        <LabsSection />
       </main>
       <FooterSection data={footer} />
     </>
@@ -67,7 +59,7 @@ const IndexPage: React.FC = () => {
 };
 
 export const Head = () => (
-  <Seo title="Anson S.C. Leung | Technical Product Manager" pathname="/" />
+  <Seo title="Anson Leung | Business Analysis, Product & Delivery" pathname="/" />
 );
 
 export default IndexPage;

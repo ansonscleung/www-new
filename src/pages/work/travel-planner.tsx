@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link } from "gatsby";
 import Seo from "../../components/seo";
+import ThemeControl from "../../components/theme-control";
 import "../styles.scss";
 import "./travel-planner.scss";
 
@@ -32,10 +33,17 @@ const TravelPlannerPage: React.FC = () => (
     <main className="travel-case">
       <div className="travel-case__shell">
         <nav className="travel-case__nav" aria-label="Case study navigation">
-          <Link to="/#selected-work">← Back to selected work</Link>
-          <Link to="/">Anson Leung</Link>
+          <div className="travel-case__nav-links">
+            <Link to="/#explorations">← Back to explorations</Link>
+            <Link to="/">Anson Leung</Link>
+          </div>
+          <ThemeControl />
         </nav>
         <header className="travel-case__hero">
+          <div className="travel-case__status">
+            <span className="tag is-primary is-light">Work in progress</span>
+            <span>Ongoing personal product · Private development build</span>
+          </div>
           <p className="travel-case__eyebrow">Product × Engineering case study</p>
           <h1>Travel Planner</h1>
           <p className="travel-case__lede">
@@ -73,7 +81,7 @@ const TravelPlannerPage: React.FC = () => (
           aria-labelledby="mvp-title"
         >
           <div>
-            <h2 id="mvp-title">A tested, editable MVP</h2>
+            <h2 id="mvp-title">An editable MVP in development</h2>
             <p>
               The core experience is an editable structured itinerary: people
               can create, update and remove items manually, reorder plans, and

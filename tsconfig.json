@@ -103,6 +103,7 @@
     "./tests/**/*",
     "./gatsby-node.ts",
     "./gatsby-config.ts",
+    "./gatsby-ssr.tsx",
     "./playwright.config.ts",
     "./vitest.config.ts",
     "./plugins/**/*"

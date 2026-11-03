@@ -1,7 +1,7 @@
 [
   {
     "stage": "Foundation",
-    "description": "Computer Science at CUHK, with an exchange semester at Aalto University in Finland.",
+    "description": "Computer Science at CUHK, followed by postgraduate study at HKUST and an exchange at Aalto University in Finland.",
     "mobileImagePosition": "60% center",
     "backgroundImage": "../images/cuhk.jpg"
   },
@@ -23,12 +23,12 @@
   },
   {
     "stage": "Today",
-    "description": "A career increasingly centred on the space between product decisions and technical implementation.",
+    "description": "Bringing together business analysis, product delivery and technical implementation through continued hands-on work.",
     "backgroundImage": "../images/pi_centre.jpg"
   },
   {
     "stage": "Next",
-    "description": "Looking for roles where the problem, the system and the people building it stay close together.",
+    "description": "Deepening the work between product decisions, business analysis and technical implementation.",
     "backgroundImage": "../images/aalto_vappu.jpg"
   }
 ]
