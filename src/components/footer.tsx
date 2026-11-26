@@ -24,7 +24,7 @@ export const FooterSection: React.FC<FooterProps> = ({ data }) => {
               <a key={index} href={item.link} className="icon is-large" target="_blank" rel="noopener noreferrer" aria-label={item.website}>
                 <span className="fa-layers fa-fw">
                   <FontAwesomeIcon icon={faCircle} />
-                  <FontAwesomeIcon inverse icon={item.icon} transform="shrink-6" />
+                  <FontAwesomeIcon className="footer__glyph" icon={item.icon} transform="shrink-6" />
                 </span>
               </a>
             ))}
