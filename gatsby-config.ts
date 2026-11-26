@@ -34,8 +34,8 @@ const gatsbyConfig = {
       },
       {
         website: "Email",
-        account: "ansonscleung@gmail.com",
-        link: "mailto:ansonscleung@gmail.com",
+        account: "anson@ascl.me",
+        link: "mailto:anson@ascl.me",
         iconName: "envelope",
         iconStyle: "solid",
       },
