@@ -16,8 +16,8 @@ export default function StoryEntry({ entry, nested = false }: { entry: StoryEntr
       <div className="story-content">
         {entry.period && <p className="story-date">{entry.period}</p>}
         <Heading id={entry.id + "-title"}>{entry.title}</Heading>
+        {entry.milestone && <p className="story-subtitle">{entry.milestone}</p>}
         {entry.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-        {entry.milestone && <p className="story-milestone">{entry.milestone}</p>}
         {entry.links && <ul className="story-links">{entry.links.map((link) => <li key={link.href}>
           {link.href.startsWith("/") ? <Link to={link.href}>{link.label} →</Link> :
             <a href={link.href} target="_blank" rel="noopener noreferrer">{link.label} ↗<span className="is-sr-only"> (opens in a new tab)</span></a>}

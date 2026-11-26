@@ -1,0 +1,42 @@
+{
+  "title": "Selected work",
+  "intro": "Recent examples of business analysis, integration planning and product delivery at Shoalter.",
+  "cases": [
+    {
+      "id": "partner-integration",
+      "context": "Shoalter · Integration planning and delivery",
+      "title": "Partner login and commerce integration",
+      "paragraphs": [
+        "We embedded our mobile storefront in two partner apps using WebViews. Both integrations shared a storefront foundation, with partner-specific customer flows and rules for which products each partner could sell.",
+        "I joined during early partnership planning and worked with our engineers and the partners’ IT teams to agree on workflows and how our systems would connect."
+      ],
+      "details": {
+        "label": "My contribution and validation",
+        "paragraphs": [
+          "I reviewed the APIs each side already had and documented where we agreed to retain our existing design and where we could build on the partner’s implementation. I authored the integration plan, recorded decisions and coordinated UAT across teams.",
+          "After launch, I investigated a production sign-in regression and helped identify a workaround."
+        ]
+      }
+    },
+    {
+      "id": "hktvmall-add-on",
+      "context": "Shoalter · Product requirements and rollout",
+      "title": "HKTVmall Marketing Add-on and Unlimited Add-on",
+      "paragraphs": [
+        "Marketing Add-on offered customers discounts on selected products after they placed an order. I took over the existing feature and worked with business teams to define new offer requirements using signals such as past add-on conversion and the product categories customers typically bought.",
+        "Unlimited Add-on let customers buy more items before their original order was delivered. If the new items could arrive in the same delivery slot, both orders were delivered together at no extra delivery charge. I supported the feature from early planning and worked with management to confirm how it would work and how to phase the launch."
+      ],
+      "details": {
+        "label": "System changes and rollout",
+        "paragraphs": [
+          "For Marketing Add-on, I helped IT teams agree on data formats and divide responsibilities during a system migration aimed at reducing response times and returning more up-to-date results.",
+          "For Unlimited Add-on, I helped coordinate the launch checklist across free-delivery rules, the payment screen, app notifications and customer-facing wording."
+        ]
+      }
+    }
+  ],
+  "more": {
+    "href": "#journey",
+    "label": "Read the full experience and project timeline ↓"
+  }
+}

@@ -1,0 +1,36 @@
+.selected-work {
+  padding-top: 2rem;
+}
+
+.selected-work__intro {
+  max-width: 43rem;
+  margin-bottom: 2rem;
+}
+
+.selected-work__intro .title {
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+}
+
+.selected-work__case {
+  border-top: 1px solid var(--border);
+  padding-block: 2rem;
+}
+
+.selected-work__case > .title {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  line-height: 1.3;
+}
+
+.selected-work__case :is(.title, p, details) {
+  max-width: 43rem;
+}
+.selected-work__case p {
+  line-height: 1.8;
+}
+.selected-work__case summary {
+  cursor: pointer;
+  min-height: 2.75rem;
+}
+.selected-work__case details[open] summary {
+  margin-bottom: 1rem;
+}

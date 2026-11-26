@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-const ids = ["hkoi", "hkage", "cuhk-study", "itinni", "journey-hkust", "protiviti", "shoalter"];
+const ids = ["hkoi", "cuhk-study", "itinni", "journey-hkust", "protiviti", "shoalter"];
 test("story is chronological, complete and naturally scrolling", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator("#journey article")).toHaveCount(7);
@@ -24,14 +24,14 @@ test("work links, keyboard disclosures and private case route work", async ({ pa
   await summary.focus();
   await page.keyboard.press("Enter");
   await expect(disclosure).toHaveAttribute("open","");
-  await expect(disclosure.getByText(/Company context, separate/)).toBeVisible();
+  await expect(disclosure.getByText(/HKTV reported that 278,000/)).toBeVisible();
   await expect(disclosure.getByRole("link",{name:/2024 annual results/})).toHaveAttribute("target","_blank");
   await page.keyboard.press("Enter");
   await expect(disclosure).not.toHaveAttribute("open");
   await page.locator("#travel-planner").getByRole("link",{name:/Read the Travel Planner/}).click();
   await expect(page.getByRole("heading",{level:1,name:"Travel Planner"})).toBeVisible();
-  await page.getByRole("link",{name:/Back to explorations/}).click();
-  await expect(page).toHaveURL(/#explorations$/);
+  await page.getByRole("link",{name:/Back to current projects/}).click();
+  await expect(page).toHaveURL(/#now$/);
   await expect(page.locator("#travel-planner")).toContainText("private development");
 });
 test("old anchors resolve after direct navigation, reload and back", async ({ page }) => {
@@ -138,11 +138,11 @@ test("short chapters do not reserve empty scroll distance after their content", 
 });
 
 test("personal timeline retains early roles, overlaps and keyboard-accessible council terms", async ({page}) => {
-  await page.goto("/#hkage");
-  await expect(page.locator("#hkage h3")).toBeInViewport();
-  await expect(page.locator("#hkage")).toContainText("July–December 2016");
+  await page.goto("/#hkoi");
+  await expect(page.locator("#hkoi h3")).toBeInViewport();
+  await expect(page.locator("#hkage")).toHaveCount(0);
   await expect(page.locator("#hkoi")).toContainText("HKOI 2014–2015");
-  await expect(page.locator("#cuhk-study #stem-teaching")).toContainText("December 2016–June 2020");
+  await expect(page.locator("#now #stem-teaching")).toContainText("JA Company Programme");
   await expect(page.locator("#cuhk-study #cuacs")).toContainText("Publication Officer, 24th session");
   await expect(page.locator("#cuhk-study #psm")).toContainText("July 2020");
   await expect(page.locator(".story-compact figure")).toHaveCount(0);

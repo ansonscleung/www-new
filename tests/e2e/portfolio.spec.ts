@@ -2,7 +2,7 @@ import { expect, test, type Page } from "@playwright/test";
 import { quotes } from "../../src/data/quotes";
 import { quoteIndexForDate } from "../../src/utils/quote-of-day";
 
-const sectionOrder = ["home", "journey", "current", "contact"];
+const sectionOrder = ["home", "selected-work", "journey", "current", "contact"];
 
 const collectRuntimeErrors = (page: Page) => {
   const errors: string[] = [];
@@ -20,7 +20,7 @@ test("homepage presents the working-systems narrative and bilingual quote", asyn
   await page.goto("/");
 
   await expect(page.getByRole("heading", { level: 1, name: "Anson Leung" })).toBeVisible();
-  await expect(page.getByText("From intent to working systems.")).toBeVisible();
+  await expect(page.getByText("I turn business needs into clear workflows, system specifications and testable releases.")).toBeVisible();
   await expect(page.locator("#home").getByRole("link", { name: /My experience/ })).toBeVisible();
   await expect.poll(() => page.locator("main > section").evaluateAll(nodes => nodes.map(n => n.id))).toEqual(sectionOrder);
   await expect(page.locator("#shoalter")).toContainText("February 2023–August 2026");
@@ -58,9 +58,9 @@ test("Travel Planner opens as a private work-in-progress case study", async ({ p
   await expect(page.getByText(/Private development build/)).toBeVisible();
   await expect(page.getByRole("heading", { name: "From constraints to validation" })).toBeVisible();
   await expect(page.locator(".travel-case__flow > li")).toHaveCount(5);
-  await expect(page.getByRole("link", { name: /Back to explorations/ })).toHaveAttribute(
+  await expect(page.getByRole("link", { name: /Back to current projects/ })).toHaveAttribute(
     "href",
-    "/#explorations"
+    "/#now"
   );
   expect(errors).toEqual([]);
 });

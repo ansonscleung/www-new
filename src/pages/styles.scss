@@ -9,8 +9,8 @@
     --fg: #202a30;
     --muted: #59666f;
     --border: #d4dbde;
-    --accent: #315fad;
-    --focus: #244b8a;
+    --accent: #184e5a;
+    --focus: #12424d;
     --on-accent: #ffffff;
     --portrait-bg: #d8e2e7;
     --display: "Geologica", "Noto Sans HK", sans-serif;
@@ -30,9 +30,17 @@
     --bulma-link-text: var(--accent);
     --bulma-primary: var(--accent);
     --bulma-primary-invert: var(--on-accent);
-    --bulma-primary-h: 218deg;
-    --bulma-primary-s: 56%;
-    --bulma-primary-l: 44%;
+    --bulma-link-h: var(--bulma-primary-h);
+    --bulma-link-s: var(--bulma-primary-s);
+    --bulma-link-l: var(--bulma-primary-l);
+    --bulma-link-invert: var(--on-accent);
+    --bulma-link-invert-l: var(--bulma-primary-invert-l);
+    --bulma-focus-h: var(--bulma-primary-h);
+    --bulma-focus-s: var(--bulma-primary-s);
+    --bulma-focus-l: var(--bulma-primary-l);
+    --bulma-primary-h: 190.91deg;
+    --bulma-primary-s: 57.89%;
+    --bulma-primary-l: 22.35%;
     --bulma-primary-invert-l: 100%;
     --bulma-body-background-color: var(--bg);
     --bulma-body-color: var(--fg);
@@ -46,15 +54,15 @@
         --fg: #edf1f2;
         --muted: #aeb9bf;
         --border: #39464d;
-        --accent: #91b5f5;
-        --focus: #b7cdf5;
-        --on-accent: #111a20;
+        --accent: #9fd7dc;
+        --focus: #b9edf0;
+        --on-accent: #122b30;
         --portrait-bg: #27343b;
         --bulma-scheme-main-ter: #222c31;
-        --bulma-primary-h: 218deg;
-        --bulma-primary-s: 83%;
-        --bulma-primary-l: 76%;
-        --bulma-primary-invert-l: 8%;
+        --bulma-primary-h: 184.92deg;
+        --bulma-primary-s: 46.56%;
+        --bulma-primary-l: 74.31%;
+        --bulma-primary-invert-l: 12.94%;
     }
 }
 
@@ -65,15 +73,15 @@
     --fg: #edf1f2;
     --muted: #aeb9bf;
     --border: #39464d;
-    --accent: #91b5f5;
-    --focus: #b7cdf5;
-    --on-accent: #111a20;
+    --accent: #9fd7dc;
+    --focus: #b9edf0;
+    --on-accent: #122b30;
     --portrait-bg: #27343b;
     --bulma-scheme-main-ter: #222c31;
-    --bulma-primary-h: 218deg;
-    --bulma-primary-s: 83%;
-    --bulma-primary-l: 76%;
-    --bulma-primary-invert-l: 8%;
+    --bulma-primary-h: 184.92deg;
+    --bulma-primary-s: 46.56%;
+    --bulma-primary-l: 74.31%;
+    --bulma-primary-invert-l: 12.94%;
 }
 
 html {
@@ -99,8 +107,8 @@ body {
 .section-label { margin: 0; color: var(--accent); font-size: .82rem; font-weight: 600; }
 .section-description { max-width: 58ch; margin: 0; color: var(--muted); font-size: 1.1rem; line-height: 1.6; }
 
-a { color: var(--accent); transition: color 180ms ease, text-decoration-color 180ms ease; }
-a:hover { color: var(--focus); }
+a:not(:where(.button)) { color: var(--accent); transition: color 180ms ease, text-decoration-color 180ms ease; }
+a:not(:where(.button)):hover { color: var(--focus); }
 
 .button {
     min-height: 2.75rem;
@@ -108,8 +116,13 @@ a:hover { color: var(--focus); }
 }
 
 .theme-control {
-    flex-wrap: nowrap;
-    margin-bottom: 0 !important;
+    gap: .5rem;
+}
+
+.theme-control__label {
+    font-size: .75rem;
+    color: var(--muted);
+    white-space: nowrap;
 }
 
 .theme-control .button {

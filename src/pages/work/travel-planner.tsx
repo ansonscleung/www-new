@@ -34,7 +34,7 @@ const TravelPlannerPage: React.FC = () => (
       <div className="travel-case__shell">
         <nav className="travel-case__nav" aria-label="Case study navigation">
           <div className="travel-case__nav-links">
-            <Link to="/#explorations">← Back to explorations</Link>
+            <Link to="/#now">← Back to current projects</Link>
             <Link to="/">Anson Leung</Link>
           </div>
           <ThemeControl />
@@ -58,9 +58,8 @@ const TravelPlannerPage: React.FC = () => (
             travelling together?
           </p>
           <p>
-            The answer was not another fixed itinerary. It was a planning
-            workflow where people could see the constraints, start with structure
-            and remain in control of every change.
+            I am exploring a planning workflow where people can see the constraints,
+            start with structure and remain in control of their changes.
           </p>
         </section>
         <section className="travel-case__section" aria-labelledby="flow-title">
@@ -106,9 +105,16 @@ const TravelPlannerPage: React.FC = () => (
         <section className="travel-case__section" aria-labelledby="learning-title">
           <h2 id="learning-title">Ongoing validation</h2>
           <p>
-            This is a continuing product practice: research informs positioning,
-            positioning informs PRDs, and the architecture keeps family
-            constraints visible as the MVP is tested and refined.
+            The private prototype includes manual itinerary editing, reordering and
+            JSON import/export. The repository contains unit and browser
+            regression tests for product behaviour. These checks address software
+            behaviour; they do not establish itinerary quality or family adoption.
+          </p>
+          <p>
+            I work across product definition, data modelling and implementation,
+            using AI coding assistants as part of development. Validation with
+            families remains ongoing. This is a personal project, separate from
+            my professional delivery experience.
           </p>
         </section>
       </div>

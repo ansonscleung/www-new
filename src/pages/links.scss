@@ -1,23 +1,78 @@
 .link-section {
+  --link-paper: light-dark(#f8f7f4, var(--bg));
+
+  display: grid;
+  align-items: center;
   min-height: 100vh;
-  background-color: var(--bulma-scheme-main);
-  color: var(--bulma-text);
+  min-height: 100svh;
+  padding: clamp(2.25rem, 7vw, 5rem) clamp(1.25rem, 4vw, 3rem);
+  background: var(--link-paper);
+  color: var(--fg);
+  font-family: var(--body);
 }
 
-.link-title {
-  color: var(--bulma-text-strong);
+.link-layout {
+  width: 100%;
+  max-width: 34rem;
 }
 
-.link-home {
-  align-self: flex-start;
-  color: var(--bulma-link-text);
+.link-layout > .column {
+  min-width: 0;
+}
+
+.link-identity h1 {
+  margin: 0;
+  font-size: clamp(1.625rem, 1rem + 3vw, 3.25rem);
+  line-height: 1.1;
+  letter-spacing: -.04em;
+}
+
+.link-name-zh {
+  margin-block: .55rem .85rem;
+  font-size: 1.15rem;
+  color: var(--fg);
+}
+
+.link-role {
+  max-width: 26ch;
+  color: var(--muted);
 }
 
 .link-list {
-  gap: 2rem;
-  margin: 0 auto;
+  gap: .65rem;
 }
 
-.link-link {
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+.button.link-link {
+  display: grid;
+  grid-template-columns: 1.25rem minmax(0, 1fr) auto;
+  align-items: center;
+  justify-content: stretch;
+  gap: .85rem;
+  height: auto;
+  min-height: 3.25rem;
+  padding: .75rem 1rem;
+  text-align: start;
+  white-space: normal;
+}
+
+.button.link-link.is-primary {
+  padding-block: 1rem;
+}
+
+.link-link small {
+  display: block;
+  margin-top: .125rem;
+  font-size: .8rem;
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+
+.link-link:not(.is-primary) > svg {
+  color: var(--accent);
+}
+
+@media (min-width: 1024px) {
+  .link-layout {
+    max-width: 70rem;
+  }
 }

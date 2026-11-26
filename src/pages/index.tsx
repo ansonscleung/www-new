@@ -1,5 +1,6 @@
 import * as React from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import SelectedWorkSection from "../components/selected-work";
 import NowSection from "../components/now";
 import ContactSection from "../components/contact";
 import JourneySection from "../components/journey";
@@ -48,6 +49,7 @@ const IndexPage: React.FC = () => {
       <Header />
       <main>
         <IdentitySection />
+        <SelectedWorkSection />
         <JourneySection />
         <NowSection />
         <ContactSection />

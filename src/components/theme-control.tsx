@@ -40,18 +40,21 @@ const ThemeControl: React.FC = () => {
   };
 
   return (
-    <div className="buttons theme-control" role="group" aria-label="Colour theme">
-      {themePreferences.map((option) => (
-        <button
-          key={option}
-          type="button"
-          className={`button is-small${preference === option ? " is-primary" : ""}`}
-          aria-pressed={preference === option}
-          onClick={() => chooseTheme(option)}
-        >
-          {labels[option]}
-        </button>
-      ))}
+    <div className="is-flex is-align-items-center theme-control" role="group" aria-label="Colour theme">
+      <span className="theme-control__label">Colour theme</span>
+      <div className="buttons has-addons mb-0">
+        {themePreferences.map((option) => (
+          <button
+            key={option}
+            type="button"
+            className={`button is-small${preference === option ? " is-primary" : ""}`}
+            aria-pressed={preference === option}
+            onClick={() => chooseTheme(option)}
+          >
+            {labels[option]}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };

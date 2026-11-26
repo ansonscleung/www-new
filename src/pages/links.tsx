@@ -1,66 +1,67 @@
 import React from "react";
+import { graphql, Link, useStaticQuery } from "gatsby";
+import { faGithub, faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope, faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Seo from "../components/seo";
 import "./styles.scss";
 import "./links.scss";
-import { faXTwitter, faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { graphql, Link, useStaticQuery } from "gatsby";
-import Seo from "../components/seo";
+const email = "anson@ascl.me";
+const profiles = [
+  { name: "LinkedIn", key: "linkedin", icon: faLinkedin },
+  { name: "GitHub", key: "github", icon: faGithub },
+  { name: "X", key: "twitter", icon: faXTwitter },
+];
 
 const LinksPage: React.FC = () => {
-  const data = useStaticQuery(graphql`
+  const { site } = useStaticQuery<{
+    site: { siteMetadata: { links: { iconName: string; link: string }[] } };
+  }>(graphql`
     query {
       site {
         siteMetadata {
           links {
-            website
-            account
-            link
             iconName
+            link
           }
         }
       }
     }
   `);
 
-  const iconMap: Record<string, any> = {
-    twitter: faXTwitter,
-    linkedin: faLinkedin,
-    github: faGithub,
-    envelope: faEnvelope,
-  };
-
-  const socialLinks = data.site.siteMetadata.links
-    .map((item: any) => ({
-      ...item,
-      icon: iconMap[item.iconName],
-    }))
-    .filter((item: any) => Boolean(item.icon));
-
   return (
-    <main className="section is-flex is-flex-direction-column is-align-items-center pt-6 link-section">
-      <Link to="/" className="link-home mb-5">
-        &larr; Back to home
-      </Link>
-      <h1 className="title is-2 has-text-weight-bold mb-5 link-title">
-        My Links
-      </h1>
-      <div className="is-flex is-flex-direction-column is-align-items-center link-list">
-        {socialLinks.map((link: any) => (
-          <a
-            key={link.website}
-            href={link.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="button is-primary is-light is-fullwidth is-medium has-text-weight-semibold link-link"
-          >
-            <span className="icon">
-              <FontAwesomeIcon icon={link.icon} />
-            </span>
-            <span>{link.website}</span>
+    <main className="link-section">
+      <div className="link-layout columns is-desktop is-vcentered is-variable is-6 mx-auto">
+        <header className="column is-7-desktop link-identity">
+          <h1 className="has-text-weight-semibold">Anson S. C. Leung</h1>
+          <p className="link-name-zh has-text-weight-semibold" lang="zh-HK">梁兆俊</p>
+          <p className="link-role">Technical Business Analysis · Product Delivery</p>
+        </header>
+
+        <nav className="column link-list is-flex is-flex-direction-column" aria-label="Portfolio and contact">
+          <Link to="/" className="button is-primary is-fullwidth link-link">
+            <FontAwesomeIcon icon={faGlobe} fixedWidth aria-hidden="true" />
+            <span>View portfolio <small>Work, experience &amp; projects</small></span>
+            <span className="link-arrow" aria-hidden="true">→</span>
+          </Link>
+          <a href={`mailto:${email}`} className="button is-fullwidth link-link">
+            <FontAwesomeIcon icon={faEnvelope} fixedWidth aria-hidden="true" />
+            <span>Email Anson <small>{email}</small></span>
           </a>
-        ))}
+          {profiles.map(({ name, key, icon }) => {
+            const profile = site.siteMetadata.links.find(({ iconName }) => iconName === key);
+            if (!profile) return null;
+
+            return (
+              <a key={key} href={profile.link} className="button is-fullwidth link-link" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={icon} fixedWidth aria-hidden="true" />
+                <span>{name}</span>
+                <span className="link-arrow" aria-hidden="true">↗</span>
+              </a>
+            );
+          })}
+        </nav>
       </div>
     </main>
   );
